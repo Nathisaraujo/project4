@@ -15,6 +15,10 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    class Meta:
+        ordering = ["-created_on", "author"]
+    def __str__(self):
+        return f"{self.title} | sent by {self.author} "
 
 
 class Comment(models.Model):
