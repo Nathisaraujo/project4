@@ -28,6 +28,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['8000-nathisaraujo-project4-lu23mttha50.ws-eu108.gitpod.io',
                  'http://127.0.0.1:8000/',
                  '.herokuapp.com',
+                 'https://sillytalks-d90cef26c5c7.herokuapp.com/'
                  ]
 
 # Application definition
