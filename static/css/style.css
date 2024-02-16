@@ -160,7 +160,21 @@ body {
     color: rgb(222, 146, 168);
 }
 
-.center {
-    text-align: center;
-    align-items: center;
+/* my css */
+
+.each-card {
+    background-color: #434649bb;
+    color:#F9FAFC;
+    padding: 0.5em;
+    margin: 1em;
+    border-radius: 1em;
+    height: 100%;
+}
+
+.cards-margin {
+    margin-bottom: 1em;
+}
+
+.my-main {
+    padding: 5rem;
 }

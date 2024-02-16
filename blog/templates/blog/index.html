@@ -3,12 +3,12 @@
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="row row-cols-1 row-cols-md-3 g-4 bs-border-color-rgb">
+<div class="row row-cols-1 row-cols-md-3 g-4">
     {% for post in post_list %}
-    <div class="col">
-      <div class="card h-100">
+    <div class="col cards cards-margin">
+      <div class="each-card h-100">
         <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
+        <div class="card-body>
             <a href="#" class="post-link">
                 <p class="card-title">{{ post.title }}</p>
             </a>
