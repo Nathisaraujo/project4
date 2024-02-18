@@ -21,10 +21,6 @@ body {
     background-color: #fff;
 }
 
-.dark-bg {
-    background-color: #445261;
-}
-
 .main-bg {
     background-color: #F9FAFC;
 }
@@ -96,11 +92,6 @@ body {
     color: #445261;
 }
 
-.post-link:hover,
-.page-link {
-    color: #E84610;
-}
-
 .post-title {
     margin-top: 10%;
     margin-left: 5%;
@@ -163,9 +154,9 @@ body {
 /* my css */
 
 .each-card {
-    background-color: #f70707bb;
+    background-color: #8a197741;
     color:#F9FAFC;
-    padding: 0.5em;
+    padding: 1.5em;
     margin: 1em;
     border-radius: 1em;
     height: 100%;
@@ -177,4 +168,35 @@ body {
 
 .my-main {
     padding: 5rem;
+}
+
+.card-title {
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.card-info {
+    font-size: 15px;
+    color:#300519;
+    text-align: center;
+}
+
+.excerpt-text {
+    text-align: justify;
+}
+
+/*I modified */
+
+.post-link:hover,
+.page-link {
+    color: #630d5c;
+    margin-top: 2.5rem;
+    border-radius: 20px;
+    background-color:#dba2d8;
+}
+
+
+.dark-bg {
+    background-color: #3d013a;
 }

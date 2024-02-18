@@ -7,17 +7,12 @@
     {% for post in post_list %}
     <div class="col cards cards-margin">
       <div class="each-card h-100">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body>
+        <div class="card-body">
             <a href="#" class="post-link">
                 <p class="card-title">{{ post.title }}</p>
             </a>
-            <hr />
-            <p class="card-text">{{ post.excerpt }}</p>
-            <hr />
-            <p class="card-text">{{ post.author}}</p>
-            <p class="card-text">{{ post.created_on}}</p>
-            <hr />
+            <p class="card-text excerpt-text">{{ post.excerpt }}</p>
+            <p class="card-text card-info">By {{ post.author}} on {{ post.created_on}}</p>
         </div>
       </div>
     </div>
@@ -50,7 +45,7 @@
 {% block nav %}
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Silly Talks</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -68,7 +63,7 @@
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search Silly Talks" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-danger" type="submit">Search</button>
         </form>
       </div>
     </div>
