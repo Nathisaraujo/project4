@@ -9,9 +9,9 @@
       <div class="each-card h-100">
         <div class="card-body">
             <a href="#" class="post-link">
-                <p class="card-title">{{ post.title }}</p>
+                <p class="card-title">{{ post.title }}</p><br>
             </a>
-            <p class="card-text excerpt-text">{{ post.excerpt }}</p>
+            <p class="card-text excerpt-text">{{ post.excerpt }}</p><br>
             <p class="card-text card-info">By {{ post.author}} on {{ post.created_on}}</p>
         </div>
       </div>
@@ -38,8 +38,8 @@
 <!-- index.html nav starts here -->
 {% block nav %}
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Silly Talks</a>
+    <div class="container-fluid ">
+      <a class="navbar-brand nav-title" href="#">Silly<br>Talks</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -68,27 +68,27 @@
 {% block footer %}
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-4 text-center text-white align-self-center">
+    <div class="col-sm-4 text-center align-self-center">
       <p>You can also find us on: <br></p>
       <div>
         <i class="m-1 fa-brands fa-facebook fa-2xl"></i>
-        <i class="m-1 fab fa-twitter fa-2xl"></i>
-        <i class="m-1 fab fa-instagram fa-2xl"></i>
-        <i class="m-1 fab fa-youtube fa-2xl"></i>
+        <i class="m-1 fa-brands fa-x-twitter fa-2xl"></i>
+        <i class="m-1 fa-brands fa-instagram fa-2xl"></i>
+        <i class="m-1 fa-brands fa-youtube fa-2xl"></i>
       </div>
     </div>
     <div class="col-sm-4">
-      <p class="m-2 text-white text-center">Send us your Silly Story</p>
+      <p class="m-2 text-center">Send us your Silly Story</p>
       <form>
-        <div class="form-group text-white">
+        <div class="form-group">
           <label for="formGroupExampleInput">Name</label>
           <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name that will appear on your story">
         </div>
-        <div class="form-group text-white">
+        <div class="form-group">
           <label for="exampleFormControlInput1">Email address</label>
           <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
         </div>
-        <div class="form-group text-white">
+        <div class="form-group">
           <label for="formGroupExampleInput">Title</label>
           <input type="text" class="form-control" id="formGroupExampleInput" placeholder="What is the title of your story?">
         </div>
@@ -96,8 +96,8 @@
     </div>
     <div class="col-sm-4">
       <form>
-      <div class="form-group textarea-margin text-white">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
+      <div class="form-group textarea-margin">
+        <label for="exampleFormControlTextarea1">Your story goes here:</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your silly story here"></textarea>
       </div>
       <button type="submit" class="btn btn-danger">Send</button>
@@ -106,7 +106,7 @@
     </form>
   </div>
   <div class="row col-12">
-    <p class="tiny-text text-white text-center">This website was developed for education purposes only</p>
+    <p class="tiny-text text-center">This website was developed for educational purposes only</p>
   </div>
 </div>
 {% endblock footer%}

@@ -171,13 +171,14 @@ body {
 }
 
 .card-title {
+    font-family: "DM Serif Display", serif;
     font-size: 25px;
     font-weight: bolder;
     text-align: center;
 }
 
 .card-info {
-    font-size: 15px;
+    font-size: 13px;
     color:#300519;
     text-align: center;
 }
@@ -196,6 +197,20 @@ body {
     margin-bottom: 0px;
 }
 
+.nav-title {
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+}
+
+.footer-text {
+    color: #F9FAFC;
+    font-family: "Comfortaa", sans-serif;
+    font-size: 15px;
+}
+
+
 /*I modified */
 
 .post-link:hover,
@@ -204,6 +219,7 @@ body {
     margin-top: 2.5rem;
     border-radius: 20px;
     background-color:#dba2d8;
+    font-family: "Comfortaa", sans-serif;
 }
 
 .dark-bg {
@@ -212,4 +228,12 @@ body {
 
 .btn-danger {
     margin-top: 0.5rem;
+}
+
+.card-text {
+    font-family: "Comfortaa", sans-serif;
+}
+
+.navbar {
+    font-family: "Comfortaa", sans-serif;
 }
