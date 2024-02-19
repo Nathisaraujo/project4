@@ -41,12 +41,10 @@
                 href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {% if request.path == posts_url %}active{% endif %}" aria-current="page"
-                href="{% url 'posts' %}" href="#">Silly Talks</a>
+                <a class="nav-link" href="#">Silly Talks</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {% if request.path == sign_url %}active{% endif %}" aria-current="page"
-                href="{% url 'sign' %}" href="#">Log in/Sign Up</a>
+                <a class="nav-link" href="#">Log in/Sign Up</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
