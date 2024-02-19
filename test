@@ -1,0 +1,29 @@
+<!-- form -->
+
+<div class="col-sm-5">
+                <p class="m-2 text-center">Send us your Silly Story</p>
+                <form>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name that will appear on your story">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput">Title</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="What is the title of your story?">
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-5">
+                <form>
+                <div class="form-group textarea-margin">
+                  <label for="exampleFormControlTextarea1">Your story goes here:</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your silly story here"></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger">Send</button>
+                </div>
+              </div>
+              </form>
