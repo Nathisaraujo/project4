@@ -89,7 +89,7 @@ body {
 
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: #2f2738;
 }
 
 /* .post-title {
@@ -154,7 +154,7 @@ body {
 /* my css */
 
 .each-card {
-    background-color: #8a197741;
+    background-color: #4201376e;
     color:#F9FAFC;
     padding: 1.5em;
     margin: 1em;
@@ -201,7 +201,8 @@ body {
     font-family: "Lobster", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 40px;
+    font-size: 50px;
+    color: #630d5c;
 }
 
 .footer-text {
@@ -236,4 +237,8 @@ body {
 
 .navbar {
     font-family: "Comfortaa", sans-serif;
+}
+
+.navbar-brand {
+    margin: 0px 100px 0px 10px;
 }
