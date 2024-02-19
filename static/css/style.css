@@ -2,58 +2,58 @@ body {
     background-color: #F9FAFC;
 }
 
-.brand {
+/* .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #4A4A4F;
-}
+} */
 
-.red-o {
+/* .red-o {
     color: #E84610;
-}
+} */
 
-.thin {
+/* .thin {
     font-weight: 300;
-}
+} */
 
-.light-bg {
+/* .light-bg {
     background-color: #fff;
-}
+} */
 
 .main-bg {
     background-color: #F9FAFC;
 }
 
-.card {
+/* .card {
     border: none;
     background-color: transparent;
-}
+} */
 
-.image-container {
+/* .image-container {
     position: relative;
-}
+} */
 
-.image-flash {
+/* .image-flash {
     position: absolute;
     bottom: 5%;
     min-width: 30%;
     left: -2px;
     background-color: #188181;
-}
+} */
 
-.scale {
+/* .scale {
     width: 100%;
     height: auto;
-}
+} */
 
-.author {
+/* .author {
     color: white;
     margin: 4px;
     text-transform: uppercase;
-}
+} */
 
-.masthead {
+/* .masthead {
     margin-top: 10px;
     overflow: hidden;
     position: relative;
@@ -85,47 +85,47 @@ body {
     -moz-transform: skew(15deg);
     transform: skew(15deg);
     z-index: 100;
-}
+} */
 
 .post-link {
     text-decoration: none;
     color: #445261;
 }
 
-.post-title {
+/* .post-title {
     margin-top: 10%;
     margin-left: 5%;
-}
+} */
 
-.post-subtitle {
+/* .post-subtitle {
     margin-left: 5%;
     color: lightgray;
-}
+} */
 
-.btn-signup,
+/* .btn-signup,
 .btn-edit {
     background-color: #188181;
     color: #fff;
-}
+} */
 
-.btn-signup:hover,
+/* .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
     color: #23BBBB;
-}
+} */
 
-.link {
+/* .link {
     color: #23BBBB;
     text-decoration: none;
-}
+} */
 
-.link:hover,
+/* .link:hover,
 .link:active {
     color: #445261;
     text-decoration: underline;
-}
+} */
 
-.btn-like {
+/* .btn-like {
     color: #E84610;
     border: none;
     background: transparent;
@@ -134,22 +134,22 @@ body {
 .btn-delete {
     color: #fff;
     background: #E84610;
-}
+} */
 
-.btn-like:hover,
+/* .btn-like:hover,
 .btn-like:active {
     color: #E84610;
     background: transparent;
     border: none;
-}
+} */
 
-.faded {
+/* .faded {
     color: rgb(172, 175, 175);
 }
 
 .approval {
     color: rgb(222, 146, 168);
-}
+} */
 
 /* my css */
 
@@ -186,6 +186,16 @@ body {
     text-align: justify;
 }
 
+.textarea-margin {
+    margin-top: 2.5rem;
+}
+
+.tiny-text {
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
 /*I modified */
 
 .post-link:hover,
@@ -196,7 +206,10 @@ body {
     background-color:#dba2d8;
 }
 
-
 .dark-bg {
     background-color: #3d013a;
+}
+
+.btn-danger {
+    margin-top: 0.5rem;
 }
