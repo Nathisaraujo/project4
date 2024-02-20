@@ -27,3 +27,11 @@
                 </div>
               </div>
               </form>
+
+
+
+imagens
+
+<div class="d-none d-md-block col-md-6 masthead-image">
+  <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+</div>
