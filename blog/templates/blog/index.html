@@ -6,7 +6,7 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for post in post_list %}
     <div class="col cards cards-margin">
-      <div class="each-card h-100">
+      <div class="post-card h-100">
         <div class="card-body">
             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                 <p class="card-title">{{ post.title }}</p><br>

@@ -25,11 +25,6 @@ body {
     background-color: #F9FAFC;
 }
 
-/* .card {
-    border: none;
-    background-color: transparent;
-} */
-
 /* .image-container {
     position: relative;
 } */
@@ -153,7 +148,7 @@ body {
 
 /* my css */
 
-.each-card {
+.post-card {
     background-color: #4201376e;
     color:#F9FAFC;
     padding: 1.5em;
@@ -211,7 +206,19 @@ body {
     font-size: 15px;
 }
 
+.post-content {
+    background-color: #dba2d8;
+}
 
+.btn-centralize {
+    align-self: center;
+}
+
+.btn-sillytalks {
+    background-color: #dba2d8;
+    font-family: "Comfortaa", sans-serif;
+}
+ 
 /*I modified */
 
 .post-link:hover,
@@ -235,6 +242,10 @@ body {
     font-family: "Comfortaa", sans-serif;
 }
 
+.card-body {
+    font-family: "Comfortaa", sans-serif;
+}
+
 .navbar {
     font-family: "Comfortaa", sans-serif;
 }
@@ -244,4 +255,8 @@ body {
     font-size: 50px;
     font-weight: bolder;
     text-align: center;
+}
+
+.card {
+    padding-bottom: 10px;
 }

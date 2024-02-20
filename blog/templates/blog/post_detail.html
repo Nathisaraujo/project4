@@ -12,39 +12,18 @@
                 <p class="card-text"> {{ post.excerpt }}</p>
                 <p class="post-subtitle text-center">{{ post.author }} | {{ post.created_on }}</p> 
             </div>
-            <p>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    See the hole silliness
-                </button>
+            <p class="btn-centralize">
+              <a class="btn btn-sillytalks" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                See the hole silliness here
+              </a>
             </p>
             <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <p> lalala </p>
+                <div class="card card-body post-card">
+                    <p> {{ post.content | safe }} </p>
                 </div>
-              </div>
-
-        </div>
-        
-
-
-
-        <!-- <div id="accordion">
-            <div class="card">
-              <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <p class="card-text">
-                        See the hole silliness
-                    </p>
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    {{ post.content | safe }}
-              </div>
             </div>
-        </div> -->
+            <br>
+        </div>
     </div>
 </div>
 
