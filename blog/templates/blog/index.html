@@ -8,7 +8,7 @@
     <div class="col cards cards-margin">
       <div class="each-card h-100">
         <div class="card-body">
-            <a href="#" class="post-link">
+            <a href="{% url 'post_detail' post.slug %}" class="post-link">
                 <p class="card-title">{{ post.title }}</p><br>
             </a>
             <p class="card-text excerpt-text">{{ post.excerpt }}</p><br>
