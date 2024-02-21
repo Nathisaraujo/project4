@@ -218,7 +218,16 @@ body {
     background-color: #dba2d8;
     font-family: "Comfortaa", sans-serif;
 }
- 
+
+ul {
+    list-style-type: none;
+}
+
+.background {
+    background-color: #630d5c;
+    border-radius: 10px;
+    height: 100%;
+}
 /*I modified */
 
 .post-link:hover,
