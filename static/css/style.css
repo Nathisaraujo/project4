@@ -228,6 +228,37 @@ ul {
     border-radius: 10px;
     height: 100%;
 }
+
+/* footer {
+    position: fixed;
+} */
+
+.welcome-text {
+    font-family: "DM Serif Display", serif;
+    font-size: 70px;
+}
+
+.welcome {
+    font-family: "DM Serif Display", serif;
+    font-size: 150px;
+    padding-top: 50px;
+}
+
+.welcome-explanation {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 25px;
+    margin: 30px;
+}
+
+.container-margin {
+    /* background-color: #cd0cdf4f; */
+    height: 500px;
+    /* background-image: url("/static/images/default.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-image: linear-gradient( rgba(248,249,250), rgba(182, 131, 224, 0.377), rgba(255, 0, 140, 0.336));
+
+}
 /*I modified */
 
 .post-link:hover,
