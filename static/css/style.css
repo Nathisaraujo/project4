@@ -279,11 +279,11 @@ ul {
     border-radius: 20px;
 }
 
-div.judge-card ul li{  
+div.judge-card ul li{
     margin: 3em;
-    text-align: left; 
+    text-align: left;
     font-size: 1.5rem;
-} 
+}
 
 .register-card {
     min-height: 15rem;
@@ -295,12 +295,12 @@ div.judge-card ul li{
     vertical-align: middle;
 }
 
-div.register-card ul li{  
+div.register-card ul li{
     margin: 1em;
     /* text-align: center; */
 }
 
-div.register-card ul {  
+div.register-card ul {
     padding: 10px
 }
 
@@ -356,6 +356,10 @@ div.register-card ul {
     padding-bottom: 10px;
 }
 
+/* se der problema de alinhamento, tira isso */
+.row {
+    justify-content: center;
+}
 
 /* media query */
 
