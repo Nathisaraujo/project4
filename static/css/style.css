@@ -220,6 +220,11 @@ body {
     /* font-family: "Comfortaa", sans-serif; */
 }
 
+.btn-form {
+    background-color: #ffffff;
+    color: #630d5c;
+}
+
 ul {
     list-style-type: none;
 }
@@ -280,7 +285,35 @@ div.judge-card ul li{
     font-size: 1.5rem;
 } 
 
+.register-card {
+    min-height: 15rem;
+    /* background-color: #c27bbcc0; */
+    border: 4px solid #c27bbcc0 ;
+    border-radius: 20px;
+    margin: 3em 10em;
+    padding: 20px;
+    vertical-align: middle;
+}
 
+div.register-card ul li{  
+    margin: 1em;
+    /* text-align: center; */
+}
+
+div.register-card ul {  
+    padding: 10px
+}
+
+.form-card {
+    min-height: 15rem;
+    background-color: #c27bbcc0;
+    /* border: 4px solid #c27bbcc0 ; */
+    border-radius: 20px;
+    margin: 50px 0px;
+    max-width: 40rem;
+    padding: 20px;
+    vertical-align: middle;
+}
 /*I modified */
 
 .post-link:hover,
@@ -323,6 +356,45 @@ div.judge-card ul li{
     padding-bottom: 10px;
 }
 
-/* .row {
-    align-items: center;
-} */
+
+/* media query */
+
+@media only screen and (max-width: 1000px) {
+
+    .register-card {
+        margin: 3.5em 0em;
+    }
+    .form-card {
+        max-width: 30rem;
+    }
+    div.judge-card ul li {
+        margin: 2em;
+        font-size: 1.3rem;
+    }
+}
+@media only screen and (max-width: 768px) {
+
+    .register-card {
+        margin: 0em;
+    }
+    .form-card {
+        max-width: 20rem;
+        margin: 50px 0px 50px 50px;
+    }
+    div.judge-card ul li {
+        font-size: 1rem;
+        margin: 1.5em;
+    }
+    .judge-card {
+        min-height: 0rem;
+    }
+}
+@media only screen and (max-width: 375px) {
+
+    .pd-card {
+        padding: 50px;
+    }
+    .form-card {
+        margin: 30px;
+    }
+}
