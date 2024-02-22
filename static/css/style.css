@@ -1,5 +1,6 @@
 body {
     background-color: #F9FAFC;
+    font-family: "Comfortaa", sans-serif;
 }
 
 /* .brand {
@@ -149,7 +150,7 @@ body {
 /* my css */
 
 .post-card {
-    background-color: #4201376e;
+    background-color: #c27bbcc0;;
     color:#F9FAFC;
     padding: 1.5em;
     margin: 1em;
@@ -202,7 +203,7 @@ body {
 
 .footer-text {
     color: #F9FAFC;
-    font-family: "Comfortaa", sans-serif;
+    /* font-family: "Comfortaa", sans-serif; */
     font-size: 15px;
 }
 
@@ -216,22 +217,18 @@ body {
 
 .btn-sillytalks {
     background-color: #dba2d8;
-    font-family: "Comfortaa", sans-serif;
+    /* font-family: "Comfortaa", sans-serif; */
 }
 
 ul {
     list-style-type: none;
 }
 
-.background {
-    background-color: #630d5c;
-    border-radius: 10px;
-    height: 100%;
+.quotes-card {
+    /* background-color: #c27bbcc0; */
+    border-radius: 20px;
+    border-left: 6px solid #c27bbcc0;
 }
-
-/* footer {
-    position: fixed;
-} */
 
 .welcome-text {
     font-family: "DM Serif Display", serif;
@@ -240,25 +237,50 @@ ul {
 
 .welcome {
     font-family: "DM Serif Display", serif;
-    /* font-size: 10rem; */
     padding-top: 50px;
 }
 
 .welcome-explanation {
-    font-family: "Comfortaa", sans-serif;
+    /* font-family: "Comfortaa", sans-serif; */
     font-size: 1.5rem;
     margin: 30px;
 }
 
-.container-margin {
-    /* background-color: #cd0cdf4f; */
+.first-container {
     min-height: 30rem;
-    /* background-image: url("/static/images/default.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; */
-    background-image: linear-gradient( rgba(248,249,250), rgba(182, 131, 224, 0.377), rgba(255, 0, 140, 0.336));
-
+    background-image: linear-gradient( rgba(248,249,250), rgba(182, 131, 224, 0.377), rgba(255, 0, 140, 0.336), rgb(255, 255, 255));
 }
+
+.scd-container {
+    min-height: 30rem;
+    background-color: rgb(255, 255, 255);
+}
+
+.pd-card {
+    padding: 90px;
+}
+
+.card-font {
+    font-weight: bold;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.judge-card {
+    /* background-color: #c27bbcc0; */
+    margin-top: 3rem;
+    min-height: 30rem;
+    border-left: 6px solid #c27bbcc0;
+    border-radius: 20px;
+}
+
+div.judge-card ul li{  
+    margin: 3em;
+    text-align: left; 
+    font-size: 1.5rem;
+} 
+
+
 /*I modified */
 
 .post-link:hover,
@@ -267,7 +289,7 @@ ul {
     margin-top: 2.5rem;
     border-radius: 20px;
     background-color:#dba2d8;
-    font-family: "Comfortaa", sans-serif;
+    /* font-family: "Comfortaa", sans-serif; */
 }
 
 .dark-bg {
@@ -278,7 +300,7 @@ ul {
     margin-top: 0.5rem;
 }
 
-.card-text {
+/* .card-text {
     font-family: "Comfortaa", sans-serif;
 }
 
@@ -288,7 +310,7 @@ ul {
 
 .navbar {
     font-family: "Comfortaa", sans-serif;
-}
+} */
 
 .post-title {
     font-family: "DM Serif Display", serif;
@@ -300,3 +322,7 @@ ul {
 .card {
     padding-bottom: 10px;
 }
+
+/* .row {
+    align-items: center;
+} */
