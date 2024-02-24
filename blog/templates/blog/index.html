@@ -4,6 +4,10 @@
 
 <!-- index.html content starts here -->
 <main class="flex-shrink-0 main-bg my-main">
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search Silly Talks" aria-label="Search">
+        <button class="btn btn-sillytalks" type="submit">Search</button>
+      </form>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for post in post_list %}
         <div class="col cards cards-margin">
