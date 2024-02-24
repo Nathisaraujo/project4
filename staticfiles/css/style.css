@@ -1,5 +1,6 @@
 body {
     background-color: #F9FAFC;
+    font-family: "Comfortaa", sans-serif;
 }
 
 /* .brand {
@@ -24,11 +25,6 @@ body {
 .main-bg {
     background-color: #F9FAFC;
 }
-
-/* .card {
-    border: none;
-    background-color: transparent;
-} */
 
 /* .image-container {
     position: relative;
@@ -153,8 +149,8 @@ body {
 
 /* my css */
 
-.each-card {
-    background-color: #4201376e;
+.post-card {
+    background-color: #c27bbcc0;;
     color:#F9FAFC;
     padding: 1.5em;
     margin: 1em;
@@ -207,11 +203,117 @@ body {
 
 .footer-text {
     color: #F9FAFC;
-    font-family: "Comfortaa", sans-serif;
+    /* font-family: "Comfortaa", sans-serif; */
     font-size: 15px;
 }
 
+.post-content {
+    background-color: #dba2d8;
+}
 
+.btn-centralize {
+    align-self: center;
+}
+
+.btn-sillytalks {
+    background-color: #dba2d8;
+    /* font-family: "Comfortaa", sans-serif; */
+}
+
+.btn-form {
+    background-color: #ffffff;
+    color: #630d5c;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.quotes-card {
+    /* background-color: #c27bbcc0; */
+    border-radius: 20px;
+    border-left: 6px solid #c27bbcc0;
+}
+
+.welcome-text {
+    font-family: "DM Serif Display", serif;
+    font-size: 5rem;
+}
+
+.welcome {
+    font-family: "DM Serif Display", serif;
+    padding-top: 50px;
+}
+
+.welcome-explanation {
+    /* font-family: "Comfortaa", sans-serif; */
+    font-size: 1.5rem;
+    margin: 30px;
+}
+
+.first-container {
+    min-height: 30rem;
+    background-image: linear-gradient( rgba(248,249,250), rgba(182, 131, 224, 0.377), rgba(255, 0, 140, 0.336), rgb(255, 255, 255));
+}
+
+.scd-container {
+    min-height: 30rem;
+    background-color: rgb(255, 255, 255);
+}
+
+.pd-card {
+    padding: 90px;
+}
+
+.card-font {
+    font-weight: bold;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.judge-card {
+    /* background-color: #c27bbcc0; */
+    margin-top: 3rem;
+    min-height: 30rem;
+    border-left: 6px solid #c27bbcc0;
+    border-radius: 20px;
+}
+
+div.judge-card ul li{
+    margin: 3em;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.register-card {
+    min-height: 15rem;
+    /* background-color: #c27bbcc0; */
+    border: 4px solid #c27bbcc0 ;
+    border-radius: 20px;
+    margin: 3em 10em;
+    padding: 20px;
+    vertical-align: middle;
+}
+
+div.register-card ul li{
+    margin: 1em;
+    /* text-align: center; */
+}
+
+div.register-card ul {
+    padding: 10px
+}
+
+.form-card {
+    min-height: 15rem;
+    background-color: #c27bbcc0;
+    /* border: 4px solid #c27bbcc0 ; */
+    border-radius: 20px;
+    margin: 50px 0px;
+    max-width: 40rem;
+    padding: 20px;
+    vertical-align: middle;
+}
 /*I modified */
 
 .post-link:hover,
@@ -220,7 +322,7 @@ body {
     margin-top: 2.5rem;
     border-radius: 20px;
     background-color:#dba2d8;
-    font-family: "Comfortaa", sans-serif;
+    /* font-family: "Comfortaa", sans-serif; */
 }
 
 .dark-bg {
@@ -231,14 +333,72 @@ body {
     margin-top: 0.5rem;
 }
 
-.card-text {
+/* .card-text {
+    font-family: "Comfortaa", sans-serif;
+}
+
+.card-body {
     font-family: "Comfortaa", sans-serif;
 }
 
 .navbar {
     font-family: "Comfortaa", sans-serif;
+} */
+
+.post-title {
+    font-family: "DM Serif Display", serif;
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
 }
 
-/* .navbar-brand {
-    margin: 0px 100px 0px 10px;
-} */
+.card {
+    padding-bottom: 10px;
+}
+
+/* se der problema de alinhamento, tira isso */
+.row {
+    justify-content: center;
+}
+
+/* media query */
+
+@media only screen and (max-width: 1000px) {
+
+    .register-card {
+        margin: 3.5em 0em;
+    }
+    .form-card {
+        max-width: 30rem;
+    }
+    div.judge-card ul li {
+        margin: 2em;
+        font-size: 1.3rem;
+    }
+}
+@media only screen and (max-width: 768px) {
+
+    .register-card {
+        margin: 0em;
+    }
+    .form-card {
+        max-width: 20rem;
+        margin: 50px 0px 50px 50px;
+    }
+    div.judge-card ul li {
+        font-size: 1rem;
+        margin: 1.5em;
+    }
+    .judge-card {
+        min-height: 0rem;
+    }
+}
+@media only screen and (max-width: 375px) {
+
+    .pd-card {
+        padding: 50px;
+    }
+    .form-card {
+        margin: 30px;
+    }
+}
