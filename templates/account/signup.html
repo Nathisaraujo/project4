@@ -11,11 +11,10 @@
 
   <p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign In</a>.{% endblocktrans %}</p>
 
-  <div class="signup-container">
-    <div class="signup-style">
+  <div class="auth-container">
+    <div class="auth-style">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
-        <!-- {{ form.as_p }} -->
         <div class="p-2">
           <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label><br>
           {{ form.username }}
