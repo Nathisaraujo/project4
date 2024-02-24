@@ -15,7 +15,21 @@
     <div class="signup-style">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        <!-- {{ form.as_p }} -->
+        <div>
+          <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+          {{ form.username }}
+          {% for error in form.username.errors %}
+            <p class="error">{{ error }}</p>
+          {% endfor %}
+        </div>
+        <div>
+          <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+          {{ form.email }}
+          {% for error in form.email.errors %}
+            <p class="error">{{ error }}</p>
+          {% endfor %}
+        </div>
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
