@@ -63,7 +63,8 @@
               <li>To comment</li>
               <li><i class="fa-regular fa-bell fa-2xl"></i></li>
               <li>And to be notified of new stories</li>
-              <button type="submit" class="btn btn-sillytalks">Register</button>
+              <button type="submit" class="btn btn-sillytalks"><a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                href="{% url 'account_signup' %}">Register</a></button>
             </ul>
           </div>
       </div>

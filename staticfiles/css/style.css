@@ -361,6 +361,11 @@ div.register-card ul {
     justify-content: center;
 }
 
+.signup-style {
+    background-color: #dba2d8;
+    border-radius: 20px;
+}
+
 /* media query */
 
 @media only screen and (max-width: 1000px) {
