@@ -319,6 +319,22 @@ div.register-card ul {
     padding: 20px;
     vertical-align: middle;
 }
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+}
+
+.comment-box {
+    border: 2px solid #868486c0 ;
+    border-radius: 20px;
+}
+
+.comment-text {
+    background-color: #dba2d836;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
 /*I modified */
 
 .post-link:hover,
@@ -384,14 +400,6 @@ input {
     border: 2px solid #c27bbcc0
 }
 
-/* .form-control {
-    width:50%
-} */
-
-.search-bar {
-    display: flex;
-    justify-content: center;
-}
 
 /* media query */
 
