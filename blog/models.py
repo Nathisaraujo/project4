@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
@@ -41,5 +42,3 @@ class Comment(models.Model):
         
     def __str__(self):
         return f"{self.body} by {self.author}"
-
-
