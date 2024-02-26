@@ -1,5 +1,7 @@
 from .models import CollaborateRequest
 from django import forms
+from crispy_bootstrap5.bootstrap5 import FloatingField
+
 
 
 class CollaborateForm(forms.ModelForm):
@@ -8,3 +10,4 @@ class CollaborateForm(forms.ModelForm):
     class Meta:
         model = CollaborateRequest
         fields = ('name', 'email', 'title','message')
+        

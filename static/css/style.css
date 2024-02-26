@@ -261,6 +261,11 @@ ul {
     background-color: rgb(255, 255, 255);
 }
 
+.third-container {
+    min-height: 30rem;
+    background-color: rgb(255, 255, 255);
+}
+
 .pd-card {
     padding: 90px;
 }
