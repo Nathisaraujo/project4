@@ -137,7 +137,7 @@
 <script src="{% static 'js/comments.js' %}"></script>
 <script src="{% static 'js/likes.js' %}"></script>
 <script>
-  const postUrl = "{% url 'post_detail' slug=post.slug %}";
+  const postUrl = "{{ post.slug }}";
 </script>
 
 {% endblock %}

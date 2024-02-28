@@ -8,6 +8,7 @@ likeForm.addEventListener("submit", async (e) => {
       method: "POST",
       body: formData,
     });
+    console.log("chegou nessa bosta4")
     if (response.ok) {
       console.log("chegou nessa bosta")
       // Handle success, e.g., update UI or show a message
