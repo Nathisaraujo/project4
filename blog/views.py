@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from .models import Post, Comment, Like
 from .forms import CommentForm
 
@@ -82,4 +82,17 @@ def comment_delete(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 def like_post(request):
-    return redirect("posts:post_detail")
+    if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+        post = get_object_or_404(Post, pk=post_id)
+        # Logic to handle post liking, such as updating the database
+        # For example, you might have a 'liked' field in your Post model
+        # You can toggle the liked status of the post for the current user
+        # For demonstration, let's assume you have a 'liked' field in your Post model
+        if post.liked:
+            post.liked = False
+        else:
+            post.liked = True
+        post.save()
+        return redirect('post_detail', slug=post.slug)
+    # Handle other HTTP methods if necessary

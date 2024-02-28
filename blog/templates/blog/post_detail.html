@@ -30,22 +30,20 @@
     <div class="col-12">
       <strong class="text-secondary">
         <i class="fa-regular fa-comment fa-2xl"></i> {{ comment_count }}
-      </strong>
     </div>
+    <form id="likeForm" action="{% url 'like-post' %}" method='POST'>
+      <input type="hidden" name="post_id" value="{{ obj.id }}">
+      {% if user.is_authenticated %}
+        <button class="btn btn-sillytalks" type="submit"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+      {% endif %}
+      {% csrf_token %}
+    </form>
+    <strong id="likeCount"> {{ likes.count }}</strong> Likes
     <div class="col-12">
       <hr>
     </div>
   </div>
   <!-- Displaying count of Likes -->
-  <!-- <form action="{% url 'like_post' %}" method='POST'>
-    <input type="hidden" name="post_id" value="{{ obj.id }}">
-    {% if user not in obj.liked.all %}
-      <button class="ui button positive" type="submit">Like</button>
-    {% else %}
-    <button class="ui button negative" type="submit">Unlike</button>
-    {% endif %}
-  </form>
-  <strong> {{ obg.liked.all.count }} Likes</strong> -->
   <div class="row">
   <!-- Displaying Comments -->
     <div class="col">
@@ -135,4 +133,8 @@
 
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
+<script src="{% static 'js/likes.js' %}"></script>
+<script>
+  const postUrl = "{% url 'post_detail' slug=post.slug %}";
+</script>
 {% endblock %}
