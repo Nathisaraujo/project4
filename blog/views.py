@@ -86,5 +86,12 @@ def like_post(request):
     if request.method == 'POST':
         post_id = request.POST.get('post_id')
         post = get_object_or_404(Post, pk=post_id)
-        Like.objects.create(user=request.user, post=post)
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+        like, created = Like.objects.get_or_create(user=request.user, post=post)
+        if created:
+            post.like_count += 1
+            post.save()
+        # Update like count
+        return JsonResponse({'like_count': post.like_count})
+    else:
+        return JsonResponse({'error': 'Invalid request method'})

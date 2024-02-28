@@ -32,13 +32,13 @@
         <i class="fa-regular fa-comment fa-2xl"></i> {{ comment_count }}
     </div>
     <form id="likeForm" action="{% url 'like-post' %}" method='POST'>
-      <input type="hidden" name="post_id" value="{{ obj.id }}">
+      <input type="hidden" name="post_id" value="{{ post.id }}">
       {% if user.is_authenticated %}
-        <button class="btn btn-sillytalks" type="submit"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+        <button class="btn btn-sillytalks btn-like" type="submit"><i class="fa-solid fa-thumbs-up"></i> Like</button>
       {% endif %}
       {% csrf_token %}
     </form>
-    <div class="like-counter">
+    <div class="likeCounter" data-post-slug="{{ post.slug }}">
       <span>{{ post.like_count }}</span> Likes
     </div>
     <div class="col-12">
