@@ -16,6 +16,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    liked = models.ManyToManyField(User, default=None, blank=True)
 
 
     class Meta:
@@ -24,6 +25,10 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title} | sent by {self.author} "
+
+    @property
+    def num_likes(self):
+        return self.liked.all().count
 
 
 class Comment(models.Model):
@@ -42,3 +47,17 @@ class Comment(models.Model):
         
     def __str__(self):
         return f"{self.body} by {self.author}"
+
+LIKE_CHOICES = (
+    ('Like', 'Like'),
+    ('Unlike', 'Unlike')
+)
+
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    value = models.CharField(choices=LIKE_CHOICES, default='Like', max_length=10)
+
+    def __str__(self):
+        return str(self.post)
