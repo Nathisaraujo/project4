@@ -17,6 +17,7 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     liked = models.ManyToManyField(User, default=None, blank=True)
+    like_count = models.IntegerField(default=0)
 
 
     class Meta:
@@ -55,3 +56,8 @@ class Like(models.Model):
 
     def __str__(self):
         return str(self.post)
+    
+    def save(self, *args, **kwargs):
+        super(Like, self).save(*args, **kwargs)
+        self.post.like_count = Like.objects.filter(post=self.post).count()
+        self.post.save()
