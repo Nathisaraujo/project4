@@ -1,4 +1,5 @@
 const likeButtons = document.querySelectorAll('.btn-like');
+const postUrl = "{{ post.slug }}";
 
 likeForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -11,13 +12,10 @@ likeForm.addEventListener("submit", async (e) => {
     console.log("chegou nessa bosta4")
     if (response.ok) {
       console.log("chegou nessa bosta")
-      // Handle success, e.g., update UI or show a message
       const responseData = await fetch(postUrl, {
         method: "POST",
         body: formData,
       });
-      // const postSlug = responseData.post_slug;
-      // const postSlug = likeForm.querySelector('[name="post_id"]').value;
       const likeCount = responseData.like_count;
       console.log("chegou nessa bosta2")
       const likeCounter = document.querySelector(`.likeCounter[data-post-slug="${postUrl}"]`);
@@ -28,9 +26,7 @@ likeForm.addEventListener("submit", async (e) => {
       } else {
         console.error('Like counter element not found');
       }
-    
     } else {
-      // Handle error response
       console.error("Failed to like post");
     }
   } catch (error) {

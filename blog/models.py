@@ -29,7 +29,7 @@ class Post(models.Model):
 
     @property
     def num_likes(self):
-        return self.liked.all().count
+        return self.liked.count()
 
 
 class Comment(models.Model):
