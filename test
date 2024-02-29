@@ -57,4 +57,16 @@ like count
       <button class="btn btn-sillytalks" type="submit"><i class="fa-solid fa-thumbs-up"></i> Like</button>
     {% endif %}
     {% csrf_token %}
-  </form
+</form>
+
+
+
+  <form id="likeForm" action="{% url 'like-post' %}" method='POST'>
+    <input type="hidden" name="post_id" value="{{ obj.id }}">
+    {% if user.is_authenticated %}
+      <button class="btn btn-sillytalks" type="submit"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+    {% endif %}
+    {% csrf_token %}
+  </form>
+  <!-- Display the like count -->
+  <strong>{{ post.num_likes }} Likes</strong>

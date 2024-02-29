@@ -1,23 +1,21 @@
 const likeButtons = document.querySelectorAll('.btn-like');
-const postUrl = "{{ post.slug }}";
+const likeForm = document.getElementById("likeForm");
 
 likeForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const formData = new FormData(likeForm);
   try {
-    const response = await fetch(postUrl, {
+    const response = await fetch(likeForm.action, {
       method: "POST",
       body: formData,
     });
     console.log("chegou nessa bosta4")
     if (response.ok) {
       console.log("chegou nessa bosta")
-      const responseData = await fetch(postUrl, {
-        method: "POST",
-        body: formData,
-      });
+      const responseData = await response.json();
       const likeCount = responseData.like_count;
       console.log("chegou nessa bosta2")
+      const postSlug = likeForm.getAttribute('data-post-slug');
       const likeCounter = document.querySelector(`.likeCounter[data-post-slug="${postUrl}"]`);
       console.log("chegou nessa bosta3")
       if (likeCounter) {

@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect
+from django.http import JsonResponse
 from .models import Post, Comment, Like
 from .forms import CommentForm
 
@@ -18,6 +19,11 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
+    
+    like = False
+    if request.user.is_authenticated:
+        if post.liked.filter(id=request.user.id).exists():
+            like = True
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -40,6 +46,7 @@ def post_detail(request, slug):
         "comments": comments,
         "comment_count": comment_count,
         "comment_form": comment_form,
+        "like": like,
         },
     )
 
@@ -82,16 +89,18 @@ def comment_delete(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-def like_post(request):
+def like_post(request, slug):
     if request.method == 'POST':
         post_id = request.POST.get('post_id')
-        post = get_object_or_404(Post, pk=post_id)
-
-        like, created = Like.objects.get_or_create(user=request.user, post=post)
-        if created:
-            post.like_count += 1
-            post.save()
-        # Update like count
-        return JsonResponse({'like_count': post.like_count})
+        post = get_object_or_404(Post, id=post_id)
+        if post.liked.filter(id=request.user.id).exists():
+            post.liked.remove(request.user)
+            like_count = post.liked.count()
+            return JsonResponse({'liked': False, 'like_count': like_count})
+        else:
+            post.liked.add(request.user)
+            like_count = post.liked.count()
+            return JsonResponse({'liked': True, 'like_count': like_count})
     else:
-        return JsonResponse({'error': 'Invalid request method'})
+        # return Httpg hnResponseRedirect(reverse('post_detail', args=[slug]))
+        return JsonResponse({'error': 'Method not allowed'}, status=405)

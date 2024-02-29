@@ -31,11 +31,9 @@
       <strong class="text-secondary">
         <i class="fa-regular fa-comment fa-2xl"></i> {{ comment_count }}
     </div>
-    <form id="likeForm" action="{% url 'like-post' %}" method='POST'>
+    <form id="likeForm" action="{% url 'like-post' post.slug %}" method='POST'>
       <input type="hidden" name="post_id" value="{{ post.id }}">
-      {% if user.is_authenticated %}
-        <button class="btn btn-sillytalks btn-like" type="submit"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-      {% endif %}
+      <button class="btn btn-sillytalks btn-like" type="submit"><i class="fa-solid fa-thumbs-up"></i> Like</button>
       {% csrf_token %}
     </form>
     <div class="likeCounter" data-post-slug="{{ post.slug }}">
@@ -136,8 +134,5 @@
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
 <script src="{% static 'js/likes.js' %}"></script>
-<script>
-  const postUrl = "{{ post.slug }}";
-</script>
 
 {% endblock %}
