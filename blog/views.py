@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from .models import Post, Comment, Like
 from .forms import CommentForm
 from django.db.models import F
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 

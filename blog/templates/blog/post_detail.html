@@ -25,25 +25,26 @@
             <br>
         </div>
     </div>
-    <!-- Displaying count of comments -->
-  <div class="row">
-    <div class="col-12">
-      <strong class="text-secondary">
-        <i class="fa-regular fa-comment fa-2xl"></i> {{ comment_count }}
-    </div>
-    <form id="likeForm" action="{% url 'like-post' post.slug %}" method='POST'>
-      <input type="hidden" name="post_id" value="{{ post.id }}">
-      <button class="btn btn-sillytalks btn-like" type="submit"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-      {% csrf_token %}
-    </form>
-    <div class="likeCounter" data-post-slug="{{ post.slug }}">
-      <span>{{ post.like_count }}</span> Likes
-    </div>
-    <div class="col-12">
-      <hr>
-    </div>
+    <!-- Displaying count of comments and likes -->
+  <div class="d-flex flex-row">
+      <div class="col-1">
+          <i class="fa-regular fa-comment fa-2xl"></i> {{ comment_count }}
+      </div>
+      <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
+        <i class="fa-solid fa-thumbs-up fa-2xl"></i> {{ post.like_count }}
+      </div>
   </div>
-  <!-- Displaying count of Likes -->
+  <hr>
+  <!-- Displaying Like button -->
+  <form id="likeForm" action="{% url 'like-post' post.slug %}" method='POST'>
+    {% if user.is_authenticated %}
+    <input type="hidden" name="post_id" value="{{ post.id }}">
+    <button class="btn btn-sillytalks btn-like" type="submit"></i> Like this silliness!</button>
+    {% else %}
+      <p>Log in to like the silliness</p>
+    {% csrf_token %}
+    {% endif %}
+  </form>
   <div class="row">
   <!-- Displaying Comments -->
     <div class="col">

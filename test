@@ -70,3 +70,28 @@ like count
   </form>
   <!-- Display the like count -->
   <strong>{{ post.num_likes }} Likes</strong>
+
+
+
+
+<!-- like thing correct -->
+<form id="likeForm" action="{% url 'like-post' %}" method='POST'>
+  <input type="hidden" name="post_id" value="{{ post.id }}">
+  {% if user.is_authenticated %}
+    <button class="btn btn-sillytalks btn-like" type="submit"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+  {% endif %}
+  {% csrf_token %}
+</form>
+<div class="likeCounter" data-post-slug="{{ post.slug }}">
+  <span>{{ post.like_count }}</span> Likes
+</div>
+
+
+<!-- like thing new problem -->
+<form id="likeForm" action="{% url 'like-post' post.slug %}" method='POST'>
+      {% csrf_token %}
+      <button class="btn btn-sillytalks btn-like" type="submit"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+    </form>
+    <div class="likeCounter" data-post-slug="{{ post.slug }}">
+      <span>{{ post.like_count }}</span> Likes
+    </div>
