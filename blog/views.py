@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from .models import Post, Comment, Like
 from .forms import CommentForm
+from django.db.models import F
 
 # Create your views here.
 
@@ -24,6 +25,8 @@ def post_detail(request, slug):
     if request.user.is_authenticated:
         if post.liked.filter(id=request.user.id).exists():
             like = True
+
+    like_count = post.like_count
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -47,6 +50,7 @@ def post_detail(request, slug):
         "comment_count": comment_count,
         "comment_form": comment_form,
         "like": like,
+        "like_count": like_count,
         },
     )
 
@@ -95,11 +99,16 @@ def like_post(request, slug):
         post = get_object_or_404(Post, id=post_id)
         if post.liked.filter(id=request.user.id).exists():
             post.liked.remove(request.user)
-            like_count = post.liked.count()
+            if post.like_count > 0: 
+                post.like_count -= 1
+            post.save()
+            like_count = post.like_count 
             return JsonResponse({'liked': False, 'like_count': like_count})
         else:
             post.liked.add(request.user)
-            like_count = post.liked.count()
+            post.like_count += 1
+            post.save()
+            like_count = post.like_count
             return JsonResponse({'liked': True, 'like_count': like_count})
     else:
         # return Httpg hnResponseRedirect(reverse('post_detail', args=[slug]))
