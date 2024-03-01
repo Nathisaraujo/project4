@@ -38,12 +38,8 @@
   <!-- Displaying Like button -->
   <form id="likeForm" action="{% url 'like-post' post.slug %}" method='POST'>
     {% if user.is_authenticated %}
-      {% if like %}
-        <p>You already liked this post</p>
-      {% else %}
-        <input type="hidden" name="post_id" value="{{ post.id }}">
-        <button class="btn btn-sillytalks btn-like" type="submit"></i> Like this silliness!</button>
-      {% endif %}
+    <input type="hidden" name="post_id" value="{{ post.id }}">
+    <button class="btn btn-sillytalks btn-like" type="submit"></i> Like this silliness!</button>
     {% else %}
       <p>Log in to like the silliness</p>
     {% csrf_token %}
@@ -55,36 +51,42 @@
       <div class="col-md-12 card mb-4  mt-3 ">
         <h3 class="p-3">Comments:</h3>
         <div>
-          {% for comment in comments %}
-          <div class="p-2 comments card-body
-            {% if not comment.approved and comment.author == user %}
-            faded{% elif not comment.approved %} d-none{% endif %}">
-            <div class="comment-text p-3">
-              <p class="font-weight-bold">
-                {{ comment.author }} <br>
-                <span class="font-weight-normal">
-                  {{ comment.created_on }}
-                </span> wrote:
-              </p>
-              <div id="comment{{ comment.id }}">
-                {{ comment.body | linebreaks }}
+          {% if comments %}
+            {% for comment in comments %}
+            <div class="p-2 comments card-body
+              {% if not comment.approved and comment.author == user %}
+              faded{% elif not comment.approved %} d-none{% endif %}">
+              <div class="comment-text p-3">
+                <p class="font-weight-bold">
+                  {{ comment.author }} <br>
+                  <span class="font-weight-normal">
+                    {{ comment.created_on }}
+                  </span> wrote:
+                </p>
+                <div id="comment{{ comment.id }}">
+                  {{ comment.body | linebreaks }}
+                </div>
               </div>
-            </div>
-            {% if not comment.approved and comment.author == user %}
-            <div class="comment-box p-3">
-              <p class="approval">
-                Awaiting approval from the Silliness King
-              </p>
+              {% if not comment.approved and comment.author == user %}
+              <div class="comment-box p-3">
+                <p class="approval">
+                  Awaiting approval
+                </p>
+                {% endif %}
+                {% if user.is_authenticated and comment.author == user %}
+                <button class="btn btn-sillytalks btn-delete" comment_id="{{ comment.id }}">Delete</button>
+                <button class="btn btn-sillytalks btn-edit" comment_id="{{ comment.id }}">Edit</button>
+              </div>
+              <hr>
               {% endif %}
-              {% if user.is_authenticated and comment.author == user %}
-              <button class="btn btn-sillytalks btn-delete" comment_id="{{ comment.id }}">Delete</button>
-              <button class="btn btn-sillytalks btn-edit" comment_id="{{ comment.id }}">Edit</button>
             </div>
-            <hr>
-            {% endif %}
-          </div>
-          <!-- Our for loop ends here -->
-          {% endfor %}
+            <!-- Our for loop ends here -->
+            {% endfor %}
+          {% else %}
+            <div class="card-body">
+              <p>No comments yet</p>
+            </div>
+          {% endif %}
         </div>
       </div>
       <!-- Creating New Comments -->
