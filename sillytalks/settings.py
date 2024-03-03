@@ -58,8 +58,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    # 'allauth.socialaccount.providers.facebook',
-    # 'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.discord',
     'crispy_forms',
     'crispy_bootstrap5',
     'django_summernote',
@@ -109,6 +108,12 @@ TEMPLATES = [
 # 120218275367-pjcochafo8pp1hrmrh222vvbh2mrdchv.apps.googleusercontent.com
 # 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
 
+
+# discord
+# 1213900011071348776
+# BOsi7Re78oyBv1x1INTgSsiBVgmraL0h
+
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -119,7 +124,13 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
         },
         'OAUTH_PKCE_ENABLED': True,
-    }
+    },
+    'discord': {
+        'SCOPE': ['identify', 'email'],
+        'AUTH_PARAMS': {
+            'prompt': 'consent',
+        }
+    },
 }
 
 WSGI_APPLICATION = 'sillytalks.wsgi.application'
