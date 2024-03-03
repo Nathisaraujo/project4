@@ -1,6 +1,7 @@
 from . import views
-from django.urls import path
+from django.urls import path, include
 from .views import like_post
+from django.contrib import admin
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='sillytalks'),
@@ -10,4 +11,5 @@ urlpatterns = [
     path('<slug:slug>/delete_comment/<int:comment_id>',
          views.comment_delete, name='comment_delete'),
     path('<slug:slug>/like/', views.like_post, name='like-post'),
+    path('accounts/', include('allauth.urls')),
 ]

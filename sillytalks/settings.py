@@ -34,9 +34,16 @@ DEBUG = True
 ALLOWED_HOSTS = ['8000-nathisaraujo-project4-lu23mttha50.ws-eu108.gitpod.io',
                  'http://127.0.0.1:8000/',
                  '.herokuapp.com',
-                 'https://sillytalks-d90cef26c5c7.herokuapp.com/'
+                 'https://sillytalks-d90cef26c5c7.herokuapp.com/',
+                 'localhost'
                  ]
 
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    # 'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -50,6 +57,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.github',
     'crispy_forms',
     'crispy_bootstrap5',
     'django_summernote',
@@ -89,10 +99,30 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
+
+# google
+# 120218275367-pjcochafo8pp1hrmrh222vvbh2mrdchv.apps.googleusercontent.com
+# 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
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+        # 'OAUTH_CLIENT_ID': '120218275367-pjcochafo8pp1hrmrh222vvbh2mrdchv.apps.googleusercontent.com',
+        # 'OAUTH_CLIENT_SECRET': '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',
+    }
+}
 
 WSGI_APPLICATION = 'sillytalks.wsgi.application'
 

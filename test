@@ -95,3 +95,17 @@ like count
     <div class="likeCounter" data-post-slug="{{ post.slug }}">
       <span>{{ post.like_count }}</span> Likes
     </div>
+
+
+<!-- like button parou de funcionar -->
+    {% if user.is_authenticated %}
+    {% if like %}
+      <p>You already liked this post</p>
+    {% else %}
+      <input type="hidden" name="post_id" value="{{ post.id }}">
+      <button class="btn btn-sillytalks btn-like" type="submit"></i> Like this silliness!</button>
+    {% endif %}
+  {% else %}
+    <p>Log in to like the silliness</p>
+  {% csrf_token %}
+  {% endif %}
