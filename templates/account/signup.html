@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+{% load socialaccount %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock head_title %}
 
@@ -10,6 +11,7 @@
   <h1>{% trans "Sign Up" %}</h1>
 
   <p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign In</a>.{% endblocktrans %}</p>
+  <a href="{% provider_login_url 'google' %}">Or sign Up with Google</a>
 
   <div class="auth-container">
     <div class="auth-style">

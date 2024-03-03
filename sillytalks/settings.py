@@ -32,10 +32,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-nathisaraujo-project4-lu23mttha50.ws-eu108.gitpod.io',
-                 'http://127.0.0.1:8000/',
+                 '127.0.0.1:8000/',
                  '.herokuapp.com',
-                 'https://sillytalks-d90cef26c5c7.herokuapp.com/',
-                 'localhost'
+                 'sillytalks-d90cef26c5c7.herokuapp.com/',
+                 'localhost',
                  ]
 
 SITE_ID = 1
@@ -119,8 +119,6 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
         },
         'OAUTH_PKCE_ENABLED': True,
-        # 'OAUTH_CLIENT_ID': '120218275367-pjcochafo8pp1hrmrh222vvbh2mrdchv.apps.googleusercontent.com',
-        # 'OAUTH_CLIENT_SECRET': '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',
     }
 }
 
