@@ -50,14 +50,14 @@ class Comment(models.Model):
         return f"{self.body} by {self.author}"
 
 
-class Like(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+# class Like(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return str(self.post)
+#     def __str__(self):
+#         return str(self.post)
     
-    def save(self, *args, **kwargs):
-        super(Like, self).save(*args, **kwargs)
-        self.post.like_count = Like.objects.filter(post=self.post).count()
-        self.post.save()
+#     def save(self, *args, **kwargs):
+#         super(Like, self).save(*args, **kwargs)
+#         self.post.like_count = Like.objects.filter(post=self.post).count()
+#         self.post.save()

@@ -109,3 +109,18 @@ like count
     <p>Log in to like the silliness</p>
   {% csrf_token %}
   {% endif %}
+
+
+
+
+
+  <!-- Displaying Like button -->
+  <!-- <form id="likeForm" action="{% url 'like-post' post.slug %}" method='POST'>
+    {% if user.is_authenticated %}
+    <input type="hidden" name="post_id" value="{{ post.id }}">
+    <button class="btn btn-sillytalks btn-like" type="submit"></i> Like this silliness!</button>
+    {% else %}
+      <p>Log in to like the silliness</p>
+    {% csrf_token %}
+    {% endif %}
+  </form> -->

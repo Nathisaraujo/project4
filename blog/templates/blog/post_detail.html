@@ -30,21 +30,29 @@
       <div class="col-1">
           <i class="fa-regular fa-comment fa-2xl"></i> {{ comment_count }}
       </div>
-      <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
+      <!-- <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
         <i class="fa-solid fa-thumbs-up fa-2xl"></i> {{ post.like_count }}
-      </div>
+      </div> -->
   </div>
   <hr>
   <!-- Displaying Like button -->
-  <form id="likeForm" action="{% url 'like-post' post.slug %}" method='POST'>
-    {% if user.is_authenticated %}
-    <input type="hidden" name="post_id" value="{{ post.id }}">
-    <button class="btn btn-sillytalks btn-like" type="submit"></i> Like this silliness!</button>
-    {% else %}
-      <p>Log in to like the silliness</p>
+  {% if user.is_authenticated %}
+  <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
     {% csrf_token %}
+    {% if liked %}
+    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-liked"><i
+      class="fas fa-solid fa-thumbs-up"></i><span class="sr-only">You have liked the
+      Post!</span></button>
+    {% else %}
+    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+      class="far fa-light fa-thumbs-up"></i><span class="sr-only">Click here to Like
+      the post</span></button>
     {% endif %}
   </form>
+  {% endif %}
+  <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
+        <i class="fa-solid fa-thumbs-up fa-2xl"></i> {{ post.like_count }}
+  </div>
   <div class="row">
   <!-- Displaying Comments -->
     <div class="col">
@@ -140,6 +148,6 @@
 
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
-<script src="{% static 'js/likes.js' %}"></script>
+<!-- <script src="{% static 'js/likes.js' %}"></script> -->
 
 {% endblock %}

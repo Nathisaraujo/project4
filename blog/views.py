@@ -3,7 +3,8 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
-from .models import Post, Comment, Like
+from .models import Post, Comment
+# , Like
 from .forms import CommentForm
 from django.db.models import F
 # from django.contrib.auth.decorators import login_required
@@ -21,13 +22,18 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
-    
-    like = False
-    if request.user.is_authenticated:
-        if post.liked.filter(id=request.user.id).exists():
-            like = True
-
     like_count = post.like_count
+    
+    # like = False
+    # if request.user.is_authenticated:
+    #     if post.liked.filter(id=request.user.id).exists():
+    #         like = True
+
+    liked = False
+    if post.liked.filter(id=request.user.id).exists():
+        liked = True
+
+    
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -50,7 +56,7 @@ def post_detail(request, slug):
         "comments": comments,
         "comment_count": comment_count,
         "comment_form": comment_form,
-        "like": like,
+        "liked": liked,
         "like_count": like_count,
         },
     )
@@ -94,23 +100,47 @@ def comment_delete(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-def like_post(request, slug):
-    if request.method == 'POST':
-        post_id = request.POST.get('post_id')
-        post = get_object_or_404(Post, id=post_id)
-        if post.liked.filter(id=request.user.id).exists():
-            post.liked.remove(request.user)
+# def like_post(request, slug):
+#     if request.method == 'POST':
+#         post_id = request.POST.get('post_id')
+#         post = get_object_or_404(Post, id=post_id)
+#         if post.liked.filter(id=request.user.id).exists():
+#             post.liked.remove(request.user)
+#             if post.like_count > 0: 
+#                 post.like_count -= 1
+#             post.save()
+#             like_count = post.like_count 
+#             return JsonResponse({'liked': False, 'like_count': like_count})
+#         else:
+#             post.liked.add(request.user)
+#             post.like_count += 1
+#             post.save()
+#             like_count = post.like_count
+#             return JsonResponse({'liked': True, 'like_count': like_count})
+#     else:
+#         # return Httpg hnResponseRedirect(reverse('post_detail', args=[slug]))
+#         return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+
+class PostLike(generic.RedirectView):
+    """
+    The PostLike view allows the user to view the post itself
+    """
+    permanent = False
+    query_string = True
+
+    # Allows the user to like and unlike
+    def get_redirect_url(self, *args, **kwargs):
+        post = get_object_or_404(Post, slug=kwargs['slug'])
+        if post.liked.filter(id=self.request.user.id).exists():
+            post.liked.remove(self.request.user)
             if post.like_count > 0: 
                 post.like_count -= 1
-            post.save()
-            like_count = post.like_count 
-            return JsonResponse({'liked': False, 'like_count': like_count})
+                post.save()
+            like_count = post.like_count
         else:
-            post.liked.add(request.user)
+            post.liked.add(self.request.user)
             post.like_count += 1
             post.save()
             like_count = post.like_count
-            return JsonResponse({'liked': True, 'like_count': like_count})
-    else:
-        # return Httpg hnResponseRedirect(reverse('post_detail', args=[slug]))
-        return JsonResponse({'error': 'Method not allowed'}, status=405)
+        return reverse('post_detail', kwargs={'slug': post.slug})
