@@ -12,5 +12,6 @@ urlpatterns = [
          views.comment_delete, name='comment_delete'),
 #     path('like/<slug:slug>', views.like_post, name='like-post'),
      path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
+     path('silly/<slug:slug>', views.PostSilly.as_view(), name='post_silly'),
     path('accounts/', include('allauth.urls')),
 ]

@@ -18,6 +18,8 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     liked = models.ManyToManyField(User, default=None, related_name='liked_posts', blank=True)
     like_count = models.PositiveIntegerField(default=0)
+    sillied = models.ManyToManyField(User, default=None, related_name='silly_posts', blank=True)
+    silly_count = models.PositiveIntegerField(default=0)
 
 
     class Meta:
@@ -30,6 +32,8 @@ class Post(models.Model):
     @property
     def num_likes(self):
         return self.liked.count()
+    def num_silly(self):
+        return self.sillied.count()
 
 
 class Comment(models.Model):

@@ -23,6 +23,7 @@ def post_detail(request, slug):
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
     like_count = post.like_count
+    silly_count = post.like_count
     
     # like = False
     # if request.user.is_authenticated:
@@ -33,6 +34,9 @@ def post_detail(request, slug):
     if post.liked.filter(id=request.user.id).exists():
         liked = True
 
+    sillied = False
+    if post.sillied.filter(id=request.user.id).exists():
+        sillied = True
     
 
     if request.method == "POST":
@@ -58,6 +62,8 @@ def post_detail(request, slug):
         "comment_form": comment_form,
         "liked": liked,
         "like_count": like_count,
+        "sillied": sillied,
+        "silly_count": silly_count,
         },
     )
 
@@ -143,4 +149,27 @@ class PostLike(generic.RedirectView):
             post.like_count += 1
             post.save()
             like_count = post.like_count
+        return reverse('post_detail', kwargs={'slug': post.slug})
+
+class PostSilly(generic.RedirectView):
+    """
+    The PostLike view allows the user to view the post itself
+    """
+    permanent = False
+    query_string = True
+
+    # Allows the user to like and unlike
+    def get_redirect_url(self, *args, **kwargs):
+        post = get_object_or_404(Post, slug=kwargs['slug'])
+        if post.sillied.filter(id=self.request.user.id).exists():
+            post.sillied.remove(self.request.user)
+            if post.silly_count > 0: 
+                post.silly_count -= 1
+                post.save()
+            silly_count = post.silly_count
+        else:
+            post.sillied.add(self.request.user)
+            post.silly_count += 1
+            post.save()
+            silly_count = post.silly_count
         return reverse('post_detail', kwargs={'slug': post.slug})

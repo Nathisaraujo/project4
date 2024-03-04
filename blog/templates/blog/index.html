@@ -22,11 +22,11 @@
                 <p class="card-text excerpt-text">{{ post.excerpt }}</p><br>
                 <p class="card-text card-info">By {{ post.author}} on {{ post.created_on}}</p>
             </div>
-            <div class="p-2 text-center">
+            <!-- <div class="p-2 text-center">
                 <p>How much silliness you will find:</p>
                 <i class="fa-regular fa-comment fa-2xl"></i> {{ comment_count }}
                 <i class="fa-solid fa-thumbs-up fa-2xl"></i> {{ post.like_count }}
-            </div>
+            </div> -->
         </div>
         </div>
         {% if forloop.counter|divisibleby:3 %}
