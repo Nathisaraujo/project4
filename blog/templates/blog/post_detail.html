@@ -37,43 +37,23 @@
   <hr>
   <!-- Displaying Like button -->
   {% if user.is_authenticated %}
-  <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+  <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
     {% csrf_token %}
-    {% if liked %}
-    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-liked"><i
-      class="fas fa-solid fa-thumbs-up"></i><span class="sr-only">You have liked the
-      Post!</span></button>
-    {% else %}
-    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-      class="far fa-light fa-thumbs-up"></i><span class="sr-only">Click here to Like
-      the post</span></button>
-    {% endif %}
+    <input type="hidden" name="vote_preference" value="like">
+    <button type="submit" class="btn-like"><i class="far fa-light fa-thumbs-up"></i><span class="sr-only">Click here to Like the post</span></button>
   </form>
-  {% endif %}
+  
+  <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="vote_preference" value="silly">
+    <button type="submit" class="btn-silly"><i class="far fa-light fa-thumbs-down"></i><span class="sr-only">Click here to vote Silly</span></button>
+  </form>
+  
   <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
     <i class="fa-solid fa-thumbs-up fa-2xl"></i> {{ post.like_count }}
-  </div>
-
-  <!-- displaying dilly button -->
-
-  {% if user.is_authenticated %}
-  <form class="d-inline" action="{% url 'post_silly' post.slug %}" method="POST">
-    {% csrf_token %}
-    {% if liked %}
-    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-liked"><i
-      class="fas fa-solid fa-thumbs-down"></i><span class="sr-only">You have liked the
-      Post!</span></button>
-    {% else %}
-    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-      class="far fa-light fa-thumbs-down"></i><span class="sr-only">Click here to Like
-      the post</span></button>
-    {% endif %}
-  </form>
-  {% endif %}
-  <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
     <i class="fa-solid fa-thumbs-down fa-2xl"></i> {{ post.silly_count }}
   </div>
-
+  {% endif %}
 
   <div class="row">
   <!-- Displaying Comments -->
