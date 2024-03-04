@@ -20,6 +20,8 @@ class Post(models.Model):
     like_count = models.PositiveIntegerField(default=0)
     sillied = models.ManyToManyField(User, default=None, related_name='silly_posts', blank=True)
     silly_count = models.PositiveIntegerField(default=0)
+    more = models.ManyToManyField(User, related_name='more_info')
+    more_count = models.PositiveIntegerField(default=0)
 
 
     class Meta:
@@ -33,6 +35,8 @@ class Post(models.Model):
     def num_likes(self):
         return self.liked.count()
     def num_silly(self):
+        return self.sillied.count()
+    def num_more(self):
         return self.sillied.count()
 
 

@@ -48,10 +48,17 @@
     <input type="hidden" name="vote_preference" value="silly">
     <button type="submit" class="btn-silly"><i class="far fa-light fa-thumbs-down"></i><span class="sr-only">Click here to vote Silly</span></button>
   </form>
+
+  <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="vote_preference" value="moreinfo">
+    <button type="submit" class="btn-more"><i class="far fa-heart"></i><span class="sr-only">Click here to Love the post</span></button>
+  </form>
   
   <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
     <i class="fa-solid fa-thumbs-up fa-2xl"></i> {{ post.like_count }}
     <i class="fa-solid fa-thumbs-down fa-2xl"></i> {{ post.silly_count }}
+    <i class="fa-solid fa-heart fa-2xl"></i> {{ post.more_count }}
   </div>
   {% endif %}
 

@@ -106,115 +106,6 @@ def comment_delete(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-# def like_post(request, slug):
-#     if request.method == 'POST':
-#         post_id = request.POST.get('post_id')
-#         post = get_object_or_404(Post, id=post_id)
-#         if post.liked.filter(id=request.user.id).exists():
-#             post.liked.remove(request.user)
-#             if post.like_count > 0: 
-#                 post.like_count -= 1
-#             post.save()
-#             like_count = post.like_count 
-#             return JsonResponse({'liked': False, 'like_count': like_count})
-#         else:
-#             post.liked.add(request.user)
-#             post.like_count += 1
-#             post.save()
-#             like_count = post.like_count
-#             return JsonResponse({'liked': True, 'like_count': like_count})
-#     else:
-#         # return Httpg hnResponseRedirect(reverse('post_detail', args=[slug]))
-#         return JsonResponse({'error': 'Method not allowed'}, status=405)
-
-
-# class PostLike(generic.RedirectView):
-#     """
-#     The PostLike view allows the user to view the post itself
-#     """
-#     permanent = False
-#     query_string = True
-
-#     # Allows the user to like and unlike
-#     def get_redirect_url(self, *args, **kwargs):
-#         post = get_object_or_404(Post, slug=kwargs['slug'])        
-#         if post.liked.filter(id=self.request.user.id).exists():
-#             post.liked.remove(self.request.user)
-#             if post.like_count > 0: 
-#                 post.like_count -= 1
-#                 post.save()
-#             like_count = post.like_count
-#         else:
-#             post.liked.add(self.request.user)
-#             post.like_count += 1
-#             post.save()
-#             like_count = post.like_count
-#         return reverse('post_detail', kwargs={'slug': post.slug})
-
-# class PostSilly(generic.RedirectView):
-#     """
-#     The PostLike view allows the user to view the post itself
-#     """
-#     permanent = False
-#     query_string = True
-
-#     # Allows the user to like and unlike
-#     def get_redirect_url(self, *args, **kwargs):
-#         post = get_object_or_404(Post, slug=kwargs['slug'])
-#         if post.sillied.filter(id=self.request.user.id).exists():
-#             post.sillied.remove(self.request.user)
-#             if post.silly_count > 0: 
-#                 post.silly_count -= 1
-#                 post.save()
-#             silly_count = post.silly_count
-#         else:
-#             post.sillied.add(self.request.user)
-#             post.silly_count += 1
-#             post.save()
-#             silly_count = post.silly_count
-#         return reverse('post_detail', kwargs={'slug': post.slug})
-
-# class post_vote(generic.RedirectView):
-#     """
-#     The PostLike view allows the user to view the post itself
-#     """
-#     permanent = False
-#     query_string = True
-
-#     # Allows the user to like and unlike
-#     def get_redirect_url(self, *args, **kwargs):
-#         post = get_object_or_404(Post, slug=kwargs['slug'])
-
-#         def post_vote(request, slug):
-#             if request.method == 'POST':
-#                 vote_preference = request.POST.get('vote_preference')
-#                 if vote_preference == 'like':  
-#                     if post.liked.filter(id=self.request.user.id).exists():
-#                         post.liked.remove(self.request.user)
-#                         if post.like_count > 0: 
-#                             post.like_count -= 1
-#                             post.save()
-#                         like_count = post.like_count
-#                     else:
-#                         post.liked.add(self.request.user)
-#                         post.like_count += 1
-#                         post.save()
-#                         like_count = post.like_count
-            
-#                 elif vote_preference == 'silly':
-#                     if post.sillied.filter(id=self.request.user.id).exists():
-#                         post.sillied.remove(self.request.user)
-#                         if post.silly_count > 0: 
-#                             post.silly_count -= 1
-#                             post.save()
-#                         silly_count = post.silly_count
-#                     else:
-#                         post.sillied.add(self.request.user)
-#                         post.silly_count += 1
-#                         post.save()
-#                         silly_count = post.silly_count
-#             return reverse('post_detail', kwargs={'slug': post.slug})
-
 class PostVote(generic.RedirectView):
     """
     The PostVote view handles voting on posts.
@@ -234,6 +125,9 @@ class PostVote(generic.RedirectView):
                 if post.sillied.filter(id=request.user.id).exists():
                     post.sillied.remove(request.user)
                     post.silly_count -= 1
+                if post.more.filter(id=request.user.id).exists():
+                    post.more.remove(request.user)
+                    post.more_count -= 1
         elif vote_preference == 'silly':
             if post.sillied.filter(id=request.user.id).exists():
                 post.sillied.remove(request.user)
@@ -244,6 +138,22 @@ class PostVote(generic.RedirectView):
                 if post.liked.filter(id=request.user.id).exists():
                     post.liked.remove(request.user)
                     post.like_count -= 1
+                if post.more.filter(id=request.user.id).exists():
+                    post.more.remove(request.user)
+                    post.more_count -= 1
+        elif vote_preference == 'moreinfo':
+            if post.more.filter(id=request.user.id).exists():
+                post.more.remove(request.user)
+                post.more_count -= 1
+            else:
+                post.more.add(request.user)
+                post.more_count += 1
+                if post.liked.filter(id=request.user.id).exists():
+                    post.liked.remove(request.user)
+                    post.like_count -= 1
+                if post.sillied.filter(id=request.user.id).exists():
+                    post.sillied.remove(request.user)
+                    post.silly_count -= 1
 
         post.save()
         return redirect('post_detail', slug=post.slug)
