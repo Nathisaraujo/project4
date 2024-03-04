@@ -154,6 +154,5 @@ class PostVote(generic.RedirectView):
                 if post.sillied.filter(id=request.user.id).exists():
                     post.sillied.remove(request.user)
                     post.silly_count -= 1
-
         post.save()
         return redirect('post_detail', slug=post.slug)

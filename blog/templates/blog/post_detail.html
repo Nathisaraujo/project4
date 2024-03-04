@@ -30,9 +30,11 @@
       <div class="col-1">
           <i class="fa-regular fa-comment fa-2xl"></i> {{ comment_count }}
       </div>
-      <!-- <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
+      <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
         <i class="fa-solid fa-thumbs-up fa-2xl"></i> {{ post.like_count }}
-      </div> -->
+        <i class="fa-solid fa-thumbs-down fa-2xl"></i> {{ post.silly_count }}
+        <i class="fa-solid fa-heart fa-2xl"></i> {{ post.more_count }}
+      </div>
   </div>
   <hr>
   <!-- Displaying Like button -->
@@ -54,12 +56,8 @@
     <input type="hidden" name="vote_preference" value="moreinfo">
     <button type="submit" class="btn-more"><i class="far fa-heart"></i><span class="sr-only">Click here to Love the post</span></button>
   </form>
-  
-  <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
-    <i class="fa-solid fa-thumbs-up fa-2xl"></i> {{ post.like_count }}
-    <i class="fa-solid fa-thumbs-down fa-2xl"></i> {{ post.silly_count }}
-    <i class="fa-solid fa-heart fa-2xl"></i> {{ post.more_count }}
-  </div>
+  {% else %}
+    <p>Log in to vote</p>
   {% endif %}
 
   <div class="row">

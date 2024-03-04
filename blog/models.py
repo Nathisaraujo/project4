@@ -69,3 +69,9 @@ class Comment(models.Model):
 #         super(Like, self).save(*args, **kwargs)
 #         self.post.like_count = Like.objects.filter(post=self.post).count()
 #         self.post.save()
+
+
+# class UserVote(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+#     vote_preference = models.CharField(max_length=10)  # like, silly, moreinfo
