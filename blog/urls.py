@@ -16,5 +16,4 @@ urlpatterns = [
 #     path('silly/<slug:slug>', views.PostSilly.as_view(), name='post_silly'),
      path('vote/<slug:slug>', PostVote.as_view(), name='post_vote'),
     path('accounts/', include('allauth.urls')),
-    path('profile/', profile, name='users-profile'),
 ]
