@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<main>
+    <h1>User Profile</h1>
+    <p>Welcome, {{ user.username }}!</p>
+    
+    <!-- Display user information -->
+    <h2>User Information</h2>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+</main>
+{% endblock content %}
