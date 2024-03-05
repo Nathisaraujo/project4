@@ -371,8 +371,19 @@ div.register-card ul {
     background-color: #fff;
 }
 
+.vote-button {
+    margin-right: 10px;
+    border-radius: 100%;
+    background-color: #3d013a;
+    color: white;
+    height: 45px;
+}
 
 /*I modified */
+
+.col-2 {
+    padding-top: 10px;
+}
 
 .dark-bg {
     background-color: #3d013a;
