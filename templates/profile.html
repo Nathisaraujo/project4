@@ -4,12 +4,21 @@
 {% load crispy_forms_tags %}
 
 <main>
+    <!-- Welcome message -->
     {% if user_profile.picture %}
     <img src="{{ user_profile.picture.url }}" alt="Profile Picture">
     {% endif %}
     <h1>Welcome back, {{ user.username }}!</h1>
     <p></p>
-    
+
+    <!-- new post -->
+    <p>Send us your post</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ userspost_form | crispy }}
+        <button type="submit">Submit Post</button>
+    </form>
+
     <!-- Display user information -->
     <h2>Your personal information</h2>
     <p><strong>Username:</strong> {{ user.username }}</p>
@@ -20,5 +29,6 @@
         {{ form.as_p }}
         <button type="submit">Save</button>
     </form>
+    <!-- edit information -->
 </main>
 {% endblock content %}

@@ -166,3 +166,17 @@ like count
   <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
     <i class="fa-solid fa-thumbs-down fa-2xl"></i> {{ post.silly_count }}
   </div>
+
+
+
+  seilá que merda é essa:
+  # @login_required
+# def profile(request):
+#     if request.method == 'POST':
+#         form = UserProfileForm(request.POST, instance=request.user.userprofile)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('profile')
+#     else:
+#         form = UserProfileForm(instance=request.user.userprofile)
+#     return render(request, 'profile.html', {'form': form})
