@@ -15,7 +15,9 @@ class UsersPostRequest(models.Model):
     name = models.CharField(max_length=100)
     title = models.CharField(max_length=100, default='Default Title') 
     message = models.TextField()
-    
+    excerpt = models.TextField(max_length=200, blank=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Collaboration request from {self.name}"

@@ -9,7 +9,7 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 @admin.register(UsersPostRequest)
 class UsersPostRequestAdmin(admin.ModelAdmin):
-    list_display = ('name', 'title', 'message')  
+    list_display = ('name', 'title', 'excerpt', 'message')  
 
     def mark_as_posted(self, request, queryset):
         queryset.update(posted=True)

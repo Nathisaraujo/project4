@@ -7,4 +7,4 @@ class UsersPostForm(forms.ModelForm):
 
     class Meta:
         model = UsersPostRequest
-        fields = ('name', 'title','message')
+        fields = ('name', 'title','excerpt','message')
