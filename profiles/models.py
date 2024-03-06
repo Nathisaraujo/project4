@@ -18,6 +18,27 @@ class UsersPostRequest(models.Model):
     excerpt = models.TextField(max_length=200, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Collaboration request from {self.name}"
+
+    def to_post(self):
+        """
+        Método para criar um objeto Post a partir deste objeto UsersPostRequest aprovado.
+        Retorna None se o UsersPostRequest não estiver aprovado.
+        """
+        if self.approved:
+            # Criar um novo objeto Post com base nas informações de UsersPostRequest
+            post = Post(
+                title=self.title,
+                content=self.message,
+                excerpt=self.excerpt,
+                created_on=self.created_on,
+                status=1,  # Defina o status como publicado
+                # Você pode precisar ajustar o autor dependendo da sua lógica de usuário
+                author=self.author,  # Suponho que você tenha um campo author em UsersPostRequest
+            )
+            post.save()  # Salvar o novo post no banco de dados
+            return post
+        return None

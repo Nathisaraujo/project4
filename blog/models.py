@@ -22,6 +22,7 @@ class Post(models.Model):
     silly_count = models.PositiveIntegerField(default=0)
     more = models.ManyToManyField(User, related_name='more_info')
     more_count = models.PositiveIntegerField(default=0)
+    approved = models.BooleanField(default=False)
 
 
     class Meta:

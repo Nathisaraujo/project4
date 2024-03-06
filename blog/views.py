@@ -16,6 +16,15 @@ class PostList(generic.ListView):
      template_name = "blog/index.html"
      paginate_by = 3
 
+     def get_queryset(self):
+        # Obter os posts aprovados pelo UsersPostRequest e incluí-los no queryset
+        user_posts = UsersPostRequest.objects.filter(approved=True)
+        for user_post in user_posts:
+            post = user_post.to_post()  # Assume que você tem um método to_post() em UsersPostRequest
+            if post:
+                self.queryset |= Post.objects.filter(id=post.id)
+        return self.queryset
+    
 
 def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
