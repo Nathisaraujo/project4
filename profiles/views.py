@@ -1,20 +1,24 @@
-from django.shortcuts import render
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import UserProfile, UsersPostRequest
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .forms import UsersPostForm 
+from .models import UserProfile, UsersPostRequest
 
 # Create your views here.
 
+@login_required
 def profile(request, username):
-     user_profile = get_object_or_404(UserProfile, user__username=username)
-     user_posts = UsersPostRequest.objects.filter(approved=True)
-     # additional information such as liked posts, commented posts, etc., here
-     context = {
-         'user_profile': user_profile,
-         'userspost_form': UsersPostForm(),
-         'user_posts': user_posts,
-     }
-     return render(request, 'profile.html', context)
+    user_profile = get_object_or_404(UserProfile, user__username=username) # Obtenha o perfil do usuário
+    user_posts = UsersPostRequest.objects.filter(approved=True) # Obtenha todas as postagens aprovadas do usuário
+    # additional information such as liked posts, commented posts, etc., here
+     
+    context = {
+        'user_profile': user_profile,
+        'userspost_form': UsersPostForm(),
+        'user_posts': user_posts,
+    }
+    return render(request, 'profile.html', context)
 
 def user_posts(request, username):
     if request.method == "POST":
@@ -29,8 +33,7 @@ def user_posts(request, username):
         else:
             messages.error(request, "Post submission failed. Please check your form.")
     else:
-        userspost_form = UsersPostForm()
-
+         userspost_form = UsersPostForm()
 
     user_profile = get_object_or_404(UserProfile, user__username=username)
     context = {
@@ -40,7 +43,6 @@ def user_posts(request, username):
 
     return render(request, 'profile.html',
         {
-            "userspost_form": userspost_form
-        },
+            "userspost_form": userspost_form         },
     
     )

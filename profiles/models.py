@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from blog.models import Post
 
 # Create your models here.
 
@@ -12,16 +13,16 @@ class UserProfile(models.Model):
         return self.user.username
 
 class UsersPostRequest(models.Model):
-    name = models.CharField(max_length=100)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, default='Default Title') 
-    message = models.TextField()
+    content = models.TextField()
     excerpt = models.TextField(max_length=200, blank=True)
-    updated_on = models.DateTimeField(auto_now=True)
+    updated_on = models.DateTimeField(auto_now_add=True)
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Collaboration request from {self.name}"
+        return f"Collaboration request from {self.author}"
 
     def to_post(self):
         """
@@ -32,7 +33,7 @@ class UsersPostRequest(models.Model):
             # Criar um novo objeto Post com base nas informações de UsersPostRequest
             post = Post(
                 title=self.title,
-                content=self.message,
+                content=self.content,
                 excerpt=self.excerpt,
                 created_on=self.created_on,
                 status=1,  # Defina o status como publicado

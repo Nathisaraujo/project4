@@ -9,12 +9,14 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 @admin.register(UsersPostRequest)
 class UsersPostRequestAdmin(admin.ModelAdmin):
-    list_display = ('name', 'title', 'excerpt', 'message', 'created_on',  'approved' ) 
+    list_display = ('author', 'title', 'excerpt', 'content', 'created_on',  'approved' ) 
     list_filter = ('approved',) 
+    search_fields = ('name', 'title', 'message')
     actions = ['approve_posts']
 
     def approve_posts(self, request, queryset):
         queryset.update(approved=True)
+        self.message_user(request, "Selected posts have been approved.")
     
     approve_posts.short_description = "Approve selected posts"
 
