@@ -28,41 +28,52 @@
         </div>
     </div>
     <!-- Displaying counting of votes -->
-  <div class="d-flex flex-row">
-      {% if user.is_authenticated %}
-      <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="vote_preference" value="like">
-        <button type="submit" class="btn-like vote-button"><i class="fa-regular fa-face-tired fa-2xl"></i><span class="sr-only">Click here to Like the post </span></button>
-      </form>
-      
-      <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
-       {{ post.like_count }}
+    {% if user.is_authenticated %}
+    <!-- <div class="text-center"> -->
+      <div class="row text-center">
+        <p class="start-voting"> Start voting!</p>
       </div>
+      <div class="d-flex flex-row">
+        <div class="col-md-4 vote-align">
+          <p> Not Silly: Seek help!</p>
+          <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="vote_preference" value="like">
+            <button type="submit" class="btn-like vote-button text-center"><i class="fa-regular fa-face-tired fa-2xl"></i><span class="sr-only">Click here to vote not silly </span></button>
+          </form>
+          
+          <div class="likeCounter col-2 text-center" data-post-slug="{{ post.slug }}"> {{ post.like_count }} </div>
+        </div>
 
-      <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="vote_preference" value="silly">
-        <button type="submit" class="btn-silly"><i class="far fa-light fa-thumbs-down"></i><span class="sr-only">Click here to vote Silly </span></button>
-      </form>
-      
-      <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
-       {{ post.silly_count }}
+        <div class="col-md-4 vote-align">
+          <p> Silly: You're fine!</p>
+          <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="vote_preference" value="silly">
+            <button type="submit" class="btn-silly vote-button text-center"><i class="fa-regular fa-face-grin-tongue fa-2xl"></i><span class="sr-only">Click here to vote Silly </span></button>
+          </form>
+            
+          <div class="likeCounter col-2 text-center" data-post-slug="{{ post.slug }}">{{ post.silly_count }}</div>
+        </div>
+
+
+        <div class="col-md-4 vote-align">
+          <p> More info: we need more of this tea!</p>
+          <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="vote_preference" value="moreinfo">
+            <button type="submit" class="btn-more vote-button text-center"><i class="fa-regular fa-face-surprise fa-2xl"></i></i><span class="sr-only">Click here to vote more information </span></button>
+          </form>
+          <div class="likeCounter col-2 text-center" data-post-slug="{{ post.slug }}">
+            {{ post.more_count }}
+          </div>
+        </div>
       </div>
-
-      <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="vote_preference" value="moreinfo">
-        <button type="submit" class="btn-more"><i class="far fa-heart"></i><span class="sr-only">Click here to Love the post </span></button>
-      </form>
-
-      <div class="likeCounter col-2" data-post-slug="{{ post.slug }}">
-       {{ post.more_count }}
-      </div>
-
-      {% else %}
-        <p>Log in to vote</p>
-      {% endif %}
+    <!--   -->
+  
+    {% else %}
+      <p>Log in to vote</p>
+    {% endif %}
   </div>
   <hr>
   <!-- Displaying comment count -->

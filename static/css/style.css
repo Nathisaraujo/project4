@@ -281,6 +281,16 @@ input {
     border: 2px solid #c27bbcc0
 }
 
+.vote-align {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.start-voting {
+    font-family: "DM Serif Display", serif;
+    font-size: 40px;
+}
 
 /* media query */
 

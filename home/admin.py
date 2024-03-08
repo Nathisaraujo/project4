@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Home, CollaborateRequest
+from .models import CollaborateRequest
 
 @admin.register(CollaborateRequest)
 class CollaborateRequestAdmin(admin.ModelAdmin):
