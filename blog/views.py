@@ -7,7 +7,7 @@ from .models import Post, Comment
 # , Like
 from .forms import CommentForm
 from django.db.models import F
-from profiles.models import UsersPostRequest  # Importe o modelo UsersPostRequest
+# from profiles.models import UsersPostRequest  # Importe o modelo UsersPostRequest
 
 # from django.contrib.auth.decorators import login_required
 
@@ -18,9 +18,9 @@ class PostList(generic.ListView):
     template_name = "blog/index.html"
     paginate_by = 3
 
-    user_posts = UsersPostRequest.objects.filter(approved=True)
-    for user_post in user_posts:
-        queryset |= user_post.to_post()  # Adicione as postagens convertidas de UsersPostRequest
+    # user_posts = UsersPostRequest.objects.filter(approved=True)
+    # for user_post in user_posts:
+    #     queryset |= user_post.to_post()  # Adicione as postagens convertidas de UsersPostRequest
 
     
 
