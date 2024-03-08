@@ -29,7 +29,6 @@
     </div>
     <!-- Displaying counting of votes -->
     {% if user.is_authenticated %}
-    <!-- <div class="text-center"> -->
       <div class="row text-center">
         <p class="start-voting"> Start voting!</p>
       </div>
@@ -69,23 +68,18 @@
           </div>
         </div>
       </div>
-    <!--   -->
+
   
     {% else %}
       <p>Log in to vote</p>
     {% endif %}
   </div>
   <hr>
-  <!-- Displaying comment count -->
-  <div class="col-1">
-    <i class="fa-regular fa-comment fa-2xl"></i> {{ comment_count }}
-  </div>
-
-  <div class="row">
-  <!-- Displaying Comments -->
+  <div class="row p-5">
+  <!-- Displaying comment count and comments -->
     <div class="col">
       <div class="col-md-12 card mb-4  mt-3 ">
-        <h3 class="p-3">Comments:</h3>
+        <h3 class="p-3"><i class="fa-regular fa-comment"></i> {{ comment_count }} comments:</h3>
         <div>
           {% if comments %}
             {% for comment in comments %}
@@ -125,7 +119,7 @@
         </div>
       </div>
       <!-- Creating New Comments -->
-      <div class="col-md-4 card mb-4 mt-3">
+      <div class="col-md-11 card mb-4 mt-3 m-5">
         <div class="card-body">
           {% if user.is_authenticated %}
           <h3>Leave a comment:</h3>
