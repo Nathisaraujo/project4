@@ -182,36 +182,280 @@ like count
 #     return render(request, 'profile.html', {'form': form})
 
 
-# models
+<!-- tudo relacionado ao userspostrequest aqui! -->
 
-class UsersPostRequest(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default='Your username here')
-    title = models.CharField(max_length=100, default='Default Title') 
-    content = models.TextField()
-    excerpt = models.TextField(max_length=200, blank=True)
-    updated_on = models.DateTimeField(auto_now_add=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
+<!-- profiles -->
 
-    def __str__(self):
-        return f"Collaboration request from {self.author}"
+        <!-- views.py -->
 
-    def to_post(self):
-        """
-        Método para criar um objeto Post a partir deste objeto UsersPostRequest aprovado.
-        Retorna None se o UsersPostRequest não estiver aprovado.
-        """
-        if self.approved:
-            # Criar um novo objeto Post com base nas informações de UsersPostRequest
-            post = Post(
-                title=self.title,
-                content=self.content,
-                excerpt=self.excerpt,
-                created_on=self.created_on,
-                status=1,  # Defina o status como publicado
-                # Você pode precisar ajustar o autor dependendo da sua lógica de usuário
-                author=self.author,  # Suponho que você tenha um campo author em UsersPostRequest
+        from django.shortcuts import render, get_object_or_404, redirect
+        from django.contrib import messages
+        from django.contrib.auth.decorators import login_required
+        # from .forms import UsersPostForm 
+        from .models import UserProfile
+        #, UsersPostRequest
+        
+        # Create your views here.
+        
+        @login_required
+        def profile(request, username):
+            user_profile = get_object_or_404(UserProfile, user__username=username) # Obtenha o perfil do usuário
+            # user_posts = UsersPostRequest.objects.filter(approved=True) # Obtenha todas as postagens aprovadas do usuário
+            # additional information such as liked posts, commented posts, etc., here
+             
+            context = {
+                'user_profile': user_profile,
+                # 'userspost_form': UsersPostForm(),
+                # 'user_posts': user_posts,
+            }
+            return render(request, 'profile.html', context)
+        
+        # def user_posts(request, username):
+        #     if request.method == "POST":
+        #         userspost_form = UsersPostForm(data=request.POST)
+        #         if userspost_form.is_valid():
+        #             users_post = userspost_form.save(commit=False)
+        #             users_post.approved = False
+        #             userspost_form.save()
+        #             # messages.add_message(request, messages.SUCCESS, "Post received! We'll approve it with 2 days.")
+        #             messages.success(request, "Post received! We'll approve it within 2 days.")
+        #             return redirect('profile', username=username)
+        #         else:
+        #             messages.error(request, "Post submission failed. Please check your form.")
+        #     else:
+        #          userspost_form = UsersPostForm()
+        
+        #     user_profile = get_object_or_404(UserProfile, user__username=username)
+        #     context = {
+        #         "user_profile": user_profile,
+        #         "userspost_form": userspost_form,
+        #     }
+        
+        #     return render(request, 'profile.html',
+        #         {
+        #             "userspost_form": userspost_form         },
+            
+        #     )
+
+
+        <!-- models.py -->
+
+
+        from django.db import models
+        from django.contrib.auth.models import User
+        from blog.models import Post
+        # Create your models here.
+        class UserProfile(models.Model):
+            user = models.OneToOneField(User, on_delete=models.CASCADE)
+            bio = models.TextField(blank=True)
+            picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
+        
+            def __str__(self):
+                return self.user.username
+        
+        class UsersPostRequest(models.Model):
+            author = models.ForeignKey(User, on_delete=models.CASCADE)
+            title = models.CharField(max_length=100, default='Default Title') 
+            content = models.TextField()
+            excerpt = models.TextField(max_length=200, blank=True)
+            updated_on = models.DateTimeField(auto_now_add=True)
+            created_on = models.DateTimeField(auto_now_add=True)
+            approved = models.BooleanField(default=False)
+        
+            def __str__(self):
+                return f"Collaboration request from {self.author}"
+        
+            def to_post(self):
+                """
+                Método para criar um objeto Post a partir deste objeto UsersPostRequest aprovado.
+                Retorna None se o UsersPostRequest não estiver aprovado.
+                """
+                if self.approved:
+                    # Criar um novo objeto Post com base nas informações de UsersPostRequest
+                    post = Post(
+                        title=self.title,
+                        content=self.content,
+                        excerpt=self.excerpt,
+                        created_on=self.created_on,
+                        status=1,  # Defina o status como publicado
+                        # Você pode precisar ajustar o autor dependendo da sua lógica de usuário
+                        author=self.author,  # Suponho que você tenha um campo author em UsersPostRequest
+                    )
+                    post.save()  # Salvar o novo post no banco de dados
+                    return post
+                return None
+                return self.user.username
+
+
+        <!-- admin.py -->
+
+        from django.contrib import admin
+        from .models import UserProfile
+        #, UsersPostRequest 
+        
+        
+        # Register your models here.
+        @admin.register(UserProfile)
+        class UserProfileAdmin(admin.ModelAdmin):
+            list_display = ['user', 'bio']
+        
+        # @admin.register(UsersPostRequest)
+        # class UsersPostRequestAdmin(admin.ModelAdmin):
+        #     list_display = ('author', 'title', 'excerpt', 'content', 'created_on',  'approved' ) 
+        #     list_filter = ('approved',) 
+        #     search_fields = ('name', 'title', 'message')
+        #     actions = ['approve_posts']
+        
+        #     def approve_posts(self, request, queryset):
+        #         queryset.update(approved=True)
+        #         self.message_user(request, "Selected posts have been approved.")
+            
+        #     approve_posts.short_description = "Approve selected posts"
+
+        <!-- forms.py -->
+
+
+        from django import forms
+        # from .models import UsersPostRequest
+        
+        # class UsersPostForm(forms.ModelForm):
+        
+        #     class Meta:
+        #         model = UsersPostRequest
+        #         fields = ('author', 'title','excerpt','content')
+
+
+        <!-- template profile.html -->
+
+        {% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<main>
+    <!-- Welcome message -->
+    {% if user_profile.picture %}
+    <img src="{{ user_profile.picture.url }}" alt="Profile Picture">
+    {% endif %}
+    <h1>Welcome back, {{ user.username }}!</h1>
+    <p></p>
+
+    <!-- new post -->
+    <p>Send us your post</p>
+    <form method="post">
+        {% csrf_token %}
+        <!-- {{ userspost_form | crispy }} -->
+        {{ userspost_form.as_p }}
+        <button type="submit">Submit Post</button>
+    </form>
+
+    {% for post in user_posts %}
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.message }}</p>
+    <!-- Adicione mais campos de acordo com sua necessidade -->
+    {% endfor %}
+
+    <!-- Display user information -->
+    <h2>Your personal information</h2>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p>Bio: {{ user_profile.bio }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <!-- edit information -->
+</main>
+{% endblock content %}
+
+
+    <!-- views.py do app blog -->
+
+
+    from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.views import generic
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.http import JsonResponse
+from .models import Post, Comment
+# , Like
+from .forms import CommentForm
+from django.db.models import F
+# from profiles.models import UsersPostRequest  # Importe o modelo UsersPostRequest
+
+# from django.contrib.auth.decorators import login_required
+
+# Create your views here.
+
+class PostList(generic.ListView):
+    queryset = Post.objects.filter(status=1)
+    template_name = "blog/index.html"
+    paginate_by = 3
+
+    # user_posts = UsersPostRequest.objects.filter(approved=True)
+    # for user_post in user_posts:
+    #     queryset |= user_post.to_post()  # Adicione as postagens convertidas de UsersPostRequest
+
+    
+
+#  def get_queryset(seluk bf):
+    #     # Obter os posts aprovados pelo UsersPostRequest e incluí-los no queryset
+    #     user_posts = UsersPostRequest.objects.filter(approved=True)
+    #     for user_post in user_posts:
+    #         post = user_post.to_post()  # Assume que você tem um método to_post() em UsersPostRequest
+    #         if post:
+    #             self.queryset |= Post.objects.filter(id=post.id)
+    #     return self.queryset
+    
+    
+
+def post_detail(request, slug):
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+    comments = post.comments.all().order_by("-created_on")
+    comment_count = post.comments.filter(approved=True).count()
+    like_count = post.like_count
+    silly_count = post.like_count
+    
+    # like = False
+    # if request.user.is_authenticated:
+    #     if post.liked.filter(id=request.user.id).exists():
+    #         like = True
+
+    liked = False
+    if post.liked.filter(id=request.user.id).exists():
+        liked = True
+
+    sillied = False
+    if post.sillied.filter(id=request.user.id).exists():
+        sillied = True
+    
+
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
             )
-            post.save()  # Salvar o novo post no banco de dados
-            return post
-        return None
+
+    comment_form = CommentForm()
+
+    return render(
+        request,
+        "blog/post_detail.html",
+        {"post": post,
+        "comments": comments,
+        "comment_count": comment_count,
+        "comment_form": comment_form,
+        "liked": liked,
+        "like_count": like_count,
+        "sillied": sillied,
+        "silly_count": silly_count,
+        },
+    )

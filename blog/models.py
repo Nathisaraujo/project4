@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
+
+
+# Post model with each post details
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -41,6 +44,7 @@ class Post(models.Model):
         return self.sillied.count()
 
 
+# Users comments model
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
@@ -57,22 +61,3 @@ class Comment(models.Model):
         
     def __str__(self):
         return f"{self.body} by {self.author}"
-
-
-# class Like(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-
-#     def __str__(self):
-#         return str(self.post)
-    
-#     def save(self, *args, **kwargs):
-#         super(Like, self).save(*args, **kwargs)
-#         self.post.like_count = Like.objects.filter(post=self.post).count()
-#         self.post.save()
-
-
-# class UserVote(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-#     vote_preference = models.CharField(max_length=10)  # like, silly, moreinfo

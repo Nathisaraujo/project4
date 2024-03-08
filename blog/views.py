@@ -10,11 +10,15 @@ from django.db.models import F
 
 # Create your views here.
 
+# displays list of posts in index.html
+
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 3
 
+
+# displays post detail in post_detail
 def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -22,11 +26,6 @@ def post_detail(request, slug):
     comment_count = post.comments.filter(approved=True).count()
     like_count = post.like_count
     silly_count = post.like_count
-    
-    # like = False
-    # if request.user.is_authenticated:
-    #     if post.liked.filter(id=request.user.id).exists():
-    #         like = True
 
     liked = False
     if post.liked.filter(id=request.user.id).exists():
@@ -65,6 +64,8 @@ def post_detail(request, slug):
         },
     )
 
+
+# permit user to edit the comment
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
@@ -87,6 +88,8 @@ def comment_edit(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
+# permit user to delete the comment
 def comment_delete(request, slug, comment_id):
     """
     view to delete comment
@@ -104,6 +107,7 @@ def comment_delete(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+# permit users to vote (leave their opinion) in each post
 class PostVote(generic.RedirectView):
     """
     The PostVote view handles voting on posts.
