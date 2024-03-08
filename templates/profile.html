@@ -11,21 +11,6 @@
     <h1>Welcome back, {{ user.username }}!</h1>
     <p></p>
 
-    <!-- new post -->
-    <p>Send us your post</p>
-    <form method="post">
-        {% csrf_token %}
-        <!-- {{ userspost_form | crispy }} -->
-        {{ userspost_form.as_p }}
-        <button type="submit">Submit Post</button>
-    </form>
-
-    {% for post in user_posts %}
-    <h3>{{ post.title }}</h3>
-    <p>{{ post.message }}</p>
-    <!-- Adicione mais campos de acordo com sua necessidade -->
-    {% endfor %}
-
     <!-- Display user information -->
     <h2>Your personal information</h2>
     <p><strong>Username:</strong> {{ user.username }}</p>

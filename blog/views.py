@@ -4,12 +4,9 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from .models import Post, Comment
-# , Like
 from .forms import CommentForm
 from django.db.models import F
-# from profiles.models import UsersPostRequest  # Importe o modelo UsersPostRequest
 
-# from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -17,23 +14,6 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 3
-
-    # user_posts = UsersPostRequest.objects.filter(approved=True)
-    # for user_post in user_posts:
-    #     queryset |= user_post.to_post()  # Adicione as postagens convertidas de UsersPostRequest
-
-    
-
-#  def get_queryset(seluk bf):
-    #     # Obter os posts aprovados pelo UsersPostRequest e incluí-los no queryset
-    #     user_posts = UsersPostRequest.objects.filter(approved=True)
-    #     for user_post in user_posts:
-    #         post = user_post.to_post()  # Assume que você tem um método to_post() em UsersPostRequest
-    #         if post:
-    #             self.queryset |= Post.objects.filter(id=post.id)
-    #     return self.queryset
-    
-    
 
 def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
