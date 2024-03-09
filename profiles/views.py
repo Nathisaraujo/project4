@@ -2,6 +2,18 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
+#imports da colega
+from django.views import generic, View
+from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView, UpdateView
+from django.urls import reverse_lazy
+from blog.models import Post
+from .forms import PostForm
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+#importsgio
+from django.utils.text import slugify
 
 
 @login_required
@@ -12,3 +24,44 @@ def profile(request, username):
         'user_profile': user_profile,
     }
     return render(request, 'profile.html', context)
+
+# Bawarchi Khana code
+class AddPost(SuccessMessageMixin, LoginRequiredMixin, CreateView):
+    model = Post
+    template_name = 'add_post.html'
+    success_url = reverse_lazy("home")
+    form_class = PostForm
+    success_message = 'Post awaiting approval'
+
+    def form_valid(self, form):
+        # gio code
+        form.instance.author = self.request.user
+        form.instance.status = 0
+        form.instance.slug = slugify(form.instance.title)
+        # Save the post and redirect to the success URL
+        response = super().form_valid(form)
+        messages.success(
+            self.request, f'Post "{form.instance}" created successfully'
+            )
+        return response
+    
+
+class EditPost(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'update+post.html'
+    success_url = reverse_lazy('profile')
+    success_message = 'Post successfully updated'
+
+
+class DeletePost(LoginRequiredMixin, generic.DeleteView):
+    model = Post
+    form_class = PostForm
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('home')
+    success_message = 'Post successfully deleted'
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message, 'danger')
+
+        return super(DeletePost, self).delete(request, *args, **kwargs)

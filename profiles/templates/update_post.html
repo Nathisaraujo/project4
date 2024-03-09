@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h3>Edit Post:</h3>
+            <p>Edit your Recipe!</p>
+        </div>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="text-center alert alert-{{ message.tags }}">
+        {{ message|safe }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <br>
+                <button type="submit" class="btn btn-success">Update</button>
+                <a href="{% url 'home' %}" role="button" class="btn btn-secondary">Go back</a>
+            </form>
+        </div>
+    </div>
+    <br>
+</div>
+
+{% endblock %}

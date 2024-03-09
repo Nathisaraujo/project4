@@ -21,5 +21,9 @@
         {{ form.as_p }}
         <button type="submit">Save</button>
     </form>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" href="{% url 'add_post' username=user.username %}">Add Recipe</a>
+    </li>
 </main>
 {% endblock content %}
