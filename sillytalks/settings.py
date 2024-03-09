@@ -128,12 +128,6 @@ SOCIALACCOUNT_PROVIDERS = {
         },
         'OAUTH_PKCE_ENABLED': True,
     },
-    'discord': {
-        'SCOPE': ['identify', 'email'],
-        'AUTH_PARAMS': {
-            'prompt': 'consent',
-        }
-    },
 }
 
 WSGI_APPLICATION = 'sillytalks.wsgi.application'

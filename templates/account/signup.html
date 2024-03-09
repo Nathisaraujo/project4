@@ -7,13 +7,8 @@
 
 {% block content %}
 
-<div class=" container text-center">
+<div class="container text-center">
   <h1>{% trans "Sign Up" %}</h1>
-
-  <p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign In</a>.{% endblocktrans %}</p>
-  <a href="{% provider_login_url 'google' %}">Or sign Up with Google</a>
-  <a href="{% provider_login_url 'discord' %}">Sign Up with Github</a>
-
   <div class="auth-container">
     <div class="auth-style">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
@@ -58,7 +53,10 @@
         {% endif %}
         <button type="submit" class=" btn btn-sillytalks p-2">{% trans "Sign Up" %} &raquo;</button>
       </form>
+      <hr>
+      <a href="{% provider_login_url 'google' %}" class="btn btn-google"><img src="/static/images/Google.png" alt="google logo" style="width: 20px; height: 20px;"> Sign Up with Google</a>
     </div>
   </div>
+  <p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign In</a>.{% endblocktrans %}</p>
 </div>
 {% endblock content %}
