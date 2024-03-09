@@ -292,6 +292,12 @@ input {
     font-size: 40px;
 }
 
+.btn-google {
+    width: 15em;
+    border-radius: 20px;
+    border: 2px solid #c27bbcc0;
+    margin-bottom: 15px;
+}
 
 /* media query */
 

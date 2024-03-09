@@ -10,13 +10,12 @@
 <div class="container text-center auth-style">
     <div class="row auth-container">
             <h3>{% trans "Sign In" %}</h3>
-            <p>{% blocktrans %}Welcome back to the Silly Talks! <br> To leave a comment or like a post, please Log In.<br>
-                If you have not created an account yet, <a class="link" href="{{ signup_url }}"> SIGN UP!</a>
-                {% endblocktrans %}</p>
+            <p>{% blocktrans %}Welcome back to the Silly Talks! <br> To leave a comment or vote, please Log In.<br></p>
+            {% endblocktrans %}
     </div>
 
     <div class="row">
-        <a href="{% provider_login_url 'google' %}" class="btn btn-primary">Login with Google</a>
+        <a href="{% provider_login_url 'google' %}" class="btn btn-google"><img src="/static/images/Google.png" alt="google logo" style="width: 20px; height: 20px;"> Login with Google</a>
         <form class="login" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             {{ form.as_p }}
@@ -25,6 +24,10 @@
             {% endif %}
             <button class="btn btn-sillytalks" type="submit">{% trans "Sign In" %}</button>
         </form>
+        <br>
+        <p><hr>If you have not created an account yet, <br>
+        <a class="link" href="{{ signup_url }}"> SIGN UP!</a>
+        </p>
     </div>
 </div>
 {% endblock %}
