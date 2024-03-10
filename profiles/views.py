@@ -31,7 +31,7 @@ class AddPost(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     template_name = 'add_post.html'
     success_url = reverse_lazy("home")
     form_class = PostForm
-    success_message = 'Post awaiting approval'
+    success_message = 'Post sent. Wait for approval.'
 
     def form_valid(self, form):
         # gio code
@@ -40,9 +40,9 @@ class AddPost(SuccessMessageMixin, LoginRequiredMixin, CreateView):
         form.instance.slug = slugify(form.instance.title)
         # Save the post and redirect to the success URL
         response = super().form_valid(form)
-        messages.success(
-            self.request, f'Post "{form.instance}" created successfully'
-            )
+        # messages.success(
+        #     self.request, f'Post "{form.instance}" created successfully'
+        #     )
         return response
     
 # Bawarchi Khana code
@@ -81,7 +81,7 @@ class DeletePost(LoginRequiredMixin, generic.DeleteView):
 
 @login_required
 def ManagePosts(request, username):
-    user_posts = Post.objects.filter(approved=True) 
+    user_posts = Post.objects.filter(approved=True, author=request.user) 
    
     context = {
         'user_posts': user_posts,
