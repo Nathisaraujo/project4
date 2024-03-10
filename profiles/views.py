@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
-from blog.models import Post
+from blog.models import Post, Comment
 from .forms import PostForm
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
@@ -95,11 +95,13 @@ def posts_liked_by_user(request, username):
     liked_posts = Post.objects.filter(liked=request.user)
     silly_posts = Post.objects.filter(sillied=request.user)
     more_posts = Post.objects.filter(more=request.user)
+    commented_posts = Post.objects.filter(comments__author=user)
    
     context = {
         'liked_posts': liked_posts,
         'silly_posts': silly_posts,
         'more_posts': more_posts,
+        'commented_posts': commented_posts,
 
     }
     return render(request, 'user_activity.html', context)
