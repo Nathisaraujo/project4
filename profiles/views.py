@@ -90,7 +90,7 @@ def ManagePosts(request, username):
     return render(request, 'manage_posts.html', context)
 
 @login_required
-def posts_liked_by_user(request, username):
+def user_activity(request, username):
     user = User.objects.get(username=username)
     liked_posts = Post.objects.filter(liked=request.user)
     silly_posts = Post.objects.filter(sillied=request.user)

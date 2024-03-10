@@ -10,5 +10,5 @@ urlpatterns = [
     path('delete/<slug:slug>/remove', views.DeletePost.as_view(), name='delete_post'),
     # my urls
     path('manage/<str:username>/manage_posts', views.ManagePosts, name='user_posts'),
-    path('history/<str:username>/liked-posts/', views.posts_liked_by_user, name='liked_posts'),
+    path('history/<str:username>/liked-posts/', views.user_activity, name='liked_posts'),
 ]
