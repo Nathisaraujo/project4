@@ -25,7 +25,27 @@
                 </div>
             </div>
             <br>
-        </div>
+            <!-- código da colega -->
+            {% if user.is_authenticated and request.user == post.author %}
+            <div class="container">
+              <div class="row">
+                <div class="col-2">
+                    <div class="btn-group">
+                        <!-- Button for post update -->
+                        <a href="{% url 'update_post' post.slug %}" class="btn btn-secondary">
+                            <i class="fa fa-edit"></i> Edit</a>
+                    </div>
+                    <div class="btn-group">
+                          <!-- Button for deletion-->
+                        <a href="{% url 'delete_post' post.slug %}" class="btn btn-secondary">
+                            <i class="far fa-trash-alt"></i> Delete</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+
     </div>
     <!-- Displaying counting of votes -->
     {% if user.is_authenticated %}

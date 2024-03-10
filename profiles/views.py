@@ -45,23 +45,36 @@ class AddPost(SuccessMessageMixin, LoginRequiredMixin, CreateView):
             )
         return response
     
-
+# Bawarchi Khana code
 class EditPost(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Post
     form_class = PostForm
-    template_name = 'update+post.html'
-    success_url = reverse_lazy('profile')
-    success_message = 'Post successfully updated'
+    template_name = 'update_post.html'
+    success_url = reverse_lazy("home")
 
+     # gio code
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(
+            self.request, f'Post "{form.instance}" updated successfully'
+            )
+        return response
 
+# Bawarchi Khana code
 class DeletePost(LoginRequiredMixin, generic.DeleteView):
+    
     model = Post
-    form_class = PostForm
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
-    success_message = 'Post successfully deleted'
 
+    # gio code
     def delete(self, request, *args, **kwargs):
-        messages.success(self.request, self.success_message, 'danger')
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+        self.object.delete()
+        # response = super().delete(request, *args, **kwargs)
+        messages.success(
+            self.request, f'Post "{self.object}" deleted successfully'
+            )
 
-        return super(DeletePost, self).delete(request, *args, **kwargs)
+        return HttpResponseRedirect(success_url)
