@@ -4,46 +4,60 @@
 
 {% block content %}
 
+
 <p>not silly:</p>
-{% for post in liked_posts %}
-    <!-- <h3>{{ post.title }}</h3>
-    <p>{{ post.message }}</p> -->
-    <ul>
-        <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
-        <li> {{ post.excerpt }} </li>
-    </ul>    
-{% endfor %}
+{% if liked_posts %}
+    {% for post in liked_posts %}
+        <!-- <h3>{{ post.title }}</h3>
+        <p>{{ post.message }}</p> -->
+        <ul>
+            <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
+            <li> {{ post.excerpt }} </li>
+        </ul>    
+    {% endfor %}
+{% else %}
+    <p>No not silly posts yet.</p>
+{% endif %}
 <hr>
 <p>moreinfo:</p>
-{% for post in more_posts %}
-    <!-- <h3>{{ post.title }}</h3>
-    <p>{{ post.message }}</p> -->
-    <ul>
-        <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
-        <li> {{ post.excerpt }} </li>
-    </ul>    
-{% endfor %}
-
+{% if more_posts %}
+    {% for post in more_posts %}
+        <!-- <h3>{{ post.title }}</h3>
+        <p>{{ post.message }}</p> -->
+        <ul>
+            <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
+            <li> {{ post.excerpt }} </li>
+        </ul>    
+    {% endfor %}
+{% else %}
+    <p>No more info posts yet.</p>
+{% endif %}
 <hr>
 <p>silly:</p>
-{% for post in sillied_posts %}
-    <!-- <h3>{{ post.title }}</h3>
-    <p>{{ post.message }}</p> -->
-    <ul>
-        <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
-        <li> {{ post.excerpt }} </li>
-    </ul>    
-{% endfor %}
-
+{% if sillied_posts %}
+    {% for post in sillied_posts %}
+        <!-- <h3>{{ post.title }}</h3>
+        <p>{{ post.message }}</p> -->
+        <ul>
+            <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
+            <li> {{ post.excerpt }} </li>
+        </ul>    
+    {% endfor %}
+{% else %}
+    <p>No sillied posts yet.</p>
+{% endif %}
 <hr>
 <p>commented:</p>
-{% for post in commented_posts %}
-    <!-- <h3>{{ post.title }}</h3>
-    <p>{{ post.message }}</p> -->
-    <ul>
-        <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
-        <li> {{ post.excerpt }} </li>
-    </ul>    
-{% endfor %}
-
+{% if commented_posts %}
+    {% for post in commented_posts %}
+        <!-- <h3>{{ post.title }}</h3>
+        <p>{{ post.message }}</p> -->
+        <ul>
+            <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
+            <li> {{ post.excerpt }} </li>
+        </ul>    
+    {% endfor %}
+{% else %}
+    <p>No commented posts yet.</p>
+{% endif %}
 {% endblock %}
