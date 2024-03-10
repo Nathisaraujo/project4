@@ -4,27 +4,24 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h1>Add a post:</h1>
-            <p>Here you can share your recipe with other users.</p>
-        </div>
+<div class="container text-center auth-style">
+    <div class="row auth-container">
+            <h3>Add a Post</h3>
+            <p>Tell us your silly story here and we'll approve it in 2 working days</p>
     </div>
+
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.title | as_crispy_field }}
-                {{ form.content | as_crispy_field }}
-                </select>
-                <br>
-                <button type="submit" class="btn btn-secondary"> Submit</button>
-                <a href="{% url 'home' %}" role="button" class="btn btn-secondary">Go back</a>
-            </form>
-        </div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.title | as_crispy_field }}
+            {{ form.excerpt | as_crispy_field }}
+            {{ form.content | as_crispy_field }}
+            </select>
+            <br>
+            <button type="submit" class="btn btn-sillytalks"> Submit</button>
+            <a href="{% url 'home' %}" role="button" class="btn btn-sillytalks">Go back</a>
+        </form>
     </div>
-    <br>
 </div>
 
 {% endblock %}

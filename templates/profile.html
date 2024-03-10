@@ -4,8 +4,9 @@
 {% load crispy_forms_tags %}
 
 <main>
+  <h1>Welcome back, {{ user.username }}!</h1>
     <!-- dropdown menu -->
-    <ul class="nav nav-tabs text-center">
+    <ul class="nav nav-tabs">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Post</a>
             <ul class="dropdown-menu">
@@ -29,24 +30,27 @@
         </li>
       </ul>
     <!-- Welcome message -->
-    {% if user_profile.picture %}
-    <img src="{{ user_profile.picture.url }}" alt="Profile Picture">
-    {% endif %}
-    <h1>Welcome back, {{ user.username }}!</h1>
-    <p></p>
-    <!-- Display user information -->
-    <h2>Your personal information</h2>
-    <p><strong>Username:</strong> {{ user.username }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p>Bio: {{ user_profile.bio }}</p>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
 
-    <li class="nav-item">
-        <a class="nav-link text-dark" href="{% url 'add_post' username=user.username %}">Add Recipe</a>
-    </li>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          {% if user_profile.picture %}
+          <img src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-thumbnail">
+          {% endif %}
+        </div>
+        <div class="col">
+          <h2>Your personal information</h2>
+          <p><strong>Username:</strong> {{ user.username }}</p>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p>Bio: {{ user_profile.bio }}</p>
+          <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
 </main>
 {% endblock content %}

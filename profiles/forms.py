@@ -10,6 +10,7 @@ class PostForm(forms.ModelForm):
         fields = [
             'title',
             'content',
+            'excerpt',
         ]
         widgets = {
             'content': SummernoteWidget(),
