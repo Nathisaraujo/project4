@@ -4,13 +4,36 @@
 {% load crispy_forms_tags %}
 
 <main>
+    <!-- dropdown menu -->
+    <ul class="nav nav-tabs text-center">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Post</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'add_post' username=user.username %}">New Post</a></li>
+              <li><a class="dropdown-item" href="#">Manage Posts</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Profile</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Personal information</a></li>
+              <li><a class="dropdown-item" href="#">Edit personal information</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">History</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Voted posts</a></li>
+              <li><a class="dropdown-item" href="#">Commented posts</a></li>
+            </ul>
+        </li>
+      </ul>
     <!-- Welcome message -->
     {% if user_profile.picture %}
     <img src="{{ user_profile.picture.url }}" alt="Profile Picture">
     {% endif %}
     <h1>Welcome back, {{ user.username }}!</h1>
     <p></p>
-
     <!-- Display user information -->
     <h2>Your personal information</h2>
     <p><strong>Username:</strong> {{ user.username }}</p>
