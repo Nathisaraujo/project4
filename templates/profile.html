@@ -11,7 +11,7 @@
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Post</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="{% url 'add_post' username=user.username %}">New Post</a></li>
-              <li><a class="dropdown-item" href="{% url 'update_post' username=user.username %}">Update Posts</a></li>
+              <li><a class="dropdown-item" href="{% url 'user_posts' username=user.username %}">Manage Posts</a></li>
             </ul>
         </li>
         <li class="nav-item dropdown">

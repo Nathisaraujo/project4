@@ -78,3 +78,12 @@ class DeletePost(LoginRequiredMixin, generic.DeleteView):
             )
 
         return HttpResponseRedirect(success_url)
+
+@login_required
+def ManagePosts(request, username):
+    user_posts = Post.objects.filter(approved=True) 
+   
+    context = {
+        'user_posts': user_posts,
+    }
+    return render(request, 'manage_posts.html', context)

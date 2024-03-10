@@ -352,7 +352,7 @@ like count
     {% for post in user_posts %}
     <h3>{{ post.title }}</h3>
     <p>{{ post.message }}</p>
-    <!-- Adicione mais campos de acordo com sua necessidade -->
+  
     {% endfor %}
 
     <!-- Display user information -->
