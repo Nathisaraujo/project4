@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
+from django.contrib.auth.models import User
 #imports da colega
 from django.views import generic, View
 from django.http import HttpResponseRedirect
@@ -87,3 +88,13 @@ def ManagePosts(request, username):
         'user_posts': user_posts,
     }
     return render(request, 'manage_posts.html', context)
+
+@login_required
+def posts_liked_by_user(request, username):
+    user = User.objects.get(username=username)
+    liked_posts = Post.objects.filter(liked=request.user)
+   
+    context = {
+        'liked_posts': liked_posts,
+    }
+    return render(request, 'liked_posts.html', context)
