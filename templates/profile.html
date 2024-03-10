@@ -21,12 +21,8 @@
               <li><a class="dropdown-item" href="#">Edit personal information</a></li>
             </ul>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">History</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'liked_posts' username=user.username %}">Voted posts</a></li>
-              <li><a class="dropdown-item" href="#">Commented posts</a></li>
-            </ul>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'liked_posts' username=user.username %}">Activity</a>
         </li>
       </ul>
     <!-- Welcome message -->

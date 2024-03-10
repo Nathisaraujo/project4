@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+{% for post in liked_posts %}
+    <!-- <h3>{{ post.title }}</h3>
+    <p>{{ post.message }}</p> -->
+    <ul>
+        <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
+        <li> {{ post.excerpt }} </li>
+    </ul>    
+{% endfor %}
+<hr>
+
+{% for post in more_posts %}
+    <!-- <h3>{{ post.title }}</h3>
+    <p>{{ post.message }}</p> -->
+    <ul>
+        <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
+        <li> {{ post.excerpt }} </li>
+    </ul>    
+{% endfor %}
+
+<hr>
+{% for post in sillied_posts %}
+    <!-- <h3>{{ post.title }}</h3>
+    <p>{{ post.message }}</p> -->
+    <ul>
+        <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
+        <li> {{ post.excerpt }} </li>
+    </ul>    
+{% endfor %}
+
+{% endblock %}

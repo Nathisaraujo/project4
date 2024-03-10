@@ -93,8 +93,13 @@ def ManagePosts(request, username):
 def posts_liked_by_user(request, username):
     user = User.objects.get(username=username)
     liked_posts = Post.objects.filter(liked=request.user)
+    silly_posts = Post.objects.filter(sillied=request.user)
+    more_posts = Post.objects.filter(more=request.user)
    
     context = {
         'liked_posts': liked_posts,
+        'silly_posts': silly_posts,
+        'more_posts': more_posts,
+
     }
-    return render(request, 'liked_posts.html', context)
+    return render(request, 'user_activity.html', context)
