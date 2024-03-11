@@ -18,7 +18,9 @@
         </div>
     {% endfor %}
 {% else %}
-    <p>No posts yet.</p>
+    <div class="post-list">
+        <p>No posts yet.</p>
+    </div>
 {% endif %}  
 <button onclick="goBack()" class="btn btn-secondary btn-back">Go Back</button>
 {% endblock %}

@@ -11,12 +11,41 @@
             {% endfor %}
         </ul>
 {% endif %}
+{% include 'navbar_profile.html' %}
+<br>
+<h1 class="text-center">Edit Profile</h1>
+<div class="container auth-style margin-containers ">
+    <div class="row auth-container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-group p-2">
+                <label for="id_title"><i class="fa-solid fa-quote-left fa-xl"></i> Bio</label>
+                {{ form.bio }}
+            </div>
+            
+            <div class="form-group p-2">
+                <label for="id_content"><i class="fa-solid fa-cake-candles fa-xl"></i> Date of Birth (mm/dd/yyy)</label>
+                {{ form.birth_date }}
+            </div>
+            
+            <div class="form-group p-2">
+                <label for="id_image"><i class="fa-solid fa-map-pin fa-xl"></i> Location</label>
+                {{ form.location }}
+            </div>
+            <div class="form-group p-2">
+                <label for="id_image"><i class="fa-regular fa-user fa-xl"></i> Gender</label>
+                {{ form.gender }}
+            </div>
+            <div class="form-group p-2">
+                <label for="id_image"><i class="fas fa-image fa-xl"></i> Picture</label>
+                {{ form.picture }}
+            </div>
 
-<h1>Edit Profile</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
-    <button onclick="goBack()">Go Back</button>
+            <!-- {{ form.as_p }} -->
+            <button type="submit" class="btn btn-sillytalks">Save</button>
+            <button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
