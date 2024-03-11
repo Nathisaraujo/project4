@@ -38,6 +38,11 @@
           <p><strong>Username:</strong> {{ user.username }}</p>
           <p><strong>Email:</strong> {{ user.email }}</p>
           <p>Bio: {{ user_profile.bio }}</p>
+          <p>Birth Date: {{ user_profile.birth_date }}</p>
+          <p>Location: {{ user_profile.location }}</p>
+          <p>Last Login Date: {{ user_profile.last_login_date }}</p>
+          <p>Registration Date: {{ user_profile.registration_date }}</p>
+          <p>Gender: {{ user_profile.get_gender_display }}</p>
           <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
