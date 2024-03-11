@@ -3,17 +3,30 @@
 
 {% block content %}
 
-{% if results %}
-    <h2>Search Results for "{{ query }}"</h2>
-    <ul>
+<h3 class="text-center p-4">Search Results for "{{ query }}"</h3>
+
+<div class="search-bar text-center">
+    <form class="d-flex" role="search" action="{% url 'search' %}" method="get">
+        <input class="form-control me-2" name="q" type="search" placeholder="Search Silly Talks" aria-label="Search">
+        <button class="btn btn-sillytalks" type="submit">New Search</button>
+    </form>
+</div>
+
+{% if results %}    
     {% for post in results %}
-        <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></li>
+        <div class="post-list">
+            <ul>
+                <li><a href="{% url 'post_detail' post.slug %}" class="postlist-title p-2">{{ post.title }}</a></li>
+                <li> {{ post.excerpt }} </li>
+            </ul>
+        </div>
     {% endfor %}
-    </ul>
 {% else %}
-    <p>No results found.</p>
+    <div class="post-list p-5">
+        <p>No results found.</p>
+    </div>
 {% endif %}
 
-<button onclick="goBack()">Go Back</button>
+<button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
 
 {% endblock %}
