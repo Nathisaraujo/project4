@@ -24,17 +24,18 @@
           <a class="nav-link" href="{% url 'liked_posts' username=user.username %}">Activity</a>
         </li>
       </ul>
-    <!-- Welcome message -->
+    
+      <!-- Welcome message -->
 
-    <div class="container">
-      <div class="row">
+    <div class="container auth-style">
+      <div class="row auth-container">
         <div class="col">
           {% if user_profile.picture %}
           <img src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-thumbnail">
           {% endif %}
         </div>
         <div class="col">
-          <h2>Your personal information</h2>
+          <h2>Your personal details</h2>
           <p><strong>Username:</strong> {{ user.username }}</p>
           <p><strong>Email:</strong> {{ user.email }}</p>
           <p>Bio: {{ user_profile.bio }}</p>
@@ -43,26 +44,44 @@
           <p>Last Login Date: {{ user_profile.last_login_date }}</p>
           <p>Registration Date: {{ user_profile.registration_date }}</p>
           <p>Gender: {{ user_profile.get_gender_display }}</p>
-          <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Save</button>
-          </form>
+
+          <p>
+            <a class="btn btn-sillytalks" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              <i class="fa-solid fa-square-poll-vertical"></i>User Statistics
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <table class="table table-hover table-responsive">
+                <thead>
+                  <tr class="table-danger">
+                    <th scope="col">Interaction</th>
+                    <th scope="col">Count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Posts you've done</th>
+                    <td>{{ post_count }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">You commented</th>
+                    <td>{{ comment_count }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">You voted</th>
+                    <td>{{ user_total_votes }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Votes in your posts</th>
+                    <td>{{ total_votes }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>          
         </div>
       </div>
     </div>
-  
-
-    <h2>User Statistics</h2>
-    <ul>
-        <li>Number of Posts: {{ post_count }}</li>
-        <li>Number of Comments: {{ comment_count }}</li>
-        <li>Total Votes in your posts: {{ total_votes }}</li>
-        <li>Total Votes given: {{ user_total_votes }}</li>
-
-        
-    </ul>
-
-
 </main>
 {% endblock content %}
