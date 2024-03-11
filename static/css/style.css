@@ -7,6 +7,16 @@
     --bs-nav-link-color: #693d69;
 }
 
+.last-login {
+    font-size: 15px;
+    align-self: center;
+}
+
+.margin-containers {
+    margin-top: 20px;
+}
+
+
 .post-link {
     text-decoration: none;
     color: #2f2738;
@@ -303,6 +313,27 @@ input {
     margin-bottom: 15px;
 }
 
+.btn-back {
+    max-width: 6em;
+    margin: 2em;
+}
+
+.form-control {
+    max-height: 10em;
+}
+
+.post-list {
+    background-color: #f9d1f7;
+    padding-top: 15px;
+    margin: 2em 5em;
+    border-radius: 20px;
+}
+
+.postlist-title {
+    font-size: 20px;
+    text-decoration: none;
+    color: #2f2738;
+}
 /* media query */
 
 @media only screen and (max-width: 1000px) {

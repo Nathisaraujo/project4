@@ -4,15 +4,21 @@
 
 {% block content %}
 
+{% include 'navbar_profile.html' %}
+<br>
+<h3 class="text-center">Manage my posts</h3>
 
-{% for post in user_posts %}
-    <!-- <h3>{{ post.title }}</h3>
-    <p>{{ post.message }}</p> -->
-    <ul>
-        <li><a href="{% url 'post_detail' post.slug %}">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
-        <li> {{ post.excerpt }} </li>
-    </ul>    
-{% endfor %}
-<hr>
-<button onclick="goBack()">Go Back</button>
+{% if user_posts %}
+    {% for post in user_posts %}
+        <div class="post-list">
+            <ul>
+                <li><a href="{% url 'post_detail' post.slug %}" class="postlist-title">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
+                <li> {{ post.excerpt }} </li>
+            </ul>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No posts yet.</p>
+{% endif %}  
+<button onclick="goBack()" class="btn btn-secondary btn-back">Go Back</button>
 {% endblock %}

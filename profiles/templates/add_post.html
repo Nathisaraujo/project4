@@ -4,7 +4,9 @@
 
 {% block content %}
 
-<div class="container text-center auth-style">
+{% include 'navbar_profile.html' %}
+
+<div class="container text-center auth-style margin-containers">
     <div class="row auth-container">
             <h3>Add a Post</h3>
             <p>Tell us your silly story here and we'll approve it in 2 working days</p>
@@ -19,7 +21,7 @@
             </select>
             <br>
             <button type="submit" class="btn btn-sillytalks"> Submit</button>
-            <button onclick="goBack()">Go Back</button>
+            <button onclick="goBack()" class="btn btn-secondary">Go Back</button>
         </form>
     </div>
 </div>
