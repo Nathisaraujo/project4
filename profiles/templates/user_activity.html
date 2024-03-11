@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
+{% block content %}
 
-{% endblock profile-nav %}
+{% include 'navbar_profile.html' %}
 
 <p>not silly:</p>
 {% if liked_posts %}

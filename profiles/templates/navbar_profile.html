@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs profile-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'profile' username=user.username %}">Profile</a>
+      </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Post</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'add_post' username=user.username %}">New Post</a></li>
+          <li><a class="dropdown-item" href="{% url 'user_posts' username=user.username %}">Manage Posts</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Profile</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'edit_profile' username=user.username %}">Edit personal information</a></li>
+        </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'liked_posts' username=user.username %}">Activity</a>
+    </li>
+  </ul>
