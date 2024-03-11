@@ -17,7 +17,6 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Profile</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Personal information</a></li>
               <li><a class="dropdown-item" href="#">Edit personal information</a></li>
             </ul>
         </li>
@@ -47,7 +46,17 @@
         </div>
       </div>
     </div>
-    
+  
+
+    <h2>User Statistics</h2>
+    <ul>
+        <li>Number of Posts: {{ post_count }}</li>
+        <li>Number of Comments: {{ comment_count }}</li>
+        <li>Total Votes in your posts: {{ total_votes }}</li>
+        <li>Total Votes given: {{ user_total_votes }}</li>
+
+        
+    </ul>
 
 
 </main>

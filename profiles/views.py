@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from django.contrib.auth.models import User
+from django.db.models import Sum
 #imports da colega
 from django.views import generic, View
 from django.http import HttpResponseRedirect
@@ -19,10 +20,25 @@ from django.utils.text import slugify
 
 @login_required
 def profile(request, username):
-    user_profile = get_object_or_404(UserProfile, user__username=username) 
+    user_profile = get_object_or_404(UserProfile, user__username=username)
+    post_count = Post.objects.filter(author=user_profile.user).count()
+    comment_count = Comment.objects.filter(author=user_profile.user).count()
+    
+    user_posts = Post.objects.filter(author=user_profile.user)
+    total_votes = user_posts.aggregate(
+        total_votes=Sum('like_count') + Sum('silly_count') + Sum('more_count')
+    )['total_votes'] or 0
+    
+    user_total_votes = request.user.liked_posts.aggregate(
+        total_votes=Sum('like_count') + Sum('silly_count') + Sum('more_count')
+    )['total_votes'] or 0
    
     context = {
         'user_profile': user_profile,
+        'post_count': post_count,
+        'comment_count': comment_count,
+        'total_votes': total_votes,
+        'user_total_votes': user_total_votes,
     }
     return render(request, 'profile.html', context)
 
