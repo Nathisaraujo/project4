@@ -81,7 +81,7 @@
           <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
             {% csrf_token %}
             <input type="hidden" name="vote_preference" value="moreinfo">
-            <button type="submit" class="btn-more vote-button text-center"><i class="fa-regular fa-face-surprise fa-2xl"></i></i><span class="sr-only">Click here to vote more information </span></button>
+            <button type="submit" class="btn-more vote-button text-center"><i class="fa-regular fa-face-surprise fa-2xl"></i><span class="sr-only">Click here to vote more information </span></button>
           </form>
           <div class="likeCounter col-2 text-center" data-post-slug="{{ post.slug }}">
             {{ post.more_count }}

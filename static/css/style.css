@@ -333,7 +333,9 @@ input {
     font-size: 20px;
     text-decoration: none;
     color: #2f2738;
+    font-weight: 700;
 }
+
 #id_bio {
     max-height: 5em;
     border: 2px solid #c27bbcc0;
@@ -345,6 +347,9 @@ input {
     border-radius: 10px;
 }
 
+footer a {
+    color: white;
+}
 /* media query */
 
 @media only screen and (max-width: 1000px) {
