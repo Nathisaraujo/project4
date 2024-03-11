@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-
+{% include 'search_bar.html' %}
 
 {% block content %}
 
 <main class="flex-shrink-0 main-bg my-main">
     <!-- search button -->
     <div class="search-bar">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search Silly Talks" aria-label="Search">
+        <form class="d-flex" role="search" action="{% url 'search' %}" method="get">
+            <input class="form-control me-2" name="q" type="search" placeholder="Search Silly Talks" aria-label="Search">
             <button class="btn btn-sillytalks" type="submit">Search</button>
         </form>
     </div>

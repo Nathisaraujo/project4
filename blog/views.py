@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from .models import Post, Comment
 from .forms import CommentForm
 from django.db.models import F
+from django.db.models import Q
 
 
 # Create your views here.
@@ -158,3 +159,13 @@ class PostVote(generic.RedirectView):
                     post.silly_count -= 1
         post.save()
         return redirect('post_detail', slug=post.slug)
+
+def search_view(request):
+    query = request.GET.get('q')
+
+    results = None
+    if query:
+        results = Post.objects.filter(
+            Q(title__icontains=query) | Q(excerpt__icontains=query)
+        )
+    return render(request, 'blog/search_bar.html', {'results': results, 'query': query})
