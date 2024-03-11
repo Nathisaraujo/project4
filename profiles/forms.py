@@ -1,6 +1,7 @@
 from django import forms
 #imports da colega
 from blog.models import Post
+from .models import UserProfile
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 #forms da colega

@@ -11,4 +11,5 @@ urlpatterns = [
     # my urls
     path('manage/<str:username>/manage_posts', views.ManagePosts, name='user_posts'),
     path('history/<str:username>/liked-posts/', views.user_activity, name='liked_posts'),
+    path('edit-profile/<str:username>/', views.edit_profile, name='edit_profile'),
 ]

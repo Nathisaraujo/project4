@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from django.contrib.auth.models import User
 from django.db.models import Sum
+from .forms import UserProfileForm
 #imports da colega
 from django.views import generic, View
 from django.http import HttpResponseRedirect
@@ -121,3 +122,18 @@ def user_activity(request, username):
 
     }
     return render(request, 'user_activity.html', context)
+
+@login_required
+def edit_profile(request, username):
+     user_profile = request.user.userprofile
+
+     if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully.')
+            return redirect('profile', username=request.user.username)
+     else:
+        form = UserProfileForm(instance=user_profile)
+
+     return render(request, 'edit_profile.html', {'form': form})
