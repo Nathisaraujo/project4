@@ -3,6 +3,10 @@
     background-color: #F9FAFC;
 }
 
+.nav {
+    --bs-nav-link-color: #693d69;
+}
+
 .post-link {
     text-decoration: none;
     color: #2f2738;

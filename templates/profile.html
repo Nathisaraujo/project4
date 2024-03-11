@@ -6,7 +6,7 @@
 <main>
   <h1>Welcome back, {{ user.username }}!</h1>
     <!-- dropdown menu -->
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs profile-nav">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Post</a>
             <ul class="dropdown-menu">
@@ -24,31 +24,34 @@
           <a class="nav-link" href="{% url 'liked_posts' username=user.username %}">Activity</a>
         </li>
       </ul>
-    
       <!-- Welcome message -->
 
     <div class="container auth-style">
       <div class="row auth-container">
+        {% if user_profile.picture %}
         <div class="col">
-          {% if user_profile.picture %}
           <img src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-thumbnail">
-          {% endif %}
         </div>
+        {% endif %}
         <div class="col">
-          <h2>Your personal details</h2>
-          <p><strong>Username:</strong> {{ user.username }}</p>
-          <p><strong>Email:</strong> {{ user.email }}</p>
-          <p>Bio: {{ user_profile.bio }}</p>
-          <p>Birth Date: {{ user_profile.birth_date }}</p>
-          <p>Location: {{ user_profile.location }}</p>
-          <p>Last Login Date: {{ user_profile.last_login_date }}</p>
-          <p>Registration Date: {{ user_profile.registration_date }}</p>
-          <p>Gender: {{ user_profile.get_gender_display }}</p>
+          <h2><i class="fa-solid fa-address-card"></i> Your personal details</h2>
+          <hr>
+          <p><strong><i class="fa-solid fa-user"></i> Username:</strong> {{ user.username }}</p>
+          <p><strong><i class="fa-solid fa-envelope"></i> Email:</strong> {{ user.email }}</p>
+
+          <p><strong><i class="fa-solid fa-quote-left"></i> Bio:</strong> {{ user_profile.bio }}</p>
+          <p><strong><i class="fa-solid fa-cake-candles"></i> Birth Date:</strong> {{ user_profile.birth_date }}</p>
+          <p><strong><i class="fa-regular fa-user"></i> Gender:</strong> {{ user_profile.get_gender_display }}</p>
+          <p><strong><i class="fa-solid fa-map-pin"></i> Location:</strong> {{ user_profile.location }}</p>
+
+          <p><strong>Last Login Date:</strong> {{ user_profile.last_login_date }}</p>
+          <p><strong>Registration Date:</strong> {{ user_profile.registration_date }}</p>
 
           <p>
-            <a class="btn btn-sillytalks" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-              <i class="fa-solid fa-square-poll-vertical"></i>User Statistics
-            </a>
+            <button class="btn btn-sillytalks" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              <i class="fa-solid fa-square-poll-vertical"></i> User Statistics
+            </button>
+          
           </p>
           <div class="collapse" id="collapseExample">
             <div class="card card-body">
