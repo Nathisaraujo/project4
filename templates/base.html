@@ -132,6 +132,10 @@
     <script src="{% static 'js/script.js' %}"></script>
     <script>
       const postUrl = "{{ post.slug }}";
+
+      function goBack() {
+        window.history.back();
+    }
     </script>
     {% block extras %}
     {% endblock %}
