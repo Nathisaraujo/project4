@@ -4,10 +4,11 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
+<div class="container auth-style margin-containers">
+    <div class="row auth-container">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>Edit Post:</h3>
+            <h3>Edit Post:<br></h3>
+            <p>{{ post.title }}</p>
         </div>
     </div>
     {% if messages %}
@@ -18,7 +19,6 @@
     {% endfor %}
     {% endif %}
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
@@ -26,7 +26,6 @@
                 <button type="submit" class="btn btn-sillytalks">Update</button>
                 <button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
             </form>
-        </div>
     </div>
     <br>
 </div>

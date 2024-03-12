@@ -16,7 +16,11 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.title | as_crispy_field }}
+            <p style="font-size: 12px; margin-top: 0px;">Max 200 characters</p>
+            <br>
             {{ form.excerpt | as_crispy_field }}
+            <p style="font-size: 12px; margin-top: 0px;">Max 500 characters</p>
+            <br>
             {{ form.content | as_crispy_field }}
             </select>
             <br>
