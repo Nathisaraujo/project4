@@ -24,8 +24,8 @@ def profile(request, username):
     user_profile = get_object_or_404(UserProfile, user__username=username)
     post_count = Post.objects.filter(author=user_profile.user).count()
     comment_count = Comment.objects.filter(author=user_profile.user).count()
-    
     user_posts = Post.objects.filter(author=user_profile.user)
+
     total_votes = user_posts.aggregate(
         total_votes=Sum('like_count') + Sum('silly_count') + Sum('more_count')
     )['total_votes'] or 0

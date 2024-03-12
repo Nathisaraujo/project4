@@ -23,7 +23,7 @@ class Post(models.Model):
     like_count = models.PositiveIntegerField(default=0)
     sillied = models.ManyToManyField(User, default=None, related_name='silly_posts', blank=True)
     silly_count = models.PositiveIntegerField(default=0)
-    more = models.ManyToManyField(User, related_name='more_info')
+    more = models.ManyToManyField(User, related_name='more_info', blank=True)
     more_count = models.PositiveIntegerField(default=0)
     approved = models.BooleanField(default=False)
 
