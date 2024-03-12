@@ -47,7 +47,7 @@ def profile(request, username):
 class AddPost(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'add_post.html'
-    success_url = reverse_lazy("home")
+    #success_url = reverse_lazy("user_posts:manage_posts")
     form_class = PostForm
     success_message = 'Post sent. Wait for approval.'
 
@@ -58,17 +58,18 @@ class AddPost(SuccessMessageMixin, LoginRequiredMixin, CreateView):
         form.instance.slug = slugify(form.instance.title)
         # Save the post and redirect to the success URL
         response = super().form_valid(form)
-        # messages.success(
-        #     self.request, f'Post "{form.instance}" created successfully'
-        #     )
         return response
+    
+    def get_success_url(self):
+        # Redirect to the manage posts page after adding a post
+        return reverse_lazy("user_posts", kwargs={'username': self.request.user.username})
     
 # Bawarchi Khana code
 class EditPost(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'update_post.html'
-    success_url = reverse_lazy("home")
+    # success_url = reverse_lazy("home")
 
      # gio code
     def form_valid(self, form):
@@ -77,13 +78,18 @@ class EditPost(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
             self.request, f'Post "{form.instance}" updated successfully'
             )
         return response
+    
+    def get_success_url(self):
+        # Redirect to the manage posts page after adding a post
+        return reverse_lazy("post_detail", kwargs={'slug': self.object.slug})
+    
 
 # Bawarchi Khana code
 class DeletePost(LoginRequiredMixin, generic.DeleteView):
     
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy('home')
+    # success_url = reverse_lazy('home')
 
     # gio code
     def delete(self, request, *args, **kwargs):
@@ -96,6 +102,10 @@ class DeletePost(LoginRequiredMixin, generic.DeleteView):
             )
 
         return HttpResponseRedirect(success_url)
+    
+    def get_success_url(self):
+        # Redirect to the manage posts page after adding a post
+        return reverse_lazy("user_posts", kwargs={'username': self.request.user.username})
 
 @login_required
 def ManagePosts(request, username):
