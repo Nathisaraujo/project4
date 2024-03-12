@@ -1,6 +1,4 @@
 from django import forms
-from django.utils.translation import gettext_lazy as _
-# from bootstrap_datepicker_plus import DatePickerInput
 #imports da colega
 from blog.models import Post
 from .models import UserProfile
@@ -26,8 +24,14 @@ class UserProfileForm(forms.ModelForm):
         widgets = {
             'birth_date': forms.DateInput(attrs={'type': 'date'}),
         }
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            self.fields['birth_date'].label = _('Birth Date')
-            self.fields['birth_date'].help_text = _('Select your birth date from the calendar.')
+
+    def clean_bio(self):
+        bio = self.cleaned_data.get('bio')
+        if bio and len(bio) > 255:
+            bio = bio[:255]
+            self.cleaned_data['bio'] = bio
+            raise forms.ValidationError("Bio can't exceed 250 characteres.")
+        return bio
+    
+
 
