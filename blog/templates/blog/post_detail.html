@@ -143,11 +143,12 @@
         <div class="card-body">
           {% if user.is_authenticated %}
           <h3>Leave a comment:</h3>
-          <p>Posting as: {{ user.username }}</p>
+          <p>(Max 500 characters)</p>
           <form id="commentForm" method="post"
             style="margin-top: 1.3em;">
             {{ comment_form|crispy }}
             {% csrf_token %}
+            <p>Posting as: {{ user.username }}</p>
             <button id="submitButton" type="submit"
               class="btn btn-sillytalks">Submit</button>
           </form>
