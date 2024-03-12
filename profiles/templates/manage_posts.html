@@ -8,6 +8,7 @@
 <br>
 <h3 class="text-center">Manage my posts</h3>
 
+
 {% if user_posts %}
     {% for post in user_posts %}
         <div class="post-list">
@@ -15,12 +16,23 @@
                 <li><a href="{% url 'post_detail' post.slug %}" class="postlist-title">{{ post.title }} | Sent by: {{ post.author.username }}</a></li>
                 <li> {{ post.excerpt }} </li>
             </ul>
+            {% if post.status == 0 and post.author == user %}
+                <div class="post-list p-3">
+                    <p>
+                        {{ post.title }} | Sent by: {{ post.author.username }}
+                    </p>
+                    <p>
+                        Awaiting approval
+                    </p>
+                </div>
+            {% endif %}
         </div>
     {% endfor %}
 {% else %}
     <div class="post-list">
         <p>No posts yet.</p>
     </div>
-{% endif %}  
+{% endif %}
+
 <button onclick="goBack()" class="btn btn-secondary btn-back">Go Back</button>
 {% endblock %}
