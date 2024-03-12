@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from django.contrib.auth.models import User
-from django.db.models import Sum
+from django.db.models import Sum, F, Q
 from .forms import UserProfileForm
 #imports da colega
 from django.views import generic, View
@@ -30,8 +30,16 @@ def profile(request, username):
         total_votes=Sum('like_count') + Sum('silly_count') + Sum('more_count')
     )['total_votes'] or 0
     
-    user_total_votes = request.user.liked_posts.aggregate(
-        total_votes=Sum('like_count') + Sum('silly_count') + Sum('more_count')
+    # user_total_votes = request.user.Post.aggregate(
+    #     total_votes=Sum('like_count') + Sum('silly_count') + Sum('more_count')
+    # )['total_votes'] or 0
+
+    user_total_votes = Post.objects.filter(
+        Q(liked=request.user) |
+        Q(sillied=request.user) |
+        Q(more=request.user)
+    ).aggregate(
+        total_votes=Sum(F('like_count') + F('silly_count') + F('more_count'))
     )['total_votes'] or 0
    
     context = {
