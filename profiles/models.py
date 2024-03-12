@@ -16,7 +16,6 @@ class UserProfile(models.Model):
     picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
     birth_date = models.DateField(blank=True, null=True)
     location = models.CharField(max_length=100, blank=True)
-    last_login_date = models.DateTimeField(blank=True, null=True)
     registration_date = models.DateTimeField(default=timezone.now)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES, blank=True)
 

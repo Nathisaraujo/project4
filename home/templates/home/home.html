@@ -31,6 +31,8 @@
             <p class="card-text p-4 quotes-card"><span class="card-font">"My husband's family doesn't know I smoke"</span><br>They are all smokers but
             what I really like is crack but I'm pregnant now. Should I stop it?</p>
           </div>
+          <button type="submit" class="btn btn-sillytalks" style="max-width: 12em;"><a class="nav-link" aria-current="page"
+            href="{% url 'sillytalks' %}">Read more stories</a></button>
         </div>
       </div>
       <div class="col-md-6 pd-card">
@@ -65,8 +67,13 @@
               <li>To comment</li>
               <li><i class="fa-regular fa-bell fa-2xl"></i></li>
               <li>And to be notified of new stories</li>
-              <button type="submit" class="btn btn-sillytalks"><a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                href="{% url 'account_signup' %}">Register</a></button>
+              {% if user.is_authenticated  %}
+                <button type="submit" class="btn btn-sillytalks"><a class="nav-link" aria-current="page"
+                  href="{% url 'sillytalks' %}">Start the silliness</a></button>
+              {% else %}
+                <button type="submit" class="btn btn-sillytalks"><a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                  href="{% url 'account_signup' %}">Register</a></button>
+              {% endif %}
             </ul>
           </div>
       </div>
