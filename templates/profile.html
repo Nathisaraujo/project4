@@ -12,9 +12,10 @@
     <div class="container auth-style margin-containers">
       <div class="row auth-container">
         {% if user_profile.picture %}
-        <div class="col">
-          <img src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-thumbnail">
-        </div>
+          <div class="col">
+            {{ user_profile.picture.url }}
+            <img src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-thumbnail">
+          </div>
         {% endif %}
         <div class="col">
           <h2><i class="fa-solid fa-address-card"></i> Your personal details</h2>
