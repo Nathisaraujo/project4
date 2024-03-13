@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from django.contrib.auth.models import User
-from django.db.models import Sum, F, Q
+from django.db.models import Sum, Q
 from .forms import UserProfileForm
 #imports da colega
 from django.views import generic, View
@@ -25,28 +25,22 @@ def profile(request, username):
     post_count = Post.objects.filter(author=user_profile.user).count()
     comment_count = Comment.objects.filter(author=user_profile.user).count()
     user_posts = Post.objects.filter(author=user_profile.user)
-
-    total_votes = user_posts.aggregate(
-        total_votes=Sum('like_count') + Sum('silly_count') + Sum('more_count')
-    )['total_votes'] or 0
     
-    # user_total_votes = request.user.Post.aggregate(
-    #     total_votes=Sum('like_count') + Sum('silly_count') + Sum('more_count')
-    # )['total_votes'] or 0
+    post_total_votes = user_posts.aggregate(
+        post_total_votes=Sum('like_count') + Sum('silly_count') + Sum('more_count')
+    )['post_total_votes'] or 0
 
     user_total_votes = Post.objects.filter(
-        Q(liked=request.user) |
-        Q(sillied=request.user) |
-        Q(more=request.user)
-    ).aggregate(
-        total_votes=Sum(F('like_count') + F('silly_count') + F('more_count'))
-    )['total_votes'] or 0
-   
+        Q(like_count__gt=0, liked=user_profile.user) |
+        Q(silly_count__gt=0, sillied=user_profile.user) |
+        Q(more_count__gt=0, more=user_profile.user)
+    ).distinct().count()
+
     context = {
         'user_profile': user_profile,
         'post_count': post_count,
         'comment_count': comment_count,
-        'total_votes': total_votes,
+        'post_total_votes': post_total_votes,
         'user_total_votes': user_total_votes,
     }
     return render(request, 'profile.html', context)
