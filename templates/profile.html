@@ -9,14 +9,14 @@
     {% include 'navbar_profile.html' %}
 
     <div class="container auth-style margin-containers profile-mq">
-      <div class="row auth-container">
+      <div class="auth-container" id="profile-container">
         {% if user_profile.picture %}
-          <div class="col profile-pic">
+          <div class="col">
             <img src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-thumbnail">
           </div>
         {% endif %}
-        <div class="row">
-          <h2><i class="fa-solid fa-address-card"></i> Your personal details</h2>
+        <div class="col">
+          <h2 class="profile-title"><i class="fa-solid fa-address-card"></i> Your personal details</h2>
           <hr>
           <p><strong><i class="fa-solid fa-user"></i> Username:</strong> {{ user.username }}</p>
           <p><strong><i class="fa-solid fa-envelope"></i> Email:</strong> {{ user.email }}</p>
