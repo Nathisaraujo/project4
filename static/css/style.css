@@ -458,7 +458,7 @@ footer a {
         max-width: 20em;
     }
 
-    img, svg {
+    .profile-pic {
         margin-bottom: 20px;
     }
     #id_bio {
