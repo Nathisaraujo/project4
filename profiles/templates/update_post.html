@@ -4,7 +4,9 @@
 
 {% block content %}
 
-<div class="container auth-style margin-containers">
+<button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
+
+<div class="container auth-style margin-containers profile-mq text-center">
     <div class="row auth-container">
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>Edit Post:<br></h3>
@@ -24,7 +26,6 @@
                 {{ form | crispy }}
                 <br>
                 <button type="submit" class="btn btn-sillytalks">Update</button>
-                <button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
             </form>
     </div>
     <br>

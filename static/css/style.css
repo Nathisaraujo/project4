@@ -12,6 +12,10 @@
     align-self: center;
 }
 
+.comment-section {
+    padding: 3rem;
+}
+
 .margin-containers {
     margin-top: 20px;
 }
@@ -28,7 +32,7 @@
     padding: 1.5em;
     margin: 1em;
     border-radius: 1em;
-    height: 100%;
+    height: 100%
 }
 
 .cards-margin {
@@ -186,9 +190,8 @@ div.register-card ul {
 }
 
 .search-bar {
-    display: flex;
-    justify-content: center;
     margin-bottom: 20px;
+    align-self: center;
 }
 
 .comment-box {
@@ -350,6 +353,11 @@ input {
 footer a {
     color: white;
 }
+
+.btn-width-mq {
+    width: 40rem;
+    margin-left: 450px;
+}
 /* media query */
 
 @media only screen and (max-width: 1000px) {
@@ -363,6 +371,9 @@ footer a {
     div.judge-card ul li {
         margin: 2em;
         font-size: 1.3rem;
+    }
+    .profile-mq {
+        max-width: 30em;
     }
 }
 @media only screen and (max-width: 768px) {
@@ -381,13 +392,86 @@ footer a {
     .judge-card {
         min-height: 0rem;
     }
+    .profile-mq {
+        max-width: 25em;
+    }
+    #id_bio {
+        max-width: 20rem;
+    }
+
+    #id_picture {
+        max-width: 20rem;
+    }
+    .btn-width-mq {
+        width: 40rem;
+        margin-left: 300px;
+    }
+
 }
 @media only screen and (max-width: 375px) {
 
     .pd-card {
-        padding: 50px;
+        padding: 30px;
     }
+
     .form-card {
         margin: 30px;
     }
+
+    /* from here */
+    .post-card-mq {
+        width: 17em;
+    }
+
+    .card-font {
+        margin-top: 30px;
+    }
+
+    .my-main {
+        padding: 2rem;
+    }
+
+    .post-list {
+        padding: 25px;
+        width: 15em;
+        align-self: center;
+    }
+
+    .search-bar {
+        max-width: 17em;
+        align-self: center;
+    }
+
+    .navbar-brand {
+        margin-left: var(--bs-navbar-brand-margin-end);
+    }
+
+    .post-call {
+        margin: 12px;
+    }
+
+    .comment-section {
+        padding: 1rem;
+    }
+
+    .profile-mq {
+        max-width: 20em;
+    }
+
+    img, svg {
+        margin-bottom: 20px;
+    }
+    #id_bio {
+        max-width: 16rem;
+    }
+
+    #id_picture {
+        max-width: 16rem;
+    }
+    .btn-width-mq {
+        width: 20rem;
+        margin-left: 70px;
+    }
+
+
 }

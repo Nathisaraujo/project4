@@ -31,7 +31,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-nathisaraujo-project4-jt8sicichv4.ws-eu109.gitpod.io',
+ALLOWED_HOSTS = ['8000-nathisaraujo-project4-jt8sicichv4.ws-eu110.gitpod.io',
+    #'8000-nathisaraujo-project4-jt8sicichv4.ws-eu109.gitpod.io',
                 #  '8000-nathisaraujo-project4-jt8sicichv4.ws-eu108.gitpod.io',
                  '127.0.0.1:8000/',
                  '.herokuapp.com',
@@ -148,6 +149,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
+                 'https://*8000-nathisaraujo-project4-jt8sicichv4.ws-eu110.gitpod.io',
                  'https://*8000-nathisaraujo-project4-jt8sicichv4.ws-eu109.gitpod.io',
                 #  'https://*8000-nathisaraujo-project4-jt8sicichv4.ws-eu108.gitpod.io',
                  'https://*127.0.0.1:8000/',
@@ -228,6 +230,4 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# MEDIA_URL = '/profile_pictures/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'profile_pictures')
 

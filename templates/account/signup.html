@@ -6,7 +6,7 @@
 {% block head_title %}{% trans "Signup" %}{% endblock head_title %}
 
 {% block content %}
-<button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
+
 <div class="container text-center">
   <h1>{% trans "Sign Up" %}</h1>
   <div class="auth-container">
@@ -59,4 +59,5 @@
   </div>
   <p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign In</a>.{% endblocktrans %}</p>
 </div>
+<button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
 {% endblock content %}

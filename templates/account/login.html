@@ -6,9 +6,8 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
 
-<div class="container text-center auth-style">
+<div class="container text-center auth-style profile-mq">
     <div class="row auth-container">
             <h3>{% trans "Sign In" %}</h3>
             <p>{% blocktrans %}Welcome back to the Silly Talks! <br> To leave a comment or vote, please Log In.<br></p>
@@ -32,4 +31,5 @@
     </div>
 </div>
 
+<button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
 {% endblock %}

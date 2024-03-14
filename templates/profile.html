@@ -7,13 +7,11 @@
   <h1 class="p-4">Welcome back, {{ user.username }}!</h1>
     <!-- dropdown menu -->
     {% include 'navbar_profile.html' %}
-      <!-- Welcome message -->
 
-    <div class="container auth-style margin-containers">
+    <div class="container auth-style margin-containers profile-mq">
       <div class="row auth-container">
         {% if user_profile.picture %}
           <div class="col">
-            {{ user_profile.picture.url }}
             <img src="{{ user_profile.picture.url }}" alt="Profile Picture" class="img-thumbnail">
           </div>
         {% endif %}

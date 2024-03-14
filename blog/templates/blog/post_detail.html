@@ -6,7 +6,7 @@
 <!-- Displaying post details -->
 <button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
 <div class="container">
-    <div class="row">
+    <div class="row post-call">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
                 <h1 class="post-title">{{ post.title }}</h1>
@@ -29,10 +29,10 @@
             {% if user.is_authenticated and request.user == post.author %}
             <div class="container">
               <div class="row">
-                <div class="col-2">
+                <div class="col-2 btn-width-mq">
                     <div class="btn-group">
                         <!-- Button for post update -->
-                        <a href="{% url 'update_post' post.slug %}" class="btn btn-secondary">
+                        <a href="{% url 'update_post' post.slug %}" class="btn btn-sillytalks">
                             <i class="fa fa-edit"></i> Edit</a>
                     </div>
                     <div class="btn-group">
@@ -52,7 +52,7 @@
       <div class="row text-center">
         <p class="start-voting"> Start voting!</p>
       </div>
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-row voting-options text center">
         <div class="col-md-4 vote-align">
           <p> Not Silly: Seek help!</p>
           <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
@@ -95,8 +95,8 @@
     {% endif %}
   </div>
   <hr>
-  <div class="row p-5">
-  <!-- Displaying comment count and comments -->
+  <div class="row comment-section">
+  <!-- Displaying co mment count and comments -->
     <div class="col">
       <div class="col-md-12 card mb-4  mt-3 ">
         <h3 class="p-3"><i class="fa-regular fa-comment"></i> {{ comment_count }} comments:</h3>

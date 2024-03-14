@@ -5,29 +5,29 @@
 {% block content %}
 
 {% include 'navbar_profile.html' %}
+<main>
+    <div class="container text-center auth-style margin-containers profile-mq">
+        <div class="row auth-container">
+                <h3>Add a Post</h3>
+                <p>Tell us your silly story here and we'll approve it in 2 working days</p>
+        </div>
 
-<div class="container text-center auth-style margin-containers">
-    <div class="row auth-container">
-            <h3>Add a Post</h3>
-            <p>Tell us your silly story here and we'll approve it in 2 working days</p>
+        <div class="row">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.title | as_crispy_field }}
+                <p style="font-size: 12px; margin-top: 0px;">Max 200 characters</p>
+                <br>
+                {{ form.excerpt | as_crispy_field }}
+                <p style="font-size: 12px; margin-top: 0px;">Max 500 characters</p>
+                <br>
+                {{ form.content | as_crispy_field }}
+                </select>
+                <br>
+                <button type="submit" class="btn btn-sillytalks"> Submit</button>
+                <button onclick="goBack()" class="btn btn-secondary">Go Back</button>
+            </form>
+        </div>
     </div>
-
-    <div class="row">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.title | as_crispy_field }}
-            <p style="font-size: 12px; margin-top: 0px;">Max 200 characters</p>
-            <br>
-            {{ form.excerpt | as_crispy_field }}
-            <p style="font-size: 12px; margin-top: 0px;">Max 500 characters</p>
-            <br>
-            {{ form.content | as_crispy_field }}
-            </select>
-            <br>
-            <button type="submit" class="btn btn-sillytalks"> Submit</button>
-            <button onclick="goBack()" class="btn btn-secondary">Go Back</button>
-        </form>
-    </div>
-</div>
-
+</main>
 {% endblock %}
