@@ -9,5 +9,5 @@ class CollaborateForm(forms.ModelForm):
 
     class Meta:
         model = CollaborateRequest
-        fields = ('name', 'email', 'title','message')
+        fields = ('name', 'email', 'title', 'message')
         
