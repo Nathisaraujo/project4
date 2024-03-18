@@ -18,18 +18,20 @@ class Post(models.Model):
     excerpt = models.TextField(max_length=500, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     # My objects
-    liked = models.ManyToManyField(User, default=None, related_name='liked_posts', blank=True)
+    liked = models.ManyToManyField(
+        User, default=None, related_name='liked_posts', blank=True
+    )
     like_count = models.PositiveIntegerField(default=0)
-    sillied = models.ManyToManyField(User, default=None, related_name='silly_posts', blank=True)
+    sillied = models.ManyToManyField(
+        User, default=None, related_name='silly_posts', blank=True
+    )
     silly_count = models.PositiveIntegerField(default=0)
     more = models.ManyToManyField(User, related_name='more_info', blank=True)
     more_count = models.PositiveIntegerField(default=0)
     approved = models.BooleanField(default=False)
 
-
     class Meta:
         ordering = ["-created_on", "author"]
-
 
     def __str__(self):
         return f"{self.title} | sent by {self.author} "
@@ -38,13 +40,16 @@ class Post(models.Model):
     @property
     def num_likes(self):
         return self.liked.count()
+
     def num_silly(self):
         return self.sillied.count()
+
     def num_more(self):
         return self.sillied.count()
 
-
 # Users comments model from Code Institute Walkthrough
+
+
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
@@ -54,10 +59,8 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
-
     class Meta:
         ordering = ["-created_on"]
 
-        
     def __str__(self):
         return f"{self.body} by {self.author}"

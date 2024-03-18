@@ -8,16 +8,15 @@ from .models import Post, Comment
 from .forms import CommentForm
 
 
-
 # Displays list of posts in index.html
-
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 3
 
-
 # displays post detail in post_detail.html
+
+
 def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -33,7 +32,6 @@ def post_detail(request, slug):
     sillied = False
     if post.sillied.filter(id=request.user.id).exists():
         sillied = True
-    
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -53,14 +51,14 @@ def post_detail(request, slug):
         request,
         "blog/post_detail.html",
         {"post": post,
-        "comments": comments,
-        "comment_count": comment_count,
-        "comment_form": comment_form,
-        "liked": liked,
-        "like_count": like_count,
-        "sillied": sillied,
-        "silly_count": silly_count,
-        },
+         "comments": comments,
+         "comment_count": comment_count,
+         "comment_form": comment_form,
+         "liked": liked,
+         "like_count": like_count,
+         "sillied": sillied,
+         "silly_count": silly_count,
+         },
     )
 
 
@@ -83,7 +81,8 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
@@ -101,7 +100,8 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
@@ -159,6 +159,8 @@ class PostVote(generic.RedirectView):
         return redirect('post_detail', slug=post.slug)
 
 # permit users to search for specific posts
+
+
 def search_view(request):
     query = request.GET.get('q')
 
@@ -167,4 +169,5 @@ def search_view(request):
         results = Post.objects.filter(
             Q(title__icontains=query) | Q(excerpt__icontains=query)
         )
-    return render(request, 'blog/search_bar.html', {'results': results, 'query': query})
+    return render(
+        request, 'blog/search_bar.html', {'results': results, 'query': query})
