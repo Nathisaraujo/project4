@@ -12,7 +12,7 @@
 
 <head>
     <title>Silly Talks</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link {% if request.path == about_url %}active{%endif%}" aria-current="page"
-                href="{% url 'sillytalks' %}" href="#">Silly Talks</a>
+                href="{% url 'sillytalks' %}">Silly Talks</a>
               </li>
               {% if user.is_authenticated %}
               <li class="nav-item">
