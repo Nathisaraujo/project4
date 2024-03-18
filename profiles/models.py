@@ -15,6 +15,25 @@ GENDER_CHOICES = [
 
 
 class UserProfile(models.Model):
+    """
+    Model to store user profiles.
+
+    This model represents user profiles, including fields for bio,
+    profile picture, birth date, location, registration date,
+    and gender.
+
+    **Attributes**
+    - user: The associated user object.
+    - bio: User's bio information.
+    - picture: User's profile picture = CloudinaryField storing pictures
+    - birth_date: User's birth date.
+    - location: User's location.
+    - registration_date: Date and time of user registration.
+    - gender: User's gender.
+
+    **Methods**
+    - __str__: Returns the username of the associated user.
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, max_length=255)
     picture = CloudinaryField('image', default='placeholder')
@@ -26,4 +45,7 @@ class UserProfile(models.Model):
     )
 
     def __str__(self):
+        """
+        Returns the username of the associated user.
+        """
         return self.user.username

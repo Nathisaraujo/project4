@@ -8,6 +8,23 @@ from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 
 class PostForm(forms.ModelForm):
+    """
+    Form for adding and editing blog posts.
+
+    This form allows users to add and edit blog posts, specifying
+    the title, excerpt, and content of the post.
+
+    **Model**
+    :model:`blog.Post`
+
+    **Fields**
+    - title: title of the post
+    - excerpt: text summarizing the post
+    - content: text of the post
+
+    **Widgets**
+    - content: SummernoteWidget
+    """
     class Meta:
         model = Post
         fields = [
@@ -23,6 +40,25 @@ class PostForm(forms.ModelForm):
 
 
 class UserProfileForm(forms.ModelForm):
+    """
+    Form for updating user profiles.
+
+    This form allows users to update their profiles, including
+    their bio, birth date, location, gender, and profile picture.
+
+    **Model**
+    :model:`your_app_name.UserProfile`
+
+    **Fields**
+    - bio: piece of text the user can write about himself
+    - birth_date: date of birth
+    - location: where the user is located
+    - gender: user's gender
+    - picture: user's profile photo
+
+    **Widgets**
+    - birth_date: DateInput
+    """
     class Meta:
         model = UserProfile
         fields = ['bio', 'birth_date', 'location', 'gender', 'picture']

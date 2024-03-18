@@ -19,6 +19,27 @@ from .models import UserProfile
 
 @login_required
 def profile(request, username):
+    """
+    Renders the user profile page with user-specific information.
+
+    Retrieves the user profile associated with the provided username
+    and renders the user profile page with user statistics.
+
+    **Context**
+    ``user_profile``
+        The UserProfile instance associated with the requested username.
+    ``post_count``
+        The count of posts authored by the user.
+    ``comment_count``
+        The count of comments authored by the user.
+    ``post_total_votes``
+        The total number of votes received on user's posts.
+    ``user_total_votes``
+        The total number of posts on which the user has voted.
+
+    **Template**
+    :template:`profile.html`
+    """
     user_profile = get_object_or_404(UserProfile, user__username=username)
     post_count = Post.objects.filter(author=user_profile.user).count()
     comment_count = Comment.objects.filter(author=user_profile.user).count()
@@ -48,6 +69,19 @@ def profile(request, username):
 
 
 class AddPost(SuccessMessageMixin, LoginRequiredMixin, CreateView):
+    """
+    View for adding a new post.
+
+    Allows authenticated users to add a new post. SuccessMessageMixin
+    is used to display success messages after successfully adding a post.
+
+    **Context**
+    ``form``
+        The PostForm instance.
+
+    **Template**
+    :template:`add_post.html`
+    """
     model = Post
     template_name = 'add_post.html'
     form_class = PostForm
@@ -69,6 +103,19 @@ class AddPost(SuccessMessageMixin, LoginRequiredMixin, CreateView):
 
 
 class EditPost(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
+    """
+    View for editing a post.
+
+    Allows authenticated users to edit their own posts. SuccessMessageMixin
+    is used to display success messages after successfully updating a post.
+
+    **Context**
+    ``form``
+        The PostForm instance.
+
+    **Template**
+    :template:`update_post.html`
+    """
     model = Post
     form_class = PostForm
     template_name = 'update_post.html'
@@ -87,7 +134,14 @@ class EditPost(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 
 # Delete post view from Bawarchi Khana's code with modifications
 class DeletePost(LoginRequiredMixin, generic.DeleteView):
+    """
+    View for deleting a post.
 
+    Allows authenticated users to delete their own posts.
+
+    **Template**
+    :template:`delete_post.html`
+    """
     model = Post
     template_name = 'delete_post.html'
 
@@ -111,6 +165,18 @@ class DeletePost(LoginRequiredMixin, generic.DeleteView):
 
 @login_required
 def ManagePosts(request, username):
+    """
+    View for managing user posts.
+
+    Displays a list of posts authored by the authenticated user.
+
+    **Context**
+    ``user_posts``
+        A queryset of posts authored by the authenticated user.
+
+    **Template**
+    :template:`manage_posts.html`
+    """
     user_posts = Post.objects.filter(approved=True, author=request.user)
 
     context = {
@@ -123,6 +189,24 @@ def ManagePosts(request, username):
 
 @login_required
 def user_activity(request, username):
+    """
+    View for displaying user activity.
+
+    Displays the posts on which the user has voted or commented.
+
+    **Context**
+    ``liked_posts``
+        A queryset of posts marked as not silly by the user.
+    ``silly_posts``
+        A queryset of posts marked as silly by the user.
+    ``more_posts``
+        A queryset of posts marked as more information by the user.
+    ``commented_posts``
+        A queryset of posts on which the user has commented.
+
+    **Template**
+    :template:`user_activity.html`
+    """
     user = User.objects.get(username=username)
     liked_posts = Post.objects.filter(liked=request.user)
     silly_posts = Post.objects.filter(sillied=request.user)
@@ -142,6 +226,18 @@ def user_activity(request, username):
 
 @login_required
 def edit_profile(request, username):
+    """
+    View for editing user profile.
+
+    Allows authenticated users to edit their own profile information.
+
+    **Context**
+    ``form``
+        The UserProfileForm instance.
+
+    **Template**
+    :template:`edit_profile.html`
+    """
     user_profile = request.user.userprofile
 
     if request.method == 'POST':
