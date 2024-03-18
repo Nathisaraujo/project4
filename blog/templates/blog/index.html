@@ -23,7 +23,7 @@
                         <p class="card-text excerpt-text">{{ post.excerpt }}</p><br>
                         <p class="card-text card-info">By {{ post.author}} on {{ post.created_on}}</p>
                     </div>
-                <!-- votes counts in each post -->
+                    <!-- votes counts in each post -->
                     <div class="p-2 text-center">
                         <p>How much silliness you will find:</p>
                         <i class="fa-regular fa-face-tired fa-2xl"></i> {{ post.like_count }}
@@ -33,32 +33,32 @@
                 </div>
             </div>
             {% if forloop.counter|divisibleby:3 %}
-        </div>
             <div class="row">
                 {% endif %}
                 {% endfor %}
             </div>
-        </div>
-    <!-- pagination -->
-    {% if is_paginated %}
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                <li class="page-item"><a href="?page=1" class="page-link">&laquo; First</a></li>
-                <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> &laquo; PREVIOUS</a></li>
-                {% endif %}
-
-                {% for num in paginator.page_range %}
-                <li class="page-item {% if page_obj.number == num %}active{% endif %}"><a href="?page={{ num }}" class="page-link">{{ num }}</a></li>
-                {% endfor %}
-
-                {% if page_obj.has_next %}
-                <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-                <li class="page-item"><a href="?page={{ paginator.num_pages }}" class="page-link">Last &raquo;</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    {% endif %}
     </div>
+
+    <!-- pagination -->
+        {% if is_paginated %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item"><a href="?page=1" class="page-link">&laquo; First</a></li>
+                    <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> &laquo; PREVIOUS</a></li>
+                    {% endif %}
+
+                    {% for num in paginator.page_range %}
+                    <li class="page-item {% if page_obj.number == num %}active{% endif %}"><a href="?page={{ num }}" class="page-link">{{ num }}</a></li>
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                    <li class="page-item"><a href="?page={{ paginator.num_pages }}" class="page-link">Last &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    
 </main>
 {% endblock %}

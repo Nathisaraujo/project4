@@ -24,7 +24,8 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="submit" value="Delete" class="btn btn-sillytalks">
-                <a href="{% url 'home' %}" role="button" class="btn btn-secondary">Go back</a>
+                <button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
+            </form>
         </div>
     </div>
     <br>
