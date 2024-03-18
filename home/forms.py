@@ -5,6 +5,15 @@ from .models import CollaborateRequest
 
 # Collaboration form from Code Institue Walkthrough - with modification
 class CollaborateForm(forms.ModelForm):
+    """
+    Form for submitting collaboration requests.
+
+    This form allows users to submit anonimous stories by providing
+    their name, email, title, and message.
+
+    **Model**
+    :model:`your_app_name.CollaborateRequest`
+    """
     title = forms.CharField(max_length=100)
 
     class Meta:
