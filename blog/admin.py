@@ -7,6 +7,13 @@ from .models import Post, Comment
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
+    """
+    Customizes the admin interface for Post model.
+
+    This admin option allows managing Post instances including fields such as
+    title, slug, status, created_on, and author. It enables rich text editing
+    for the content field using the Summernote editor.
+    """
 
     list_display = ('title', 'slug', 'status', 'created_on', 'author')
     search_fields = ['title', 'content']
@@ -20,6 +27,13 @@ class PostAdmin(SummernoteModelAdmin):
 
 @admin.register(Comment)
 class Comment(SummernoteModelAdmin):
+    """
+    Customizes the admin interface for Comment model.
+
+    This admin option allows managing Comment instances including fields such
+    as body, author, and approved. It enables rich text editing for the body
+    field using the Summernote editor.
+    """
 
     list_display = ('body', 'author', 'approved')
     search_fields = ['body', 'author']

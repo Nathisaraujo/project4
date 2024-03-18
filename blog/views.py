@@ -10,6 +10,22 @@ from .forms import CommentForm
 
 # Displays list of posts in index.html
 class PostList(generic.ListView):
+    """
+    View to display a list of published posts.
+
+    This view retrieves published posts from the database
+    and displays them paginated on the index.html template.
+
+    **Model**
+    :model:`blog.Post`
+
+    **Template**
+    :template:`blog/index.html`
+
+    **Context**
+    ``object_list``
+        A list of published posts.
+    """
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 3
@@ -18,6 +34,36 @@ class PostList(generic.ListView):
 
 
 def post_detail(request, slug):
+    """
+    View to display details of a specific post.
+
+    This view retrieves the details of a specific post based on the provided
+    slug. It also handles comment submission and rendering.
+
+    **Model**
+    :model:`blog.Post`
+
+    **Template**
+    :template:`blog/post_detail.html`
+
+    **Context**
+    ``post``
+        The specific post being viewed.
+    ``comments``
+        All comments associated with the post.
+    ``comment_count``
+        Number of approved comments for the post.
+    ``comment_form``
+        Form for adding new comments.
+    ``liked``
+        Boolean indicating if the current user has voted as not silly.
+    ``like_count``
+        Total number of not silly votes for the post.
+    ``sillied``
+        Boolean indicating if the current user has voted as silly.
+    ``silly_count``
+        Total number of silly votes for the post.
+    """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
@@ -65,7 +111,16 @@ def post_detail(request, slug):
 # permit user to edit the comment
 def comment_edit(request, slug, comment_id):
     """
-    view to edit comments
+    Display an individual comment for edit.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+    ``comment``
+        A single comment related to the post.
+    ``comment_form``
+        An instance of :form:`blog.CommentForm`
     """
     if request.method == "POST":
 
@@ -90,7 +145,20 @@ def comment_edit(request, slug, comment_id):
 # permit user to delete the comment
 def comment_delete(request, slug, comment_id):
     """
-    view to delete comment
+    View to delete comments.
+
+    This view allows users to delete their own comments. It retrieves the post
+    associated with the comment and the comment itself, then deletes the
+    comment if the user is the author.
+
+    **Model**
+    :model:`blog.Post`, :model:`blog.Comment`
+
+    **Context**
+    ``post``
+        The post associated with the comment being deleted.
+    ``comment``
+        The comment being deleted.
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -109,7 +177,13 @@ def comment_delete(request, slug, comment_id):
 # permit users to vote (leave their opinion) in each post
 class PostVote(generic.RedirectView):
     """
-    The PostVote view handles voting on posts.
+    View to handle voting on posts.
+
+    This view handles voting on posts, including options to mark as
+    not silly, silly or more information.
+
+    **Model**
+    :model:`blog.Post`
     """
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)

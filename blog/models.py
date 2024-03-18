@@ -7,6 +7,37 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # Post model from Code Institute Walkthrough - with modifications
 class Post(models.Model):
+    """
+    Model for blog posts.
+
+    This model represents all the blog posts. It includes fields for
+    the post title, slug, author, content, creation date, status, excerpt,
+    update date, liked votes, silly votes, more information votes, and approval
+    status. It also includes property methods to calculate the number of votes
+    requests for each post.
+
+    **Fields**
+    - title (CharField) - title of the post
+    - slug (SlugField) - slug of the post
+    - author (ForeignKey to User) - author of the post
+    - content (TextField) - Post text
+    - created_on (DateTimeField) - when the post was created
+    - status (IntegerField with choices) - if it's published or a draft
+    - excerpt (TextField) - Text summarizing the post content
+    - updated_on (DateTimeField) - When the post was created
+    - liked (ManyToManyField to User) - button to vote as not silly
+    - like_count (PositiveIntegerField) - not silly votes counter
+    - sillied (ManyToManyField to User) - button to vote as silly
+    - silly_count (PositiveIntegerField) - silly votes counter
+    - more (ManyToManyField to User) - button to vote as more information
+    - more_count (PositiveIntegerField) - more information votes counter
+    - approved (BooleanField) - admin field to mark post as approved
+
+    **Property Methods**
+    - num_likes: Returns the number of not silly votes for the post.
+    - num_silly: Returns the number of silly votes for the post.
+    - num_more: Returns the number of more information votes for the post.
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
@@ -51,6 +82,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Stores a single comment entry related to :model:`auth.User`
+    and :model:`blog.Post`.s
+    """
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(

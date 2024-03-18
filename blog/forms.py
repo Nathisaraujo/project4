@@ -6,6 +6,12 @@ from .models import Comment, Post
 
 
 class CommentForm(forms.ModelForm):
+    """
+    Form for submitting comments on posts.
+
+    This form allows users to submit comments on posts.
+    It limits the length of the comment body to 500 characters.
+    """
     class Meta:
         model = Comment
         fields = ('body',)
@@ -22,6 +28,13 @@ class CommentForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
+    """
+    Form for creating or updating posts.
+
+    This form allows users to create or edit blog posts.
+    It limits the length of the post title to 200 characters
+    and the post excerpt to 500 characters.
+    """
     class Meta:
         model = Post
         fields = ('excerpt', 'title')
