@@ -2,8 +2,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from .forms import CollaborateForm
 
-# Create your views here.
-
+# Home view to the collaboration form
 def home(request):
     if request.method == "POST":
         collaborate_form = CollaborateForm(data=request.POST)

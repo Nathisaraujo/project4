@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import CollaborateRequest
 
+# admin option for the collaboration form from Code Institue Walkthrough - with modifications
 @admin.register(CollaborateRequest)
 class CollaborateRequestAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'title', 'message', 'posted')  

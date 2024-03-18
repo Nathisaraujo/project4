@@ -1,7 +1,7 @@
 from django.db import models
 
 
-# collaboration form home page
+# Collaboration form model from Code Institute Walkthrough - with modifications
 class CollaborateRequest(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
