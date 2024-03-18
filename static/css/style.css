@@ -239,6 +239,10 @@ div.register-card ul {
     background-color: #fff;
 }
 
+.alert-success {
+    color: green;
+}
+ 
 .vote-button {
     margin-right: 10px;
     border-radius: 100%;
