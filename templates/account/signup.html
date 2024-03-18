@@ -28,13 +28,6 @@
           {% endfor %}
         </div>
         <div class="p-2"> 
-          <small class="text-muted">Your password should be at least 8 characters long and include at least:
-            <ul>
-              <li>1 letter</li>
-              <li>1 number</li>
-              <li>1 special character</li>
-            </ul>
-          </small>
           <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label><br>
           {{ form.password1 }}
           {% for error in form.password1.errors %}
@@ -48,6 +41,12 @@
             <p class="error">{{ error }}</p>
           {% endfor %}
         </div>
+            <ul style="font-size: smaller;">
+              <li>Your password should be at least 8 characters long and include at least:</li>
+              <li>1 letter</li>
+              <li>1 number</li>
+              <li>1 special character</li>
+            </ul>
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
