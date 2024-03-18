@@ -1,15 +1,14 @@
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 from .models import UserProfile
 from blog.models import Post
-#import da colega
-from django_summernote.admin import SummernoteModelAdmin
 
-# Register your models here.
+# admin option for the User Profile
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ['user', 'bio']
 
-
+# admin option for the add post model - from Bawarchi Khana's code
 class PostAdmin(SummernoteModelAdmin):
 
     list_display = ('title', 'slug', 'status', 'created_on')

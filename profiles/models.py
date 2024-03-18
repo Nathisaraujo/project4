@@ -1,16 +1,17 @@
 from django.db import models
-from django.contrib.auth.models import User
-from blog.models import Post
 from django.utils import timezone
 from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User
+from blog.models import Post
 
-# Create your models here.
+# Displays the gender choiced for the User Profile
 GENDER_CHOICES = [
     ('M', 'Male'),
     ('F', 'Female'),
     ('O', 'Other'),
 ]
 
+# User Profile model
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, max_length=255)

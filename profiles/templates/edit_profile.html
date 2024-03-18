@@ -4,6 +4,7 @@
 
 {% block content %}
 
+<!-- Displays messages to the user -->
 {% if messages %}
         <ul>
             {% for message in messages %}
@@ -11,18 +12,19 @@
             {% endfor %}
         </ul>
 {% endif %}
+
+<!-- profile nav bar template -->
 {% include 'navbar_profile.html' %}
 <br>
+<!-- Displays a form so the users can edit their profile information -->
 <h1 class="text-center">Edit Profile</h1>
 <div class="container auth-style margin-containers profile-mq">
     <div class="row auth-container">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            
             {% for error in form.bio.errors %}
                 <div class="alert alert-danger">{{ error }}</div>
             {% endfor %}
-
             <div class="form-group p-2">
                 <label for="id_title"><i class="fa-solid fa-quote-left fa-xl"></i> Bio <br> (max 255 characters)</label>
                 {{ form.bio }}
@@ -44,8 +46,6 @@
                 <label for="id_image"><i class="fas fa-image fa-xl"></i> Picture</label>
                 {{ form.picture }}
             </div>
-
-            <!-- {{ form.as_p }} -->
             <button type="submit" class="btn btn-sillytalks">Save</button>
             <button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
         </form>

@@ -3,7 +3,10 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+<!-- Displays the profile nav bar -->
 {% include 'navbar_profile.html' %}
+
+<!-- Displays a list of the user's activity in the wesite -->
 <h1 class="text-center p-2"><i class="fa-solid fa-square-poll-vertical"></i> User Activity </h1>
 <br>
 
@@ -66,6 +69,7 @@
         <p class="p-5">No <strong>commented</strong> posts yet.</p>
 {% endif %}
 
+<!-- Displays the go back button -->
 <button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
 
 {% endblock %}

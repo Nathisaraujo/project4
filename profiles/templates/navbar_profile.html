@@ -1,3 +1,5 @@
+<!-- Displays the profile nav nar in multiple pages -->
+
 <ul class="nav nav-tabs profile-nav">
     <li class="nav-item">
         <a class="nav-link" href="{% url 'profile' username=user.username %}">Profile</a>
@@ -18,4 +20,4 @@
     <li class="nav-item">
       <a class="nav-link" href="{% url 'liked_posts' username=user.username %}">Activity</a>
     </li>
-  </ul>
+</ul>

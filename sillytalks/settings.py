@@ -33,8 +33,6 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-nathisaraujo-project4-jt8sicichv4.ws-eu110.gitpod.io',
-    #'8000-nathisaraujo-project4-jt8sicichv4.ws-eu109.gitpod.io',
-                #  '8000-nathisaraujo-project4-jt8sicichv4.ws-eu108.gitpod.io',
                  '127.0.0.1:8000/',
                  '.herokuapp.com',
                  'sillytalks-d90cef26c5c7.herokuapp.com/',
@@ -44,10 +42,8 @@ ALLOWED_HOSTS = ['8000-nathisaraujo-project4-jt8sicichv4.ws-eu110.gitpod.io',
 SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = [
-    # 'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -62,7 +58,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.discord',
     'crispy_forms',
     'crispy_bootstrap5',
     'django_password_validators',
@@ -117,11 +112,6 @@ TEMPLATES = [
 # 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
 
 
-# discord
-# 1213900011071348776
-# BOsi7Re78oyBv1x1INTgSsiBVgmraL0h
-
-
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -153,8 +143,6 @@ DATABASES = {
 
 CSRF_TRUSTED_ORIGINS = [
                  'https://*8000-nathisaraujo-project4-jt8sicichv4.ws-eu110.gitpod.io',
-                 'https://*8000-nathisaraujo-project4-jt8sicichv4.ws-eu109.gitpod.io',
-                #  'https://*8000-nathisaraujo-project4-jt8sicichv4.ws-eu108.gitpod.io',
                  'https://*127.0.0.1:8000/',
                  'https://*.herokuapp.com',
                  'https://*sillytalks-d90cef26c5c7.herokuapp.com/'
@@ -227,10 +215,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-# STATIC_URL = 'static/'
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -1,11 +1,10 @@
 from django import forms
 from django.forms import Textarea
-#imports da colega
 from blog.models import Post
 from .models import UserProfile
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
-#forms da colega
+# Add Post form - from Bawarchi Khana's code
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -18,6 +17,7 @@ class PostForm(forms.ModelForm):
             'content': SummernoteWidget(),
                     }
 
+# User Profile Form with a function to limit the characters of bio
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
