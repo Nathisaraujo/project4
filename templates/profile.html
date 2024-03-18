@@ -5,9 +5,10 @@
 
 <main>
   <h1 class="p-4">Welcome back, {{ user.username }}!</h1>
-    <!-- dropdown menu -->
+    <!-- displays nav bar ytemplate -->
     {% include 'navbar_profile.html' %}
 
+    <!-- displays user's personal information -->
     <div class="container auth-style margin-containers profile-mq">
       <div class="auth-container" id="profile-container">
         {% if user_profile.picture %}
