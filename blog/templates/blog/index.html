@@ -4,41 +4,41 @@
 {% block content %}
 
 <main class="flex-shrink-0 main-bg my-main">
-    <!-- search button -->
+    <!-- Displays search bar -->
     <div class="search-bar">
         <form class="d-flex" role="search" action="{% url 'search' %}" method="get">
             <input class="form-control me-2" name="q" type="search" placeholder="Search Silly Talks" aria-label="Search">
             <button class="btn btn-sillytalks" type="submit">Search</button>
         </form>
     </div>
-    <!-- posts cards -->
+    <!-- posts list cards -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for post in post_list %}
-        <div class="col cards cards-margin">
-        <div class="post-card post-card-mq">
-            <div class="card-body">
-                <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                    <p class="card-title">{{ post.title }}</p><br>
-                </a>
-                <p class="card-text excerpt-text">{{ post.excerpt }}</p><br>
-                <p class="card-text card-info">By {{ post.author}} on {{ post.created_on}}</p>
+            <div class="col cards cards-margin">
+                <div class="post-card post-card-mq">
+                    <div class="card-body">
+                        <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                            <p class="card-title">{{ post.title }}</p><br>
+                        </a>
+                        <p class="card-text excerpt-text">{{ post.excerpt }}</p><br>
+                        <p class="card-text card-info">By {{ post.author}} on {{ post.created_on}}</p>
+                    </div>
+                <!-- votes counts in each post -->
+                    <div class="p-2 text-center">
+                        <p>How much silliness you will find:</p>
+                        <i class="fa-regular fa-face-tired fa-2xl"></i> {{ post.like_count }}
+                        <i class="fa-regular fa-face-grin-tongue fa-2xl"></i> {{ post.silly_count }}
+                        <i class="fa-regular fa-face-surprise fa-2xl"></i> {{ post.more_count }}
+                    </div> 
+                </div>
             </div>
-         <!-- votes counts in each post -->
-            <div class="p-2 text-center">
-                <p>How much silliness you will find:</p>
-                <i class="fa-regular fa-face-tired fa-2xl"></i> {{ post.like_count }}
-                <i class="fa-regular fa-face-grin-tongue fa-2xl"></i> {{ post.silly_count }}
-                <i class="fa-regular fa-face-surprise fa-2xl"></i> {{ post.more_count }}
-            </div> 
+            {% if forloop.counter|divisibleby:3 %}
         </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
-        {% if forloop.counter|divisibleby:3 %}
-    </div>
-        <div class="row">
-            {% endif %}
-            {% endfor %}
-        </div>
-    </div>
     <!-- pagination -->
     {% if is_paginated %}
         <nav aria-label="Page navigation">

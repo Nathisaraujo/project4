@@ -3,15 +3,13 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
+from django.db.models import Q
 from .models import Post, Comment
 from .forms import CommentForm
-from django.db.models import F
-from django.db.models import Q
 
 
-# Create your views here.
 
-# displays list of posts in index.html
+# Displays list of posts in index.html
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
@@ -19,7 +17,7 @@ class PostList(generic.ListView):
     paginate_by = 3
 
 
-# displays post detail in post_detail
+# displays post detail in post_detail.html
 def post_detail(request, slug):
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -160,6 +158,7 @@ class PostVote(generic.RedirectView):
         post.save()
         return redirect('post_detail', slug=post.slug)
 
+# permit users to search for specific posts
 def search_view(request):
     query = request.GET.get('q')
 

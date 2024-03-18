@@ -4,10 +4,8 @@ from django.contrib.auth.models import User
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-# Create your models here.
 
-
-# Post model with each post details
+# Post model from Code Institute Walkthrough - with modifications
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -19,6 +17,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(max_length=500, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    # My objects
     liked = models.ManyToManyField(User, default=None, related_name='liked_posts', blank=True)
     like_count = models.PositiveIntegerField(default=0)
     sillied = models.ManyToManyField(User, default=None, related_name='silly_posts', blank=True)
@@ -35,6 +34,7 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title} | sent by {self.author} "
 
+    # My property methods
     @property
     def num_likes(self):
         return self.liked.count()
@@ -44,7 +44,7 @@ class Post(models.Model):
         return self.sillied.count()
 
 
-# Users comments model
+# Users comments model from Code Institute Walkthrough
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")

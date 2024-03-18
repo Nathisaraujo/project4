@@ -1,7 +1,8 @@
-from . import views
 from django.urls import path, include
-from .views import PostVote
 from django.contrib import admin
+from . import views
+from .views import PostVote
+
 
 urlpatterns = [
     path('search/', views.search_view, name='search'),

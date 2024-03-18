@@ -3,8 +3,12 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-<!-- Displaying post details -->
+<!-- Displaying go back button -->
+
 <button onclick="goBack()" class="btn btn-back btn-secondary">Go Back</button>
+
+<!-- Displaying the detailed post -->
+
 <div class="container">
     <div class="row post-call">
         <div class="col card mb-4  mt-3 left  top">
@@ -25,18 +29,16 @@
                 </div>
             </div>
             <br>
-            <!-- código da colega -->
+            <!-- Bawarchi Khana's project code to add edit and delete buttons to posts -->
             {% if user.is_authenticated and request.user == post.author %}
             <div class="container">
               <div class="row">
                 <div class="col-2 btn-width-mq">
-                    <div class="btn-group">
-                        <!-- Button for post update -->
+                    <div class="btn-group">                       
                         <a href="{% url 'update_post' post.slug %}" class="btn btn-sillytalks">
                             <i class="fa fa-edit"></i> Edit</a>
                     </div>
                     <div class="btn-group">
-                          <!-- Button for deletion-->
                         <a href="{% url 'delete_post' post.slug %}" class="btn btn-secondary">
                             <i class="far fa-trash-alt"></i> Delete</a>
                     </div>
@@ -45,14 +47,16 @@
               </div>
             </div>
             {% endif %}
-
+            <!-- End of Bawarchi Khana's project code -->
     </div>
-    <!-- Displaying counting of votes -->
+
+    <!-- Displaying vote counts -->
     {% if user.is_authenticated %}
       <div class="row text-center">
         <p class="start-voting"> Start voting!</p>
       </div>
       <div class="d-flex flex-row voting-options text center">
+        <!-- Not Silly vote and counter -->
         <div class="col-md-4 vote-align">
           <p> Not Silly: Seek help!</p>
           <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
@@ -60,10 +64,9 @@
             <input type="hidden" name="vote_preference" value="like">
             <button type="submit" class="btn-like vote-button text-center"><i class="fa-regular fa-face-tired fa-2xl"></i><span class="sr-only">Click here to vote not silly </span></button>
           </form>
-          
           <div class="likeCounter col-2 text-center" data-post-slug="{{ post.slug }}"> {{ post.like_count }} </div>
         </div>
-
+        <!-- Silly vote and counter -->
         <div class="col-md-4 vote-align">
           <p> Silly: You're fine!</p>
           <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
@@ -71,11 +74,9 @@
             <input type="hidden" name="vote_preference" value="silly">
             <button type="submit" class="btn-silly vote-button text-center"><i class="fa-regular fa-face-grin-tongue fa-2xl"></i><span class="sr-only">Click here to vote Silly </span></button>
           </form>
-            
           <div class="likeCounter col-2 text-center" data-post-slug="{{ post.slug }}">{{ post.silly_count }}</div>
         </div>
-
-
+        <!-- More information vote and counter -->
         <div class="col-md-4 vote-align">
           <p> More info: we need more of this tea!</p>
           <form class="d-inline" action="{% url 'post_vote' post.slug %}" method="POST">
@@ -88,15 +89,14 @@
           </div>
         </div>
       </div>
-
-  
     {% else %}
       <p>Log in to vote</p>
     {% endif %}
   </div>
   <hr>
+
+  <!-- Displaying comment count and comments - Code Institute Walkthrough -->
   <div class="row comment-section">
-  <!-- Displaying co mment count and comments -->
     <div class="col">
       <div class="col-md-12 card mb-4  mt-3 ">
         <h3 class="p-3"><i class="fa-regular fa-comment"></i> {{ comment_count }} comments:</h3>
@@ -158,7 +158,6 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
 
 <!-- Delete confirmation modal -->
