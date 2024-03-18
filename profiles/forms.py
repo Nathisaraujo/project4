@@ -5,6 +5,8 @@ from .models import UserProfile
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 # Add Post form - from Bawarchi Khana's code
+
+
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -18,6 +20,8 @@ class PostForm(forms.ModelForm):
                     }
 
 # User Profile Form with a function to limit the characters of bio
+
+
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
@@ -33,6 +37,3 @@ class UserProfileForm(forms.ModelForm):
             self.cleaned_data['bio'] = bio
             raise forms.ValidationError("Bio can't exceed 250 characteres.")
         return bio
-    
-
-

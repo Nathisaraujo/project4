@@ -12,6 +12,8 @@ GENDER_CHOICES = [
 ]
 
 # User Profile model
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, max_length=255)
@@ -19,7 +21,9 @@ class UserProfile(models.Model):
     birth_date = models.DateField(blank=True, null=True)
     location = models.CharField(max_length=100, blank=True)
     registration_date = models.DateTimeField(default=timezone.now)
-    gender = models.CharField(max_length=10, choices=GENDER_CHOICES, blank=True)
+    gender = models.CharField(
+        max_length=10, choices=GENDER_CHOICES, blank=True
+    )
 
     def __str__(self):
         return self.user.username
