@@ -85,6 +85,16 @@ footer a {
 
 /* all  */
 
+#msg {
+    background-color: #dba2d8;
+    border-radius: 20px;
+    border: 1px solid #630d5c79;
+}
+
+.error {
+    color: red;
+}
+
 .post-list {
     background-color: #f9d1f7;
     padding-top: 15px;
@@ -345,16 +355,6 @@ div.register-card ul {
 .img-thumbnail {
     max-width: 20em;
     
-}
-
-#msg {
-    background-color: #dba2d8;
-    border-radius: 20px;
-    border: 1px solid #630d5c79;
-}
-
-.error {
-    color: red;
 }
 
 /* media query */
