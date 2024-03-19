@@ -54,7 +54,7 @@ footer a {
 }
 
 .comment-box {
-    border: 2px solid #868486c0 ;
+    border: 2px solid #868486c0;
     border-radius: 20px;
 }
 
@@ -151,10 +151,6 @@ ul {
 
 .btn-sillytalks {
     background-color: #dba2d8;
-}
-
-.alert-success {
-    background-color: green;
 }
 
 .card {
@@ -348,6 +344,17 @@ div.register-card ul {
 
 .img-thumbnail {
     max-width: 20em;
+    
+}
+
+#msg {
+    background-color: #dba2d8;
+    border-radius: 20px;
+    border: 1px solid #630d5c79;
+}
+
+.error {
+    color: red;
 }
 
 /* media query */
