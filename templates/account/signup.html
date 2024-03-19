@@ -9,8 +9,8 @@
 
 <div class="container text-center">
   <h1>{% trans "Sign Up" %}</h1>
-  <div class="auth-container">
-    <div class="auth-style">
+  <div class="container-align">
+    <div class="container-style">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         <div class="p-2">

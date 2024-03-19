@@ -9,8 +9,8 @@
     {% include 'navbar_profile.html' %}
 
     <!-- displays user's personal information -->
-    <div class="container auth-style margin-containers profile-mq">
-      <div class="auth-container" id="profile-container">
+    <div class="container container-style margin-containers profile-mq">
+      <div class="container-align" id="profile-container">
         {% if user_profile.picture %}
           <div class="col">
             <img src=" {{ user_profile.picture.url }}" alt="Profile Picture" class="img-thumbnail">
