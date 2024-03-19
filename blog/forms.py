@@ -23,34 +23,3 @@ class CommentForm(forms.ModelForm):
                 self.cleaned_data['body'] = body
                 raise forms.ValidationError("Maximum 500 characters.")
             return body
-
-# Post Form with functions to limit the characters of title and excerpt
-
-
-class PostForm(forms.ModelForm):
-    """
-    Form for creating or updating posts.
-
-    This form allows users to create or edit blog posts.
-    It limits the length of the post title to 200 characters
-    and the post excerpt to 500 characters.
-    """
-    class Meta:
-        model = Post
-        fields = ('excerpt', 'title')
-
-        def clean_excerpt(self):
-            excerpt = self.cleaned_data.get('excerpt')
-            if excerpt and len(excerpt) > 500:
-                excerpt = excerpt[:500]
-                self.cleaned_data['excerpt'] = excerpt
-                raise forms.ValidationError("Maximum 500 characters.")
-            return bio
-
-        def clean_title(self):
-            title = self.cleaned_data.get('title')
-            if title and len(bio) > 200:
-                title = title[:200]
-                self.cleaned_data['title'] = title
-                raise forms.ValidationError("Maximum 200 characters.")
-            return bio

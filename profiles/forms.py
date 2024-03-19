@@ -4,7 +4,7 @@ from blog.models import Post
 from .models import UserProfile
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
-# Add Post form - from Bawarchi Khana's code
+# Post form - from Bawarchi Khana's code - with modifications
 
 
 class PostForm(forms.ModelForm):
@@ -12,7 +12,8 @@ class PostForm(forms.ModelForm):
     Form for adding and editing blog posts.
 
     This form allows users to add and edit blog posts, specifying
-    the title, excerpt, and content of the post.
+    the title, excerpt, and content of the post. It limits the length of the post title to 200 characters
+    and the post excerpt to 500 characters.
 
     **Model**
     :model:`blog.Post`
@@ -35,6 +36,22 @@ class PostForm(forms.ModelForm):
         widgets = {
             'content': SummernoteWidget(),
                     }
+        
+        def clean_excerpt(self):
+            excerpt = self.cleaned_data.get('excerpt')
+            if excerpt and len(excerpt) > 500:
+                excerpt = excerpt[:500]
+                self.cleaned_data['excerpt'] = excerpt
+                raise forms.ValidationError("Maximum 500 characters.")
+            return bio
+
+        def clean_title(self):
+            title = self.cleaned_data.get('title')
+            if title and len(bio) > 200:
+                title = title[:200]
+                self.cleaned_data['title'] = title
+                raise forms.ValidationError("Maximum 200 characters.")
+            return bio
 
 # User Profile Form with a function to limit the characters of bio
 
