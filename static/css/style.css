@@ -457,10 +457,6 @@ div.register-card ul {
         margin-left: var(--bs-navbar-brand-margin-end);
     }
 
-    .post-call {
-        margin: 12px;
-    }
-
     .comment-section {
         padding: 1rem;
     }

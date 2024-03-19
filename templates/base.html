@@ -33,51 +33,51 @@
 
 <body class="d-flex flex-column h-100 main-bg center">
 
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid ">
-          <a class="navbar-brand nav-title" href="{% url 'home' %}">Silly Talks</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
-                href="{% url 'home' %}">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {% if request.path == about_url %}active{%endif%}" aria-current="page"
-                href="{% url 'sillytalks' %}">Silly Talks</a>
-              </li>
-              {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-                  href="{% url 'profile' username=request.user.username %}">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-                  href="{% url 'account_logout' %}">Logout</a>
-              </li>
-              {% else %}
-              <li class="nav-item">
-                <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                  href="{% url 'account_signup' %}">Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-                  href="{% url 'account_login' %}">Login</a>
-              </li>
-              {% endif %}
-            </ul>
-            {% if user.is_authenticated %}
-            <p class="text-end m-3">You are logged in as {{ user }}</p>
-            {% else %}
-            <p class="text-end m-3">You are not logged in</p>
-            {% endif %}
-          </div>
-        </div>
-    </nav>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid ">
+      <a class="navbar-brand nav-title" href="{% url 'home' %}">Silly Talks</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
+            href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == about_url %}active{%endif%}" aria-current="page"
+            href="{% url 'sillytalks' %}">Silly Talks</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+              href="{% url 'profile' username=request.user.username %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+              href="{% url 'account_logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+              href="{% url 'account_signup' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+              href="{% url 'account_login' %}">Login</a>
+          </li>
+          {% endif %}
+        </ul>
+        {% if user.is_authenticated %}
+        <p class="text-end m-3">You are logged in as {{ user }}</p>
+        {% else %}
+        <p class="text-end m-3">You are not logged in</p>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
 
     <!-- displaying Django messages -->
     <div class="container">
@@ -103,7 +103,7 @@
 
     <!-- Footer -->
     
-    <footer class="footer mt-auto py-3 dark-bg footer-text">
+    <footer class="footer mt-auto p-3 dark-bg footer-text">
         <div class="container-fluid">
             <div class="row">
               <div class="col-sm-12 text-center align-self-center">
