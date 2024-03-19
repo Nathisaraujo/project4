@@ -1,4 +1,3 @@
-/* base.html */
 
 .main-bg {
     background-color: #F9FAFC;
@@ -8,142 +7,23 @@
     --bs-nav-link-color: #693d69;
 }
 
-.nav-title {
-    font-family: "Lobster", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 50px;
-    color: #630d5c;
-}
-
-/* footer  */
-
-.footer-text {
-    color: #F9FAFC;
+.last-login {
     font-size: 15px;
+    align-self: center;
 }
-
-.dark-bg {
-    background-color: #3d013a;
-}
-
-footer a {
-    color: white;
-}
-
-/* post_detail.html */
 
 .comment-section {
     padding: 3rem;
 }
 
-.btn-manage-post {
-    width: 40rem;
-    margin-left: 450px;
-}
-
-.vote-align {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.start-voting {
-    font-family: "DM Serif Display", serif;
-    font-size: 40px;
-}
-
-.comment-box {
-    border: 2px solid #868486c0;
-    border-radius: 20px;
-}
-
-.comment-text {
-    background-color: #dba2d836;
-    border-radius: 20px;
-    margin-bottom: 10px;
-}
-
-.vote-button {
-    margin-right: 10px;
-    border-radius: 100%;
-    background-color: #3d013a;
-    color: white;
-    height: 45px;
-}
-
-.col-2 {
-    padding-top: 10px;
-}
-
-.post-title {
-    font-family: "DM Serif Display", serif;
-    font-size: 50px;
-    font-weight: bolder;
-    text-align: center;
-}
-
-/* all  */
-
-#msg {
-    background-color: #dba2d8;
-    border-radius: 20px;
-    border: 1px solid #630d5c79;
-}
-
-.error {
-    color: red;
-}
-
-.post-list {
-    background-color: #f9d1f7;
-    padding-top: 15px;
-    margin: 2em 5em;
-    border-radius: 20px;
-}
-
-.postlist-title {
-    font-size: 20px;
-    text-decoration: none;
-    color: #2f2738;
-    font-weight: 700;
-}
-
-.btn-back {
-    max-width: 6em;
-    margin: 2em;
-}
-
-body {
-    background-color: #F9FAFC;
-    font-family: "Comfortaa", sans-serif;
-    list-style-type: none;
-}
-
-input {
-    border-radius: 10px;
-    border: 2px solid #c27bbcc0;
-}
-
-.container-style {
-    border: 4px solid #c27bbcc0;
-    border-radius: 20px;
-    padding: 20px;
-    max-width: 50em;
-    margin-bottom: 20px;
-}
-
-.container-align {
-    display: flex;
-    justify-content: center;
-}
-
-.row {
-    justify-content: center;
-}
-
 .margin-containers {
     margin-top: 20px;
+}
+
+
+.post-link {
+    text-decoration: none;
+    color: #2f2738;
 }
 
 .post-card {
@@ -155,31 +35,12 @@ input {
     height: 100%
 }
 
-ul {
-    list-style-type: none;
-}
-
-.btn-sillytalks {
-    background-color: #dba2d8;
-}
-
-.card {
-    padding-bottom: 10px;
-}
-
-/* index.html  */
-
-.form-control {
-    max-height: 10em;
-}
-
-.post-link {
-    text-decoration: none;
-    color: #2f2738;
-}
-
 .cards-margin {
     margin-bottom: 1em;
+}
+
+.my-main {
+    padding: 5rem;
 }
 
 .card-title {
@@ -199,49 +60,48 @@ ul {
     text-align: justify;
 }
 
-.search-bar {
-    margin-bottom: 20px;
-    align-self: center;
-}
-
-.pagination {
-    margin-top: 20px;
-}
-
-.pagination .page-item {
-    display: inline-block;
-    margin-right: 5px;
-}
-
-.pagination .page-item a {
-    color: #4c0f5c;
-    text-decoration: none;
-    padding: 6px 12px;
-    border: 1px solid #a7a7a7;
-    border-radius: 4px;
+.textarea-margin {
     margin-top: 2.5rem;
+}
+
+.tiny-text {
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.nav-title {
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+    color: #630d5c;
+}
+
+.footer-text {
+    color: #F9FAFC;
+    font-size: 15px;
+}
+
+.post-content {
     background-color: #dba2d8;
 }
 
-.pagination .page-item.active a {
-    background-color: #430069;
-    color: #fff;
+.btn-centralize {
+    align-self: center;
 }
 
-.pagination .page-item.disabled a {
-    color: #6c757d;
-    cursor: not-allowed;
-    background-color: #fff;
+.btn-sillytalks {
+    background-color: #dba2d8;
 }
 
-.pagination .page-item.disabled a:hover {
-    background-color: #fff;
-}
-
-/* home.html  */
 .btn-form {
     background-color: #ffffff;
     color: #630d5c;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .quotes-card {
@@ -279,6 +139,10 @@ ul {
     background-color: rgb(255, 255, 255);
 }
 
+.pd-card {
+    padding: 90px;
+}
+
 .card-font {
     font-weight: bold;
     font-size: 2em;
@@ -293,8 +157,8 @@ ul {
 }
 
 div.judge-card ul li{
-    margin: 1.5em;
-    text-align: center;
+    margin: 3em;
+    text-align: left;
     font-size: 1.5rem;
 }
 
@@ -325,7 +189,125 @@ div.register-card ul {
     vertical-align: middle;
 }
 
-/* Register pages  */
+.search-bar {
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+.comment-box {
+    border: 2px solid #868486c0 ;
+    border-radius: 20px;
+}
+
+.comment-text {
+    background-color: #dba2d836;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination .page-item {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.pagination .page-item a {
+    color: #4c0f5c;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid #a7a7a7;
+    border-radius: 4px;
+    margin-top: 2.5rem;
+    background-color: #dba2d8;
+}
+
+.pagination .page-item.active a {
+    background-color: #430069;
+    color: #fff;
+}
+
+.pagination .page-item.disabled a {
+    color: #6c757d;
+    cursor: not-allowed;
+    background-color: #fff;
+}
+
+.pagination .page-item.disabled a:hover {
+    background-color: #fff;
+}
+
+.vote-button {
+    margin-right: 10px;
+    border-radius: 100%;
+    background-color: #3d013a;
+    color: white;
+    height: 45px;
+}
+
+body {
+    background-color: #F9FAFC;
+    font-family: "Comfortaa", sans-serif;
+}
+
+.col-2 {
+    padding-top: 10px;
+}
+
+.dark-bg {
+    background-color: #3d013a;
+}
+
+.btn-danger {
+    margin-top: 0.5rem;
+}
+
+.post-title {
+    font-family: "DM Serif Display", serif;
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.card {
+    padding-bottom: 10px;
+}
+
+/* se der problema de alinhamento, tira isso */
+.row {
+    justify-content: center;
+}
+
+.container-style {
+    border: 4px solid #c27bbcc0 ;
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 50em;
+    margin-bottom: 20px;
+}
+
+.container-align {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    border-radius: 10px;
+    border: 2px solid #c27bbcc0;
+}
+
+.vote-align {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.start-voting {
+    font-family: "DM Serif Display", serif;
+    font-size: 40px;
+}
 
 .btn-google {
     width: 15em;
@@ -334,7 +316,28 @@ div.register-card ul {
     margin-bottom: 15px;
 }
 
-/* Profile page  */
+.btn-back {
+    max-width: 6em;
+    margin: 2em;
+}
+
+.form-control {
+    max-height: 10em;
+}
+
+.post-list {
+    background-color: #f9d1f7;
+    padding-top: 15px;
+    margin: 2em 5em;
+    border-radius: 20px;
+}
+
+.postlist-title {
+    font-size: 20px;
+    text-decoration: none;
+    color: #2f2738;
+    font-weight: 700;
+}
 
 #id_bio {
     max-height: 5em;
@@ -347,6 +350,15 @@ div.register-card ul {
     border-radius: 10px;
 }
 
+footer a {
+    color: white;
+}
+
+.btn-width-mq {
+    width: 40rem;
+    margin-left: 450px;
+}
+
 #profile-container {
     display: flex;
     flex-direction: row;
@@ -354,9 +366,7 @@ div.register-card ul {
 
 .img-thumbnail {
     max-width: 20em;
-    
 }
-
 /* media query */
 
 @media only screen and (max-width: 1000px) {
@@ -462,6 +472,10 @@ div.register-card ul {
 
     .navbar-brand {
         margin-left: var(--bs-navbar-brand-margin-end);
+    }
+
+    .post-call {
+        margin: 12px;
     }
 
     .comment-section {
