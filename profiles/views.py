@@ -178,9 +178,11 @@ def ManagePosts(request, username):
     :template:`manage_posts.html`
     """
     user_posts = Post.objects.filter(approved=True, author=request.user)
+    user_drafts = Post.objects.filter(approved=False, author=request.user)
 
     context = {
         'user_posts': user_posts,
+        'user_drafts': user_drafts,
     }
     return render(request, 'manage_posts.html', context)
 
