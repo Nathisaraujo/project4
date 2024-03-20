@@ -1,1 +1,2 @@
-web:gunicorn sillytalks.wsgi
+
+web: gunicorn sillytalks.wsgi
