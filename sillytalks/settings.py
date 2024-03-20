@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'django_password_validators',
     'django_password_validators.password_history',
     'cloudinary',
+    'django_summernote',
     'blog',
     'home',
     'profiles',
