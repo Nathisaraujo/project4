@@ -241,7 +241,8 @@ def search_view(request):
     results = None
     if query:
         results = Post.objects.filter(
-            Q(title__icontains=query) | Q(excerpt__icontains=query)
+            Q(title__icontains=query) | Q(excerpt__icontains=query),
+            approved=True
         )
     return render(
         request, 'blog/search_bar.html', {'results': results, 'query': query})

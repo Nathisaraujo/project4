@@ -168,11 +168,14 @@ def ManagePosts(request, username):
     """
     View for managing user posts.
 
-    Displays a list of posts authored by the authenticated user.
+    Displays a list of posts and drafts authored by the authenticated user.
 
     **Context**
     ``user_posts``
         A queryset of posts authored by the authenticated user.
+    
+    ``user_drafts``
+        A queryset of drafts authored by the authenticated user.
 
     **Template**
     :template:`manage_posts.html`
