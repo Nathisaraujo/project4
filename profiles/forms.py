@@ -2,7 +2,6 @@ from django import forms
 from django.forms import Textarea
 from blog.models import Post
 from .models import UserProfile
-from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 # Post form - from Bawarchi Khana's code - with modifications
 
@@ -22,9 +21,6 @@ class PostForm(forms.ModelForm):
     - title: title of the post
     - excerpt: text summarizing the post
     - content: text of the post
-
-    **Widgets**
-    - content: SummernoteWidget
     """
     class Meta:
         model = Post
@@ -33,9 +29,6 @@ class PostForm(forms.ModelForm):
             'excerpt',
             'content',
         ]
-        widgets = {
-            'content': SummernoteWidget(),
-                    }
         
         def clean_excerpt(self):
             excerpt = self.cleaned_data.get('excerpt')
@@ -72,9 +65,6 @@ class UserProfileForm(forms.ModelForm):
     - location: where the user is located
     - gender: user's gender
     - picture: user's profile photo
-
-    **Widgets**
-    - birth_date: DateInput
     """
     class Meta:
         model = UserProfile

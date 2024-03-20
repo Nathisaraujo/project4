@@ -383,25 +383,31 @@ div.register-card ul {
         max-width: 25em;
     }
 }
+
 @media only screen and (max-width: 768px) {
 
     .register-card {
         margin: 0em;
     }
+
     .form-card {
         max-width: 20rem;
         margin: 50px 0px 50px 50px;
     }
+
     div.judge-card ul li {
         font-size: 1rem;
         margin: 1.5em;
     }
+
     .judge-card {
         min-height: 0rem;
     }
+
     .profile-mq {
         max-width: 25em;
     }
+
     #id_bio {
         max-width: 20rem;
     }
@@ -409,6 +415,7 @@ div.register-card ul {
     #id_picture {
         max-width: 20rem;
     }
+
     .btn-width-mq {
         width: 40rem;
         margin-left: 300px;
@@ -417,6 +424,7 @@ div.register-card ul {
     #profile-container {
         flex-direction: column;
     }
+
     .img-thumbnail {
         max-width: 20em;
     }
