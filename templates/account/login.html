@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
@@ -15,7 +14,6 @@
     </div>
 
     <div class="row">
-        <a href="{% provider_login_url 'google' %}" class="btn btn-google"><img src="/static/images/Google.png" alt="google logo" style="width: 20px; height: 20px;"> Login with Google</a>
         <form class="login p-3" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             {{ form.as_p }}

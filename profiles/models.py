@@ -36,7 +36,7 @@ class UserProfile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, max_length=255)
-    picture = CloudinaryField('image', default='placeholder')
+    picture = CloudinaryField('image', null=True, blank=True)
     birth_date = models.DateField(blank=True, null=True)
     location = models.CharField(max_length=100, blank=True)
     registration_date = models.DateTimeField(default=timezone.now)

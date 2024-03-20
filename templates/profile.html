@@ -15,6 +15,10 @@
           <div class="col">
             <img src=" {{ user_profile.picture.url }}" alt="Profile Picture" class="img-thumbnail">
           </div>
+        {% else %}
+          <div class="col">
+            <img src="{% static 'images/nobody.jpg' %}" alt="Fallback Image">
+          </div>
         {% endif %}
         <div class="col">
           <h2 class="profile-title"><i class="fa-solid fa-address-card"></i> Your personal details</h2>

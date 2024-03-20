@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% load socialaccount %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock head_title %}
 
@@ -52,8 +51,6 @@
         {% endif %}
         <button type="submit" class=" btn btn-sillytalks p-2">{% trans "Sign Up" %} &raquo;</button>
       </form>
-      <hr>
-      <a href="{% provider_login_url 'google' %}" class="btn btn-google"><img src="/static/images/Google.png" alt="google logo" style="width: 20px; height: 20px;"> Sign Up with Google</a>
     </div>
   </div>
   <p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign In</a>.{% endblocktrans %}</p>
