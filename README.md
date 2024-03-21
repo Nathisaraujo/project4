@@ -332,10 +332,61 @@ and personalized experiences.
 
 - In the absence of a user-uploaded profile picture, a placeholder image is displayed, ensuring a visually consistent experience.
 
-## Future Features
-* Explain each user stories by points
+### New Post
 
-Foto geral com todos cumpridos
+![Responsive Design Screenshot](/readme-images/addpost.png)
+
+- Clicking on "Post - New Post" redirects the user to an "Add Post" page, streamlining the process of creating new content.
+- On the "Add Post" page, users can submit a new post request by providing the title, excerpt, and content, facilitating seamless content creation.
+- After submitting the new post, users are automatically redirected to the "Manage Posts" page, providing immediate access to review and manage their posts.
+
+### Manage Posts
+
+![Responsive Design Screenshot](/readme-images/manage.png)
+
+- The "Manage Post" page showcases all posts created by the user, presenting essential details such as the title, author, date of submission, and excerpt.
+- Users can easily access individual posts by clicking on their titles, seamlessly redirecting them to the respective post pages for further engagement.
+- Additionally, the page features a dedicated section listing drafts, providing visibility into posts awaiting approval and enabling users to monitor and manage their content effectively.
+
+![Responsive Design Screenshot](/readme-images/nodraft.png)
+
+- If the user doesn't have any posts or drafts, a message will be displayed to inform them of this, ensuring clarity.
+
+### Edit Profile
+
+![Responsive Design Screenshot](/readme-images/editar.png)
+
+- Users have the ability to edit their profile information within the "Edit" tab, providing a convenient way to update their details.
+- Upon saving the changes, users are automatically redirected to the [profile page](<#profile>), ensuring a smooth and seamless transition while confirming the successful update of their information.
+
+### Activity
+
+![Responsive Design Screenshot](/readme-images/atividade.png)
+
+- Clicking on the "Activity" tab will reveal a comprehensive list of the user's voting activity and comments, providing visibility into their engagement on the platform.
+- If the user has not voted or commented in a specific category, a message will be displayed, ensuring transparency and guiding them to explore other areas of the platform.
+- Each item in the post list includes the title, author, and excerpt, allowing users to quickly identify posts of interest. Clicking on any item redirects the user to the respective post page for further exploration.
+
+### General
+
+![Responsive Design Screenshot](/readme-images/msg.png)
+
+- Users will receive notifications for every action performed on the website, ensuring they stay informed and engaged with updates and changes.
+
+![Responsive Design Screenshot](/readme-images/button.png)
+
+- Throughout the website, users will find convenient "Go Back" buttons, offering a quick and intuitive way to navigate back to the previous page, enhancing the overall user experience.
+
+## Future Features
+
+In the future, this website will include the following features:
+
+- **Enhanced user interaction:** Users will have the ability to view each other's profile pages, fostering a sense of community and connection.
+- **Improved post management:** Users can delete or edit draft posts, providing greater control and flexibility over their content creation process.
+- **Password recovery functionality:** A "Forgot My Password" feature will be implemented, enabling users to regain access to their accounts securely.
+- **Expanded engagement options:** Users will be able to like comments, facilitating appreciation and acknowledgment of valuable contributions.
+- **Enhanced comment functionality:** Users can reply to other comments, encouraging meaningful discussions and interactions within the community.
+- **Private messaging capability:** Users will have the option to reply to posts privately, establishing a direct channel of communication with the post author for more personal exchanges.
 
 # LOGIC
 
