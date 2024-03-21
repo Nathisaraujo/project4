@@ -191,7 +191,7 @@ ul {
 
 .card-info {
     font-size: 13px;
-    color:#300519;
+    color:#3d013a;
     text-align: center;
 }
 
@@ -214,22 +214,22 @@ ul {
 }
 
 .pagination .page-item a {
-    color: #4c0f5c;
+    color: #2f2738;
     text-decoration: none;
     padding: 6px 12px;
-    border: 1px solid #a7a7a7;
+    border: 1px solid #868486c0;
     border-radius: 4px;
     margin-top: 2.5rem;
     background-color: #dba2d8;
 }
 
 .pagination .page-item.active a {
-    background-color: #430069;
+    background-color: #630d5c;
     color: #fff;
 }
 
 .pagination .page-item.disabled a {
-    color: #6c757d;
+    color: #868486c0;
     cursor: not-allowed;
     background-color: #fff;
 }
@@ -300,7 +300,7 @@ div.judge-card ul li{
 
 .register-card {
     min-height: 15rem;
-    border: 4px solid #c27bbcc0 ;
+    border: 4px solid #c27bbcc0;
     border-radius: 20px;
     margin: 3em 10em;
     padding: 20px;

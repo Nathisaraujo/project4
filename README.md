@@ -65,13 +65,52 @@ Since the site's intention is to help people facing a problem, all posts and com
 
 # DESIGN
 
+The primary objective of our website is to deliver a visually appealing and user-friendly experience, characterized by a clean and engaging design. The focus lies in providing users with just the right amount of informative content essential for comprehending the website's functionality. The approach is deliberately minimalist, as we strive to avoid overwhelming users with unnecessary information or distracting elements that may detract from their overall experience.
+
 ## Typography
-* Explains typography
+The fonts have been sourced from the [Google Fonts library](https://fonts.google.com/), each selected with the intention of cultivating a relaxed atmosphere on the website while imbuing it with its own distinct meaning.
+
+The site utilizes three different fonts:
+
+1. **"Lobster"**, a sans-serif font, is exclusively reserved for the page title. This choice aims to emulate a handwritten appearance, imparting a sense of personalization and warmth to the site.
+2. **"DM Serif Display"**, a serif font, is employed for post titles, the welcome message, and text prompting user interaction such as voting. The objective is to craft attention-grabbing titles, distinct from the rest of the page, reminiscent of the aesthetic of a printed newspaper headline.
+3. **"Comfortaa"**, another sans-serif font, is utilized for body text and is consistently applied across the entire website. Its purpose is to foster an ambiance of relaxation and approachability, ensuring that the site maintains an informal and friendly tone."
+
 
 Prints das fontes
 
 ## Color Scheme
-* Eplicando todas as cores e dando nome
+
+In [color theory](https://www.colorpsychology.org/pink/), pink is often associated with feelings of hope and sensitivity. It represents a soft and nurturing energy, evoking a sense of optimism and renewal. Pink is believed to inspire hope in difficult times and convey a gentle sensitivity towards emotions and experiences. Its presence can symbolize a comforting reassurance, reminding us that brighter days are ahead and encouraging us to approach challenges with a compassionate heart.
+
+Despite the main color being pink, the entire website adopts a white color scheme for a cleaner look. Additionally, we've included shades of purple to enhance certain elements, and shades of gray for buttons such as "back" and "delete," as well as for some box borders.
+
+Pictures from [Coolors](https://coolors.co/)
+
+**White:**
+- #F9FAFC: Background, footer text, body background
+
+**Purple:**
+- #693d69: Nav link
+- #630d5c: Nav title, pagination active, button form text
+- #630d5c79: Message border
+- #3d013a: Footer background, vote buttons, post card information
+- #2f2738: Post list title, post link, pagination text
+
+**Pink:**
+- #dba2d836: Comments background
+- #dba2d8: Message background, button background, pagination background
+- #f9d1f7: Post list
+- #c27bbcc0: Input borders, container borders, index post cards, home page cards
+
+**Gray:**
+- #6c757d: Pagination border, comment border, pagination disabled
+
+**Home page Linear-gradient:**
+- rgba(248,249,250), - F8F9FA
+- rgba(182, 131, 224, 0.377), - B683E0
+- rgba(255, 0, 140, 0.336), - FF008C
+- rgb(255, 255, 255) - FFFFFF
 
 Foto com as cores lado a lado
 
