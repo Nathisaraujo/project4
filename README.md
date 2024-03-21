@@ -453,18 +453,24 @@ Models represent our data structure, Views handle the presentation logic, and Fo
 
 ### Profiles App
 
-This app was 100% designed and created by me, without the support of any Code Institute's walkthrough.
+This app was designed and created by me, without the support of any Code Institute's walkthrough. Some parts of the code were inspired in my colleague, which I credit [here](<#credits>)
 
 - **Models**
 1. User Profile - The UserProfile model stores user profiles, containing fields for bio, profile picture, birth date, location, registration date, and gender. It includes a one-to-one relationship with the built-in User model from Django, ensuring each user has a unique profile. The bio field allows users to provide additional information about themselves, while the picture field utilizes CloudinaryField for storing profile pictures. Other fields such as birth_date, location, registration_date, and gender provide additional user details. This model enhances user interaction and personalization within the website.
 
 - **Views**
 1. Profile - it renders the user profile page with user-specific information, including user statistics such as the count of posts authored, comments made, and votes received on posts. It retrieves the UserProfile instance associated with the provided username and passes relevant context to the profile.html template.
+
 2. Add Post - it allows authenticated users to add a new post, rendering the add_post.html template with the PostForm instance. Upon successful submission, a success message is displayed, and the user is redirected to their post list.
+
 3. Edit Post - it enables authenticated users to edit their own posts. It renders the update_post.html template with the PostForm instance pre-populated with the post's current data. After successfully updating the post, a success message is shown, and the user is redirected to the post detail page.
+
 4. Delete Post - it permits authenticated users to delete their own posts. It renders the delete_post.html template and handles post deletion upon confirmation. After successful deletion, a success message is displayed, and the user is redirected to their post list.
+
 5. Manage Posts - it provides authenticated users with a way to manage their posts by displaying a list of posts and drafts authored by the user. It passes the user's posts and drafts as context to the manage_posts.html template.
+
 6. User activity - it showcases user activity by displaying the posts on which the user has voted or commented. It retrieves posts voted as silly, not silly and more information, and commented posts associated with the user and passes them as context to the user_activity.html template.
+
 7. Edit Profile - it allows authenticated users to edit their profile information. It renders the edit_profile.html template with the UserProfileForm instance pre-filled with the user's current profile data. Upon successful profile update, a success message is shown, and the user is redirected to their profile page.
 
 - **Forms**
@@ -472,14 +478,77 @@ This app was 100% designed and created by me, without the support of any Code In
 
 2. User Profile Form - it enables users to update their profiles, including their bio, birth date, location, gender, and profile picture. It provides a convenient interface for users to manage their personal information. Additionally, it includes validation to limit the length of the bio to 255 characters, ensuring consistency and preventing excessive text input. This form enhances user interaction and customization within the website.
 
-
 # TECHNOLOGIES USED
 
 ## Languages
-* Explains each one in list
+- **HTML:** structure the content of web pages.
 
-## Libraries and Programs
-* Explain each one and try to add the pictures
+- **CSS:** style HTML elements.
+
+- **JavaScript:** create interactive and dynamic features.
+
+- **Python:** is used with the Django framework to handle server-side logic and data manipulation.
+
+## Libraries and Programs:
+
+- **Frameworks and Packages:**
+    - **Django:** a high-level Python web framework that simplifies the process of building web applications.
+
+    - **Crispy Forms:** Crispy Forms is a Python package used to style Django forms, making them more visually appealing and user-friendly.
+
+    - **Bootstrap5:** front-end framework for building responsive and mobile-first websites.
+
+    - **Cloudinary:** cloud-based image and video management service.
+
+    - **Allauth:** is a Django package that provides authentication, registration, and account management functionality for Django applications
+
+    - **Bootstrap Datepicker:** Django package that integrates the Bootstrap Datepicker Plus plugin with Django forms, allowing to add date and time picker widgets to their forms with ease.
+    
+    - **Password Validators:** a Django package that provides a set of customizable password validators for enforcing password strength requirements, such as minimum length, uppercase letters, digits, symbols, etc.
+
+    - **Gunicorn:** a WSGI HTTP server for running Python web applications, providing a fast and scalable solution for serving web requests in production environments.
+
+    - **Whitenoise:** a Python library for serving static files efficiently.
+
+    - **PyGraphviz:**a Python library used for working with Graphviz, to generate the ERD.
+
+- **Database:**
+    - **ElephantSQL:** a PostgreSQL database service hosted in the cloud.
+
+    - **SQLite:** database management system used as a local database during development.
+
+- **Tools and Platforms:**
+
+    - **Gitpod:** cloud-based integrated development environment (IDE) used for coding.
+
+    - **Git and GitHub:** track changes in project files.
+
+    - **Heroku:** cloud-based platform as a service (PaaS) that enables deployment and management.
+
+    - **Google Developer Tools:** web development and debugging tools built into the Google Chrome browser.
+
+- **Design and Styling:**
+
+    - **Summernote:** rich text editor that provides an easy-to-use interface for formatting and styling text in web applications.
+
+    - **Fontawesome:** a library of scalable vector icons.
+
+    - **Google Fonts:** a collection of open-source fonts hosted by Google. 
+
+    - **Coolors:** Coolors is a color scheme generator.
+
+    - **LucidChart:** diagramming tool used for creating flowcharts.
+
+    - **Canva:** a graphic design platform used for creating visual content.
+
+- **Validators:**
+
+    - **Code Institute Python Linter:** Python.
+
+    - **JSHint:** JavaScript development.
+
+    - **W3C Validator:** HTML and CSS.
+
 
 # TESTING
 
