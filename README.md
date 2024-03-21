@@ -31,9 +31,11 @@ Link para live website
 * [LOGIC](<#logic>)
     * [Database](<#database>)
     * [Workflow](<#workflow>)
+         * [Agile](<#agile>)
     * [Django Apps](<#django-apps>)
-    * [Models, views and forms](<#models-views-and-forms>)
-    * [Agile](<#agile>)
+        * [Blog App](<#blog-app>)
+        * [Home App](<#home-app>)
+        * [Profiles App](<#profiles-app>)
 
 * [Techonologies Used](<#technologies-used>)
     * [Languages](<#languages>)
@@ -391,24 +393,85 @@ In the future, this website will include the following features:
 # LOGIC
 
 ## Database
-* Explains databse
-prints
+A database diagram (ERD) was generated using Django Extensions.
+
+You can see the documentation I've followed [here.](https://www.linkedin.com/pulse/generate-database-diagramerd-django-extensions-automatically-srujan-s/)
+
+![Responsive Design Screenshot](/readme-images/database.png)
 
 ## Workflow
-* Explain workflow
-prints
 
-## Django App
-* Explains audience
-prints
+I've crafted a comprehensive workflow detailing the functionality of every feature on the website. This detailed roadmap elucidates the user journey from registration to navigation, post creation, engagement, and profile management. By mapping out each step and interaction, users can seamlessly navigate the platform with clarity and ease. This workflow serves as a guiding beacon, ensuring that every aspect of the website operates harmoniously, fostering a seamless and intuitive user experience from start to finish.
 
-## Models, Views and Forms
-* Explain each thing
-prints
+![Responsive Design Screenshot](/readme-images/workflow1.png)
 
-## Agile
-* Explain agile
-prints
+![Responsive Design Screenshot](/readme-images/workflow2.png)
+
+### Agile
+In this project, I've implemented the Agile methodology to ensure dynamic and iterative development cycles. By breaking tasks into manageable sprints, we maintain flexibility and adaptability, responding efficiently to evolving requirements. 
+
+## Django Apps
+
+I've structured the project into three distinct Django apps, each serving a specific purpose. This deliberate organization ensures clarity and maintainability throughout the development process. By compartmentalizing functionality into separate apps, we enhance modularity and streamline collaboration. This approach fosters a clear understanding of the project's architecture and facilitates efficient development, testing, and deployment workflows.
+
+Models represent our data structure, Views handle the presentation logic, and Forms manage user input. These components interact harmoniously: Models define the database schema, Views render the data for user interaction, and Forms facilitate data entry and validation. Together, they form the core of our application, ensuring efficient data management and seamless user experience.
+
+### Blog App
+
+- **Models**
+1. Post - The Post model serves as the backbone for all blog posts within the system. It encapsulates crucial details such as the title, author, content, creation date, update date, excerpt and status of each post. This first part was all from the Code Instute's I Think Therefore I Blog template. Additionally, I included some objects that tracks user interactions through like, silly, and more information votes, as well as its respectives counters. Property methods num_likes, num_silly, and num_more calculate the respective vote counts for each post, enhancing user engagement metrics.
+
+2. Comment - The Comment model was 100% Code Instute's I Think Therefore I Blog template. fIt facilitates the storage of individual comments associated with specific posts and users. Each comment includes the post it's related to, the author who submitted it, the content body, approval status, and creation timestamp. This model ensures efficient organization and retrieval of user-generated content, fostering interaction and discourse within the blogging community.
+
+- **Views**
+1. Post List - it retrieves published posts from the database and displays them paginated on the index.html template. It ensures only published posts are displayed to users and provides a context of object_list containing a list of published posts.
+
+2. Post Detail - it retrieves details of a specific post based on the provided slug. It handles comment submission and rendering, displaying the post's content, associated comments, and related user interactions such as voting. Additionally, it provides a comment form for users to submit new comments.
+
+3. Comment Edit - it allows users to edit their comments. It retrieves the post associated with the comment and the comment itself, then updates the comment based on user input. After editing, users are redirected to the post detail page.
+
+4. Comment Delete - it permits users to delete their comments. It verifies the user's authorization to delete the comment and removes it from the database if the user is the author. Users are then redirected to the post detail page.
+
+5. Post Vote - it handles voting on posts, enabling users to mark posts as not silly, silly, or in need of more information. It processes user preferences and updates post vote counts accordingly, ensuring accurate representation of user opinions on each post.
+
+6. Search - The search_view function allows users to search for specific posts based on provided query terms. It retrieves posts containing the query term in their title or excerpt and renders the search results to the user.
+
+- **Forms**
+1. Comment Form - it serves as a form for users to submit comments on posts within the website. It is designed to interact with the Comment model.
+
+
+### Home App
+
+- **Models**
+1. Collaboration Request - The CollaborateRequest model model was made following Code Instute's I Think Therefore I Blog template. I only added the title field so the users can send what title they want to use. It stores collaboration requests, capturing sender details like name and email, along with request specifics such as title and message content. Additionally, a flag is included to indicate whether the request has been posted. This model facilitates the management of collaboration inquiries on the website, enabling administrators to review, process, and mark requests as posted.
+
+- **Views**
+1. Home - it renders the home.html template, which includes a collaboration form. Upon receiving a POST request with valid form data, the collaboration request is saved, and a success message is displayed using Django's messaging framework. The view initializes an instance of the CollaborateForm, which is passed to the template context for rendering. This view serves as the entry point for users to submit collaboration requests through the website's homepage.
+
+- **Forms**
+1. Collaboration Form - it allows users to submit collaboration requests anonymously by providing their name, email, title, and message. It inherits from Django's ModelForm and is associated with the CollaborateRequest model, specifying the fields to be included in the form. Additionally, it includes a crispy-bootstrap5 FloatingField for enhanced form rendering. This form facilitates the submission of collaboration requests through the website's collaboration feature.
+
+### Profiles App
+
+This app was 100% designed and created by me, without the support of any Code Institute's walkthrough.
+
+- **Models**
+1. User Profile - The UserProfile model stores user profiles, containing fields for bio, profile picture, birth date, location, registration date, and gender. It includes a one-to-one relationship with the built-in User model from Django, ensuring each user has a unique profile. The bio field allows users to provide additional information about themselves, while the picture field utilizes CloudinaryField for storing profile pictures. Other fields such as birth_date, location, registration_date, and gender provide additional user details. This model enhances user interaction and personalization within the website.
+
+- **Views**
+1. Profile - it renders the user profile page with user-specific information, including user statistics such as the count of posts authored, comments made, and votes received on posts. It retrieves the UserProfile instance associated with the provided username and passes relevant context to the profile.html template.
+2. Add Post - it allows authenticated users to add a new post, rendering the add_post.html template with the PostForm instance. Upon successful submission, a success message is displayed, and the user is redirected to their post list.
+3. Edit Post - it enables authenticated users to edit their own posts. It renders the update_post.html template with the PostForm instance pre-populated with the post's current data. After successfully updating the post, a success message is shown, and the user is redirected to the post detail page.
+4. Delete Post - it permits authenticated users to delete their own posts. It renders the delete_post.html template and handles post deletion upon confirmation. After successful deletion, a success message is displayed, and the user is redirected to their post list.
+5. Manage Posts - it provides authenticated users with a way to manage their posts by displaying a list of posts and drafts authored by the user. It passes the user's posts and drafts as context to the manage_posts.html template.
+6. User activity - it showcases user activity by displaying the posts on which the user has voted or commented. It retrieves posts voted as silly, not silly and more information, and commented posts associated with the user and passes them as context to the user_activity.html template.
+7. Edit Profile - it allows authenticated users to edit their profile information. It renders the edit_profile.html template with the UserProfileForm instance pre-filled with the user's current profile data. Upon successful profile update, a success message is shown, and the user is redirected to their profile page.
+
+- **Forms**
+1. Post Form - it allows users to add and edit blog posts by providing a title, excerpt, and content. It ensures that the length of the title does not exceed 200 characters and the excerpt does not exceed 500 characters, truncating them if necessary. This form enhances the user experience by simplifying the process of creating and updating blog posts.
+
+2. User Profile Form - it enables users to update their profiles, including their bio, birth date, location, gender, and profile picture. It provides a convenient interface for users to manage their personal information. Additionally, it includes validation to limit the length of the bio to 255 characters, ensuring consistency and preventing excessive text input. This form enhances user interaction and customization within the website.
+
 
 # TECHNOLOGIES USED
 

@@ -54,10 +54,16 @@ INSTALLED_APPS = [
     'django_password_validators.password_history',
     'cloudinary',
     'django_summernote',
+    'django_extensions',
     'blog',
     'home',
     'profiles',
 ]
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
