@@ -6,7 +6,7 @@ Developer: [Nathalia de Araujo Silva](https://www.linkedin.com/in/nathaliaaraujo
 
 Silly Talks is a platform where users share stories to receive feedback on whether they're silly or serious, aiming to allow people to vent in a fun way and get impartial opinions.
 
-Deployed website: 
+Deployed website: [Go to Silly Talks](https://sillytalks-d90cef26c5c7.herokuapp.com/)
 
 # CONTENT
 
@@ -558,10 +558,46 @@ This app was designed and created by me, without the support of any Code Institu
 
 # DEPLOYMENT
 
+## Deployment to Heroku
+
+### Heroku Setup:
+1. Log in to Heroku and create a new app.
+2. Set config vars in settings tab: 
+    - DATABASE_URL 
+    - SECRET_KEY
+    - CLOUDINARY_URL
+3. Add a Python buildpack in settings tab.
+
+### Deploying
+1. Install gunicorn in Gitpod using pip3 install gunicorn and freeze it into requirements.txt.
+2. Create a Procfile to specify the web dyno command.
+3. Temporarily disable collectstatic.
+4. Commit changes to GitHub and push to Heroku.
+
+## Forking
+1. Visit the GitHub repository and click on 'Fork'.
+2. Customize the fork as required, then create it.
+
+## ElephantSQL
+1. Log in to ElephantSQL and select 'Create New Instance'
+2. Select a plan, input your details and review.
+3. Select Region: I selected EU-West-1 (for Ireland).
+4. Once created, use the copy icon to copy the DATBASE_URL.
+
+## Cloning Repository
+1. Copy the repository link from GitHub.
+2. Open your IDE or terminal, navigate to the desired location, and clone the repository using git clone.
+3. Enter your workspace, set up a virtual environment, install dependencies from requirements.txt, and create an env.py file.
+4. Modify settings.py and other necessary files.
+
+## Cloudinary
+1. Log in to Cloudinary
+2. Copy your CLOUDINARY_URL
+
 # CREDITS
 
 ## Colleagues
 * lista de projetos que me inspirei
 
 ## Websites
-* pegar do treco de documentation
+chatgpt
