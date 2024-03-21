@@ -541,10 +541,7 @@ This app was designed and created by me, without the support of any Code Institu
 
     - **Code Institute Python Linter:** Python.
 
-    - **JSHint:** JavaScript development.
-
     - **W3C Validator:** HTML and CSS.
-
 
 # TESTING
 
