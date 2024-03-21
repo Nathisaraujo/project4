@@ -46,8 +46,6 @@ Deployed website: [Go to Silly Talks](https://sillytalks-d90cef26c5c7.herokuapp.
 * [DEPLOYMENT](<#deployment>)
     
 * [CREDITS](<#credits>)
-	* [Colleagues](<#colleagues>)
-	* [Websites](<#websites>)
 
 # OBJECTIVES
 
@@ -550,54 +548,97 @@ This app was designed and created by me, without the support of any Code Institu
 
 # TESTING
 
-## Code Validation
-* Colocar print de cada um?
-
-## Manual Testing
-* ver o que tem 
+Refer to the [TESTING.MD](https://github.com/Nathisaraujo/project4/blob/main/TESTING.md)
 
 # DEPLOYMENT
 
 ## Deployment to Heroku
 
 ### Heroku Setup:
-1. Log in to Heroku and create a new app.
-2. Set config vars in settings tab: 
+1. **Create a New App:** log in to Heroku and create a new app.
+2. **Configure Settings:** in the settings tab of your Heroku app dashboard, set config vars for 
+ production:
     - DATABASE_URL 
     - SECRET_KEY
     - CLOUDINARY_URL
-3. Add a Python buildpack in settings tab.
+3. **Add Buildpack:** Include a Python buildpack in the settings tab to install necessary dependencies.
 
 ### Deploying
-1. Install gunicorn in Gitpod using pip3 install gunicorn and freeze it into requirements.txt.
-2. Create a Procfile to specify the web dyno command.
-3. Temporarily disable collectstatic.
-4. Commit changes to GitHub and push to Heroku.
+1. **Install Gunicorn:** In Gitpod, install Gunicorn using "pip3 install gunicorn" and freeze it into requirements.txt.
+2. **Create Procfile:** Specify the web dyno command in a Procfile.
+3. **Disable Collectstatic:** Temporarily disable collectstatic to prevent serving static files during deployment.
+4. **Commit and Push:** Commit changes to GitHub and push them to Heroku for deployment. Heroku automatically detects changes in the repository and triggers the deployment process.
 
 ## Forking
-1. Visit the GitHub repository and click on 'Fork'.
-2. Customize the fork as required, then create it.
+Forking allows you to freely experiment with changes without affecting the original repository.
+
+1. **Create a Fork:** Visit the GitHub repository and click on 'Fork' to create a copy of the repository under your account. 
+2. **Customize Fork:** Customize the fork as needed before creating it. You can modify the fork's settings, description, and other details to suit your requirements.
 
 ## ElephantSQL
-1. Log in to ElephantSQL and select 'Create New Instance'
-2. Select a plan, input your details and review.
-3. Select Region: I selected EU-West-1 (for Ireland).
-4. Once created, use the copy icon to copy the DATBASE_URL.
+1. **Create New Instance:** Log in to ElephantSQL and select 'Create New Instance'. 
+2. **Plan Selection:** Choose a plan, input your details, and review the instance configuration. 
+3. **Select Region:** Choose a region for hosting the database, such as EU-West-1 (Ireland). 
+4. **Database URL:** After instance creation, copy the DATABASE_URL provided for use in the project. This URL contains connection details necessary for Django to communicate with the ElephantSQL database.
 
 ## Cloning Repository
-1. Copy the repository link from GitHub.
-2. Open your IDE or terminal, navigate to the desired location, and clone the repository using git clone.
-3. Enter your workspace, set up a virtual environment, install dependencies from requirements.txt, and create an env.py file.
-4. Modify settings.py and other necessary files.
+Cloning creates a local copy of the repository on your machine, allowing you to work on the codebase locally.
+
+1. **Copy Repository Link:** Copy the repository link from GitHub.
+2. **Clone Repository:** Use Git commands to clone the repository to your local environment.
+3. **Set Up Environment:** Enter your workspace, set up a virtual environment, install dependencies from requirements.txt, and create an env.py file. 
+4. **Configuration:** Modify settings.py and other necessary files to match your environment and configurations. Update settings.py with database connection details, secret keys, and other environment-specific configurations.
 
 ## Cloudinary
-1. Log in to Cloudinary
-2. Copy your CLOUDINARY_URL
+The CLOUDINARY_URL contains authentication and configuration details required for Django to interact with the Cloudinary service.
+
+1. **Log in to Cloudinary:** Access your Cloudinary account through the web interface.
+2. **Retrieve Cloudinary URL:** Copy your CLOUDINARY_URL for use in storing static and media files.
 
 # CREDITS
 
-## Colleagues
-* lista de projetos que me inspirei
+- **Debugging and Error Resolution:** When encountering issues with the like button implementation, I utilized various resources for assistance, including tutoring sessions, browser developer tools, and ChatGPT.
 
-## Websites
-chatgpt
+- I used [ChatGPT](https://chat.openai.com/) to help me throughout the project, leveraging its capabilities in various ways:
+    - **Error Understanding and Debugging:** ChatGPT assisted me in comprehending complex errors and provided insights to debug the code effectively.
+    - **Typo Detection:** I employed ChatGPT to identify any typos present in my code or documentation files.
+    - **Vocabulary and Grammar Enhancement:** ChatGPT helped refine the vocabulary and grammar in my project documentation, ensuring clarity as English is not my first language.
+
+    - **Specific Use Cases:**
+        - **Customizing Allauth Text:** When faced with the task of customizing Allauth text, ChatGPT provided guidance on the necessary steps and best practices.
+
+            ![Responsive Design Screenshot](/readme-images/1.png)
+
+        - **JS Assistance:** Due to  my limited proficiency in JavaScript, I sought ChatGPT's advice on implementing a 'go back' button, which it efficiently provided.
+
+            ![Responsive Design Screenshot](/readme-images/2.png)
+
+        - **Fixing User Total Votes Issue:** I had an issue related to user_total_votes in profile views. It was returning some random numbers. It offered insightful suggestions, enabling me to address the problem effectively and tailor the solution to my specific requirements.
+
+            ![Responsive Design Screenshot](/readme-images/3.png)
+
+- **Email Field Configuration:** To set the email field as required in Django Allauth, I found a helpful solution on [Stack Overflow](https://stackoverflow.com/questions/23956288/django-all-auth-email-required).
+
+- **Implementing Like Button:** I learned how to add a like button by watching a tutorial on YouTube. [YouTube](https://www.youtube.com/watch?v=xqFM6ykQEwo).
+
+- **Email Verification with Social Accounts:** I followed multiple video tutorials to understand how to implement email verification with social accounts:
+    - [Video 1](https://www.youtube.com/watch?v=RyB_wdEZhOw&t=40s)
+    - [Video 2](https://www.youtube.com/watch?v=NG48CLLsb1A)
+    - [Video 3](https://www.youtube.com/watch?v=GQySb3W2feo)
+
+- **Code Collaboration:** A friend shared his code with me, which greatly aided in completing the like button feature. [JustBlog](https://github.com/gioZAK/justblog).
+
+- **Profile Page Development:** To enhance the profile page functionality, I referred to various online resources:
+    - [Dev.to Article](https://dev.to/earthcomfy/django-user-profile-3hik)
+    - [Blog Tutorial](https://dontrepeatyourself.org/post/django-blog-tutorial-part-3-users-authentication/#profile-page)
+    - [YouTube Tutorial](https://www.youtube.com/watch?v=zb4fIvtn4tY)
+
+- **Django Password Validators:** For implementing Django password validators, I consulted the official documentation available [here](https://pypi.org/project/django-password-validators/#:~:text=Validator%20checks%20if%20the%20password,are%20stored%20in%20a%20database.).
+
+- **Post Views Enhancement:** I referred to a project I found on LinkedIn, by [Eleanor Bucke](https://github.com/eleanorbucke21/PP4/), which made the Bawarchi Khana Website.
+
+To craft this README, I referred to the following projects found on LinkedIn:
+
+1. **[The Groomers Network Website by Helen Murugan](https://github.com/helenmurugan/the-groomers-network/)**
+
+2. **[Inspiring Young Writers by Georgina Carlisle](https://github.com/GeorginaCarlisle/inspiring-young-writers/)**
