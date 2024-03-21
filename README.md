@@ -2,7 +2,7 @@
 
 Developer: Nathalia de Araujo Silva
 
-main page print
+![Responsive Design Screenshot](/readme-images/inicial.png)
 
 Silly Talks is a platform where users share stories to receive feedback on whether they're silly or serious, aiming to allow people to vent in a fun way and get impartial opinions.
 
@@ -16,7 +16,7 @@ Link para live website
     * [Typography](<#typography>)
     * [Color Scheme](<#color-scheme>)
 
-* [USER EXPERIENCE](<#user-experience-ux>)
+* [USER EXPERIENCE](<#user-experience>)
     * [Audience](<#audience>)
     * [User Stories](<#user-stories>)
 
@@ -73,11 +73,16 @@ The fonts have been sourced from the [Google Fonts library](https://fonts.google
 The site utilizes three different fonts:
 
 1. **"Lobster"**, a sans-serif font, is exclusively reserved for the page title. This choice aims to emulate a handwritten appearance, imparting a sense of personalization and warmth to the site.
+
+![Responsive Design Screenshot](/readme-images/lobster.png)
+
 2. **"DM Serif Display"**, a serif font, is employed for post titles, the welcome message, and text prompting user interaction such as voting. The objective is to craft attention-grabbing titles, distinct from the rest of the page, reminiscent of the aesthetic of a printed newspaper headline.
+
+![Responsive Design Screenshot](/readme-images/DM-Serif-Display.png)
+
 3. **"Comfortaa"**, another sans-serif font, is utilized for body text and is consistently applied across the entire website. Its purpose is to foster an ambiance of relaxation and approachability, ensuring that the site maintains an informal and friendly tone."
 
-
-Prints das fontes
+![Responsive Design Screenshot](/readme-images/comfortaa.png)
 
 ## Color Scheme
 
@@ -90,6 +95,8 @@ Pictures from [Coolors](https://coolors.co/)
 **White:**
 - #F9FAFC: Background, footer text, body background
 
+![Responsive Design Screenshot](/readme-images/branco.png)
+
 **Purple:**
 - #693d69: Nav link
 - #630d5c: Nav title, pagination active, button form text
@@ -97,14 +104,20 @@ Pictures from [Coolors](https://coolors.co/)
 - #3d013a: Footer background, vote buttons, post card information
 - #2f2738: Post list title, post link, pagination text
 
+![Responsive Design Screenshot](/readme-images/roxo.png)
+
 **Pink:**
 - #dba2d836: Comments background
 - #dba2d8: Message background, button background, pagination background
 - #f9d1f7: Post list
 - #c27bbcc0: Input borders, container borders, index post cards, home page cards
 
+![Responsive Design Screenshot](/readme-images/rosa.png)
+
 **Gray:**
 - #6c757d: Pagination border, comment border, pagination disabled
+
+![Responsive Design Screenshot](/readme-images/cinza.png)
 
 **Home page Linear-gradient:**
 - rgba(248,249,250), - F8F9FA
@@ -112,7 +125,7 @@ Pictures from [Coolors](https://coolors.co/)
 - rgba(255, 0, 140, 0.336), - FF008C
 - rgb(255, 255, 255) - FFFFFF
 
-Foto com as cores lado a lado
+![Responsive Design Screenshot](/readme-images/gradient.png)
 
 # USER EXPERIENCE
 
@@ -180,20 +193,144 @@ As a blog admin I can create, read, update and delete posts so that I can manage
 ## Existing Features
 
 ### Home Page
-	Explicar tudo que contém
-    Colocar Prints
+
+**- Navigation**
+
+![Responsive Design Screenshot](/readme-images/navigation.png)
+
+**- Navigation Bar Structure:** The navigation bar was constructed using Bootstrap, ensuring a responsive and user-friendly design. 
+**- Branding:** Positioned in the left corner, the navigation bar prominently displays the name of the website, ensuring easy identification and branding consistency.
+**- User Authentication Indicator:** Located in the right corner, the navigation bar provides a clear indication of the user's authentication status, offering seamless navigation  
+and personalized experiences.
+**- Interactive Elements:** All elements within the navigation bar exhibit interactivity, dynamically changing color upon hovering, enhancing user engagement and intuitiveness.
+**- Useful Links:** The navigation bar includes convenient links to access key pages such as [Silly Talks](<#silly-talks-page>) and the [register and login page](<#register-and-login>), facilitating streamlined navigation and user journey..
+
+![Responsive Design Screenshot](/readme-images/navlogged.png)
+
+**- User Authentication Feedback:** When logged in, the user will receive personalized feedback in the form of a message displayed in the right corner, stating "You are logged in as -username-," providing a clear indication of their authentication status and enhancing user experience.
+**- Enhanced Navigation Options:** Additionally, when logged in, the navigation bar will dynamically update to include convenient shortcuts to access the user's [profile page](<#profile>) and the [logout](<#logout>) functionality, ensuring seamless navigation and quick access to essential features.
+
+**- Welcome message**
+
+![Responsive Design Screenshot](/readme-images/landing.png)
+
+- The landing page features a welcoming message that encapsulates the essence of the website and introduces visitors to its core concepts and ideas.
+
+**- Website explanation**
+
+![Responsive Design Screenshot](/readme-images/explain.png)
+
+- Directly beneath the welcome message, the website provides further insight into its core concepts and ideas, offering visitors a deeper understanding of its purpose and objectives.
+- Positioned on the left side, visitors can explore a selection of published stories, showcasing the diverse range of content available on the platform and providing inspiration for potential contributions.
+- On the right side, a detailed explanation of the voting system is presented, empowering users with an understanding of how they can engage with and contribute to the community-driven platform.
+- The Font Awesome items are animated to uphold the relaxed atmosphere of the site, enhancing user engagement and adding a touch of dynamism to the browsing experience.
+- When the user is logged in, a "Read More Stories" button appears, redirecting to the [Silly Talks page](<#silly-talks-page>), while for non-logged-in users, it directs to a [registration page](<#register>), encouraging seamless navigation tailored to user authentication status.
+
+**- Call to register**
+
+![Responsive Design Screenshot](/readme-images/chamando.png)
+
+- Directly below the website explanation, on the left side, a prominent box invites users to register, enabling them to participate in voting, commenting, and activity tracking features. 
+- Upon logging in, the button transforms to "Start the Silliness," directing users to the Silly Talks page, fostering engagement and interaction within the community.
+
+**- Collaboration form**
+
+![Responsive Design Screenshot](/readme-images/contribua.png)
+
+- Positioned on the right side, the site encourages users to anonymously share their stories by completing a form, fostering a sense of inclusivity and encouraging user-generated content.
+
+**- Footer**
+
+![Responsive Design Screenshot](/readme-images/footer.png)
+
+- The footer is elegantly minimalistic, showcasing the website's social media links. 
+- Additionally, it features a message indicating its educational purpose, ensuring transparency and fostering trust with users.
 
 ### Silly Talks Page
-	Explicar tudo que contém
-    Colocar Prints
 
-### Register
-    Explicar tudo que contém
-    Colocar Prints
+![Responsive Design Screenshot](/readme-images/index.png)
+
+- The Silly Talks page presents a comprehensive list of posts available on the website, offering users easy access to a wealth of content.
+- Additionally, it features a convenient [search bar](<#search-bar-page>), allowing users to quickly find posts related to specific topics or keywords.
+- Each post card includes essential details such as its text, excerpt, author, and creation date, providing users with valuable context before engaging with the content.
+- Furthermore, the post card prominently displays a vote count, enabling users to gauge the popularity of each post across different categories without needing to open it.
+- To enhance user experience and navigation, pagination functionality is seamlessly integrated, ensuring smooth browsing through multiple pages of posts.
+
+### Search Bar Page
+
+![Responsive Design Screenshot](/readme-images/procura.png)
+
+- The search bar page showcases a curated list of posts closely related to the user's search query, facilitating efficient content discovery.
+- Clicking on a post redirects the user to its dedicated page, allowing for a deeper exploration of the content.
+- For added convenience, users can initiate a new search by simply clicking the "New Search" button, ensuring a seamless search experience.
+
+![Responsive Design Screenshot](/readme-images/cade.png)
+
+- In the event of no search results, users are presented with a clear and informative message, ensuring transparency and guiding them to explore alternative options.
+
+### Post page
+
+![Responsive Design Screenshot](/readme-images/post.png)
+
+- Clicking on a post redirects the user to a dedicated post page, where the title of the post is prominently displayed at the center of the page.
+- Below the title, users find the post's excerpt, providing a concise overview of its content.
+- Further down, users can view information about the author and the post's creation date.
+
+![Responsive Design Screenshot](/readme-images/colapse.png)
+
+- By clicking on "See the Whole Silliness Here," users can expand a collapsible section to reveal the full content of the post.
+
+![Responsive Design Screenshot](/readme-images/comentario.png)
+
+- For non-logged-in users, comments are visible, accompanied by a message prompting them to log in or register to vote or comment.
+
+![Responsive Design Screenshot](/readme-images/votos.png)
+
+![Responsive Design Screenshot](/readme-images/comente.png)
+
+- Logged-in users have access to voting buttons and counters, as well as a comment box to engage with the post.
+
+![Responsive Design Screenshot](/readme-images/autor_comentario.png)
+
+- If the user is the author of the comment, they will see edit and delete buttons for their own comments.
+
+![Responsive Design Screenshot](/readme-images/post_author.png)
+
+- Similarly, if the user is the author of the post, they will see edit and delete buttons for the post itself.
+
+### Register and Login
+
+![Responsive Design Screenshot](/readme-images/login.png)
+
+- The register page features a user-friendly interface where users can easily choose a username, enter their email, and create a password.
+- Detailed instructions are provided in the password field, ensuring users understand the requirements for creating a secure password.
+- For existing users, a convenient link is available to redirect them to the login page, streamlining the authentication process.
+
+![Responsive Design Screenshot](/readme-images/senha.png)
+
+- In case of invalid data input, clear and informative error messages are displayed, guiding users to correct any mistakes and successfully complete the registration process.
+
+### Logout
+
+![Responsive Design Screenshot](/readme-images/signout.png)
+
+- In case of invalid data input, clear and informative error messages are displayed, guiding users to correct any mistakes and successfully complete the registration process.
 
 ### Profile
-	Explicar tudo que contém
-    Colocar Prints
+
+![Responsive Design Screenshot](/readme-images/profile.png)
+
+- Upon logging in or registering, users are automatically redirected to their profile page, ensuring a seamless entry into the platform.
+- The profile page's navigation bar is persistently displayed across all profile pages, providing easy access to navigation options.
+- Users have access to view their personal details, facilitating control over their account information.
+
+![Responsive Design Screenshot](/readme-images/estatistica.png)
+
+- Clicking on the collapsible button reveals a table displaying user statistics, offering insights into activity and engagement.
+
+![Responsive Design Screenshot](/readme-images/ninguem.png)
+
+- In the absence of a user-uploaded profile picture, a placeholder image is displayed, ensuring a visually consistent experience.
 
 ## Future Features
 * Explain each user stories by points
