@@ -2,35 +2,51 @@
 
 Back to [Silly Talks README](https://github.com/Nathisaraujo/project4/blob/main/README.md)
 
-# CONTENT
+# TABLE OF CONTENTS
 
-* [OBJECTIVES](<#objectives>)
+* [CODE VALIDATION](<#code-validation>)
+    * [HTML](<#html>)
+    * [CSS](<#css>)
+    * [JavaScript](<#javascript>)
+    * [Python](<#python>)
 
-* [DESIGN](<#design>)
-    * [Typography](<#typography>)
-    * [Color Scheme](<#color-scheme>)
-    * [Audience](<#audience>)
-    * [User Stories](<#user-stories>)
+* [RESPONSIVENESS](<#responsivess>)
 
-* [USER EXPERIENCE](<#user-experience>)
+* [BROWSER COMPATIBILITY](<#browser-compatibility>)
 
-* [FEATURES](<#features>)
-    * [Existing Features](<#existing-features>)
+* [LIGHTHOUSE](<#lighthouse>)
+
+* [MANUAL TESTING](<#manual-testing>)
+    * [Landing Page and Navigation](<#existing-features>)
     * [Home page](<#home-page>)
     * [Silly Talks Page](<#silly-talks-page>)
     * [Register](<#register>)
     * [Profile](<#profile>)
     * [Future Features](<#future-features>)
 
-* [LOGIC](<#logic>)
+* [DEFENSIVE PROGRAMMING](<#defensive-programming>)
+
+* [USER STORY TESTING](<#user-story-testing>)
+
+# CODE VALIDATION
+
+## Html 
 
 
-* [Techonologies Used](<#technologies-used>)
-
-* [TESTING](<#testing>)
-
-* [DEPLOYMENT](<#deployment>)
-    
-* [CREDITS](<#credits>)
 
 
+## Css
+## JavaScript
+## Python
+
+# RESPONSIVENESS
+
+# BROWSER COMPATIBILITY
+
+# LIGHTHOUSE
+
+# MANUAL TESTING
+
+# DEFENSIVE PROGRAMMING
+
+# USER STORY TESTING
