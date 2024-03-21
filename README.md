@@ -4,7 +4,7 @@ Developer: Nathalia de Araujo Silva
 
 main page print
 
-Texto pequeno explicando o que é o site
+Silly Talks is a platform where users share stories to receive feedback on whether they're silly or serious, aiming to allow people to vent in a fun way and get impartial opinions.
 
 Link para live website
 
@@ -13,27 +13,27 @@ Link para live website
 * [OBJECTIVES](<#objectives>)
 
 * [DESIGN](<#design>)
-    *[Typography](<#typography>)
-    *[Color Scheme](<#color-scheme>)
+    * [Typography](<#typography>)
+    * [Color Scheme](<#color-scheme>)
 
 * [USER EXPERIENCE](<#user-experience-ux>)
-    *[Audience](<#audience>)
-    *[User Stories](<#user-stories>)
+    * [Audience](<#audience>)
+    * [User Stories](<#user-stories>)
 
 * [FEATURES](<#features>)
-    * [Existing Features](<#existing-features>)	
-        *[Home page](<#home-page>)
-        *[Silly Talks Page](<#silly-talks-page>)
-        *[Register](<#register>)
-        *[Profile](<#profile>)
+    * [Existing Features](<#existing-features>)
+        * [Home page](<#home-page>)
+        * [Silly Talks Page](<#silly-talks-page>)
+        * [Register](<#register>)
+        * [Profile](<#profile>)
     * [Future Features](<#future-features>)
 
 * [LOGIC](<#logic>)
-    *[Database](<#database>)
-    *[Workflow](<#workflow>)
-    *[Django Apps](<#django-apps>)
-    *[Models, views and forms](<#models-views-and-forms>)
-    *[Agile](<#agile>)
+    * [Database](<#database>)
+    * [Workflow](<#workflow>)
+    * [Django Apps](<#django-apps>)
+    * [Models, views and forms](<#models-views-and-forms>)
+    * [Agile](<#agile>)
 
 * [Techonologies Used](<#technologies-used>)
     * [Languages](<#languages>)
@@ -51,7 +51,17 @@ Link para live website
 
 # OBJECTIVES
 
-Texto grande explicando todo o projeto.
+Silly Talks is a website inspired by the ["AITA" community](https://www.reddit.com/r/AmItheAsshole/) on Reddit. Users can share their stories, and everyone will judge whether they find them silly. 
+
+The site aims to allow people to share their problems in a more fun way so that impartial third parties can give their opinion. We often think the grass is greener on the other side and don't know how many people go through the same thing or how many have different problems. It's a community to help people vent and also understand that everyone has problems. 
+
+Since the site's intention is to help people facing a problem, all posts and comments require approval from the administrator. Non-logged-in users can submit their stories through the homepage form, and the administrator will post them later. We included this option so that we have stories on the site even if the person doesn't feel comfortable registering at the moment. Registered users can request a post, comment (subject to approval), and vote on the problem. The site offers 3 voting options: not silly, silly, and more information.
+
+- **NOT SILLY:** Your problem is more serious than you think. Seek help! - We inform the author of the story that their problem is serious and they need to seek help (from family, friends, or professionals).
+
+- **SILLY:** It's really silly, you're fine! - We inform the user that the problem is trivial and that everything will be okay.
+
+- **MORE INFORMATION:** Give us more details so we can judge better! - We inform the user that we need more information to assess their problems.
 
 # DESIGN
 
