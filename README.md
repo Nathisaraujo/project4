@@ -42,8 +42,6 @@ Link para live website
     * [Libraries and Programs](<#libraries-and-programs>)
 
 * [TESTING](<#testing>)
-    * [Code Validation](<#code-validation>)
-    * [Manual Testing](<#manual-testing>)
 
 * [DEPLOYMENT](<#deployment>)
     
@@ -559,8 +557,6 @@ This app was designed and created by me, without the support of any Code Institu
 * ver o que tem 
 
 # DEPLOYMENT
-
-* Explicar essa merda
 
 # CREDITS
 
