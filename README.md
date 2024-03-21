@@ -1,12 +1,12 @@
 # Silly Talks
 
-Developer: Nathalia de Araujo Silva
+Developer: [Nathalia de Araujo Silva](https://www.linkedin.com/in/nathaliaaraujosilva/)
 
 ![Responsive Design Screenshot](/readme-images/inicial.png)
 
 Silly Talks is a platform where users share stories to receive feedback on whether they're silly or serious, aiming to allow people to vent in a fun way and get impartial opinions.
 
-Link para live website
+Deployed website: 
 
 # CONTENT
 
