@@ -26,17 +26,17 @@ Back to [Silly Talks README](https://github.com/Nathisaraujo/project4/blob/main/
 ## Html 
 Ensured that all HTML code adheres to the standards set by the W3C Markup Validation Service.
 
-![Responsive Design Screenshot](/readme-images/html.png)
+![html validation](/readme-images/html.png)
 
 ## Css
 Validated all CSS code using the W3C CSS Validation Service to ensure compliance with CSS standards.
 
-![Responsive Design Screenshot](/readme-images/css.png)
+![css validation](/readme-images/css.png)
 
 ## Python
 Validated all Python Files using CI Python Linter to ensure code quality and adherence to PEP 8 guidelines.
 
-![Responsive Design Screenshot](/readme-images/Python.png)
+![python validation](/readme-images/Python.png)
 
 # RESPONSIVENESS
 
@@ -51,15 +51,15 @@ Tested the responsiveness of the website across various screen sizes, including 
 
 - Desktop
 
-![Responsive Design Screenshot](/readme-images/desktop.png)
+![desktop responsiveness](/readme-images/desktop.png)
 
 - Tablet
 
-![Responsive Design Screenshot](/readme-images/tablet.png)
+![tablet responsiveness](/readme-images/tablet.png)
 
 - Mobile
 
-![Responsive Design Screenshot](/readme-images/mobile.png)
+![mobile responsiveness](/readme-images/mobile.png)
 
 # BROWSER COMPATIBILITY
 Tested the website on different web browsers to ensure consistent functionality and appearance across all major browsers.
@@ -75,7 +75,7 @@ Tested the website on different web browsers to ensure consistent functionality 
 # LIGHTHOUSE
 Used Lighthouse, an automated tool integrated into web browsers or available as a Chrome extension, to assess the website's performance, accessibility, best practices, and SEO. Addressed any issues or recommendations provided by Lighthouse.
 
-![Responsive Design Screenshot](/readme-images/lighthouse.png)
+![lighthouse validation](/readme-images/lighthouse.png)
 
 # MANUAL TESTING
 Conducted thorough manual testing of all features and functionalities of the website, including navigation, forms, buttons, links, and interactive elements. Ensured that all aspects of the website work as expected and are user-friendly.
@@ -214,8 +214,8 @@ Conducted thorough manual testing of all features and functionalities of the web
 # DEFENSIVE PROGRAMMING
 Implemented defensive programming techniques to handle unexpected inputs, edge cases, and error conditions gracefully. Utilized exception handling, input validation, and error messages to enhance the robustness and reliability of the code.
 
-![Responsive Design Screenshot](/readme-images/senha.png)
-![Responsive Design Screenshot](/readme-images/msg.png)
+![password error](/readme-images/senha.png)
+![messages](/readme-images/msg.png)
 
 
 # USER STORY TESTING
@@ -279,8 +279,8 @@ Tested the website against user stories and acceptance criteria defined during t
 
 When I was writing the README file I tried to signup to get some errors messages for printing and documenting and I was surprised with the following error:
 
-![Responsive Design Screenshot](/readme-images/error.png)
+![known bug](/readme-images/error.png)
 
 I didn't understand what it meant as I tested everything and it was working fine. I started testing different usernames to test and found out that a username only with numbers were working. I decided to ask for tutor assistance but when I tried to show him, it was working fine again. So he advised me to report this on the readme file.
 
-![Responsive Design Screenshot](/readme-images/tutor.png)
+![tutor assistance](/readme-images/tutor.png)

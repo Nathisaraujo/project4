@@ -2,7 +2,7 @@
 
 Developer: [Nathalia de Araujo Silva](https://www.linkedin.com/in/nathaliaaraujosilva/)
 
-![Responsive Design Screenshot](/readme-images/inicial.png)
+![home page print](/readme-images/inicial.png)
 
 Silly Talks is a platform where users share stories to receive feedback on whether they're silly or serious, aiming to allow people to vent in a fun way and get impartial opinions.
 
@@ -72,15 +72,15 @@ The site utilizes three different fonts:
 
 1. **"Lobster"**, a sans-serif font, is exclusively reserved for the page title. This choice aims to emulate a handwritten appearance, imparting a sense of personalization and warmth to the site.
 
-![Responsive Design Screenshot](/readme-images/lobster.png)
+![Lobster Font](/readme-images/lobster.png)
 
 2. **"DM Serif Display"**, a serif font, is employed for post titles, the welcome message, and text prompting user interaction such as voting. The objective is to craft attention-grabbing titles, distinct from the rest of the page, reminiscent of the aesthetic of a printed newspaper headline.
 
-![Responsive Design Screenshot](/readme-images/DM-Serif-Display.png)
+![DM Serif Display Font](/readme-images/DM-Serif-Display.png)
 
 3. **"Comfortaa"**, another sans-serif font, is utilized for body text and is consistently applied across the entire website. Its purpose is to foster an ambiance of relaxation and approachability, ensuring that the site maintains an informal and friendly tone."
 
-![Responsive Design Screenshot](/readme-images/comfortaa.png)
+![Comfortaa Font](/readme-images/comfortaa.png)
 
 ## Color Scheme
 
@@ -93,7 +93,7 @@ Pictures from [Coolors](https://coolors.co/)
 **White:**
 - #F9FAFC: Background, footer text, body background
 
-![Responsive Design Screenshot](/readme-images/branco.png)
+![white colour scheme](/readme-images/branco.png)
 
 **Purple:**
 - #693d69: Nav link
@@ -102,7 +102,7 @@ Pictures from [Coolors](https://coolors.co/)
 - #3d013a: Footer background, vote buttons, post card information
 - #2f2738: Post list title, post link, pagination text
 
-![Responsive Design Screenshot](/readme-images/roxo.png)
+![purple colour scheme](/readme-images/roxo.png)
 
 **Pink:**
 - #dba2d836: Comments background
@@ -110,12 +110,12 @@ Pictures from [Coolors](https://coolors.co/)
 - #f9d1f7: Post list
 - #c27bbcc0: Input borders, container borders, index post cards, home page cards
 
-![Responsive Design Screenshot](/readme-images/rosa.png)
+![pink colour scheme](/readme-images/rosa.png)
 
 **Gray:**
 - #6c757d: Pagination border, comment border, pagination disabled
 
-![Responsive Design Screenshot](/readme-images/cinza.png)
+![gray colour scheme](/readme-images/cinza.png)
 
 **Home page Linear-gradient:**
 - rgba(248,249,250), - F8F9FA
@@ -123,7 +123,7 @@ Pictures from [Coolors](https://coolors.co/)
 - rgba(255, 0, 140, 0.336), - FF008C
 - rgb(255, 255, 255) - FFFFFF
 
-![Responsive Design Screenshot](/readme-images/gradient.png)
+![gradient colour scheme](/readme-images/gradient.png)
 
 # USER EXPERIENCE
 
@@ -194,7 +194,7 @@ As a blog admin I can create, read, update and delete posts so that I can manage
 
 **- Navigation**
 
-![Responsive Design Screenshot](/readme-images/navigation.png)
+![Navigation bar](/readme-images/navigation.png)
 
 - **Navigation Bar Structure:** The navigation bar was constructed using Bootstrap, ensuring a responsive and user-friendly design. 
 - **Branding:** Positioned in the left corner, the navigation bar prominently displays the name of the website, ensuring easy identification and branding consistency.
@@ -202,20 +202,20 @@ As a blog admin I can create, read, update and delete posts so that I can manage
 - **Interactive Elements:** All elements within the navigation bar exhibit interactivity, dynamically changing color upon hovering, enhancing user engagement and intuitiveness.
 - **Useful Links:** The navigation bar includes convenient links to access key pages such as [Silly Talks](<#silly-talks-page>) and the [register and login page](<#register-and-login>), facilitating streamlined navigation and user journey..
 
-![Responsive Design Screenshot](/readme-images/navlogged.png)
+![Navigation bar logged](/readme-images/navlogged.png)
 
 - **User Authentication Feedback:** When logged in, the user will receive personalized feedback in the form of a message displayed in the right corner, stating "You are logged in as -username-," providing a clear indication of their authentication status and enhancing user experience.
 - **Enhanced Navigation Options:** Additionally, when logged in, the navigation bar will dynamically update to include convenient shortcuts to access the user's [profile page](<#profile>) and the [logout](<#logout>) functionality, ensuring seamless navigation and quick access to essential features.
 
 **- Welcome message**
 
-![Responsive Design Screenshot](/readme-images/landing.png)
+![landing page](/readme-images/landing.png)
 
 - The landing page features a welcoming message that encapsulates the essence of the website and introduces visitors to its core concepts and ideas.
 
 **- Website explanation**
 
-![Responsive Design Screenshot](/readme-images/explain.png)
+![website explanation](/readme-images/explain.png)
 
 - Directly beneath the welcome message, the website provides further insight into its core concepts and ideas, offering visitors a deeper understanding of its purpose and objectives.
 - Positioned on the left side, visitors can explore a selection of published stories, showcasing the diverse range of content available on the platform and providing inspiration for potential contributions.
@@ -225,27 +225,27 @@ As a blog admin I can create, read, update and delete posts so that I can manage
 
 **- Call to register**
 
-![Responsive Design Screenshot](/readme-images/chamando.png)
+![register box](/readme-images/chamando.png)
 
 - Directly below the website explanation, on the left side, a prominent box invites users to register, enabling them to participate in voting, commenting, and activity tracking features. 
 - Upon logging in, the button transforms to "Start the Silliness," directing users to the Silly Talks page, fostering engagement and interaction within the community.
 
 **- Collaboration form**
 
-![Responsive Design Screenshot](/readme-images/contribua.png)
+![contribution form](/readme-images/contribua.png)
 
 - Positioned on the right side, the site encourages users to anonymously share their stories by completing a form, fostering a sense of inclusivity and encouraging user-generated content.
 
 **- Footer**
 
-![Responsive Design Screenshot](/readme-images/footer.png)
+![footer](/readme-images/footer.png)
 
 - The footer is elegantly minimalistic, showcasing the website's social media links. 
 - Additionally, it features a message indicating its educational purpose, ensuring transparency and fostering trust with users.
 
 ### Silly Talks Page
 
-![Responsive Design Screenshot](/readme-images/index.png)
+![index.html list of posts](/readme-images/index.png)
 
 - The Silly Talks page presents a comprehensive list of posts available on the website, offering users easy access to a wealth of content.
 - Additionally, it features a convenient [search bar](<#search-bar-page>), allowing users to quickly find posts related to specific topics or keywords.
@@ -255,83 +255,83 @@ As a blog admin I can create, read, update and delete posts so that I can manage
 
 ### Search Bar Page
 
-![Responsive Design Screenshot](/readme-images/procura.png)
+![Search bar page](/readme-images/procura.png)
 
 - The search bar page showcases a curated list of posts closely related to the user's search query, facilitating efficient content discovery.
 - Clicking on a post redirects the user to its dedicated page, allowing for a deeper exploration of the content.
 - For added convenience, users can initiate a new search by simply clicking the "New Search" button, ensuring a seamless search experience.
 
-![Responsive Design Screenshot](/readme-images/cade.png)
+![No results found](/readme-images/cade.png)
 
 - In the event of no search results, users are presented with a clear and informative message, ensuring transparency and guiding them to explore alternative options.
 
 ### Post page
 
-![Responsive Design Screenshot](/readme-images/post.png)
+![Post detail page](/readme-images/post.png)
 
 - Clicking on a post redirects the user to a dedicated post page, where the title of the post is prominently displayed at the center of the page.
 - Below the title, users find the post's excerpt, providing a concise overview of its content.
 - Further down, users can view information about the author and the post's creation date.
 
-![Responsive Design Screenshot](/readme-images/colapse.png)
+![Collapsable button read more](/readme-images/colapse.png)
 
 - By clicking on "See the Whole Silliness Here," users can expand a collapsible section to reveal the full content of the post.
 
-![Responsive Design Screenshot](/readme-images/comentario.png)
+![comments](/readme-images/comentario.png)
 
 - For non-logged-in users, comments are visible, accompanied by a message prompting them to log in or register to vote or comment.
 
-![Responsive Design Screenshot](/readme-images/votos.png)
+![votes](/readme-images/votos.png)
 
-![Responsive Design Screenshot](/readme-images/comente.png)
+![add a comment](/readme-images/comente.png)
 
 - Logged-in users have access to voting buttons and counters, as well as a comment box to engage with the post.
 
-![Responsive Design Screenshot](/readme-images/autor_comentario.png)
+![comment author](/readme-images/autor_comentario.png)
 
 - If the user is the author of the comment, they will see edit and delete buttons for their own comments.
 
-![Responsive Design Screenshot](/readme-images/post_author.png)
+![Post author](/readme-images/post_author.png)
 
 - Similarly, if the user is the author of the post, they will see edit and delete buttons for the post itself.
 
 ### Register and Login
 
-![Responsive Design Screenshot](/readme-images/login.png)
+![Login page](/readme-images/login.png)
 
 - The register page features a user-friendly interface where users can easily choose a username, enter their email, and create a password.
 - Detailed instructions are provided in the password field, ensuring users understand the requirements for creating a secure password.
 - For existing users, a convenient link is available to redirect them to the login page, streamlining the authentication process.
 
-![Responsive Design Screenshot](/readme-images/senha.png)
+![invalid password](/readme-images/senha.png)
 
 - In case of invalid data input, clear and informative error messages are displayed, guiding users to correct any mistakes and successfully complete the registration process.
 
 ### Logout
 
-![Responsive Design Screenshot](/readme-images/signout.png)
+![signout page](/readme-images/signout.png)
 
 - In case of invalid data input, clear and informative error messages are displayed, guiding users to correct any mistakes and successfully complete the registration process.
 
 ### Profile
 
-![Responsive Design Screenshot](/readme-images/profile.png)
+![profile page](/readme-images/profile.png)
 
 - Upon logging in or registering, users are automatically redirected to their profile page, ensuring a seamless entry into the platform.
 - The profile page's navigation bar is persistently displayed across all profile pages, providing easy access to navigation options.
 - Users have access to view their personal details, facilitating control over their account information.
 
-![Responsive Design Screenshot](/readme-images/estatistica.png)
+![user statistics](/readme-images/estatistica.png)
 
 - Clicking on the collapsible button reveals a table displaying user statistics, offering insights into activity and engagement.
 
-![Responsive Design Screenshot](/readme-images/ninguem.png)
+![fallback image](/readme-images/ninguem.png)
 
 - In the absence of a user-uploaded profile picture, a placeholder image is displayed, ensuring a visually consistent experience.
 
 ### New Post
 
-![Responsive Design Screenshot](/readme-images/addpost.png)
+![add a post page](/readme-images/addpost.png)
 
 - Clicking on "Post - New Post" redirects the user to an "Add Post" page, streamlining the process of creating new content.
 - On the "Add Post" page, users can submit a new post request by providing the title, excerpt, and content, facilitating seamless content creation.
@@ -339,26 +339,26 @@ As a blog admin I can create, read, update and delete posts so that I can manage
 
 ### Manage Posts
 
-![Responsive Design Screenshot](/readme-images/manage.png)
+![manage posts page](/readme-images/manage.png)
 
 - The "Manage Post" page showcases all posts created by the user, presenting essential details such as the title, author, date of submission, and excerpt.
 - Users can easily access individual posts by clicking on their titles, seamlessly redirecting them to the respective post pages for further engagement.
 - Additionally, the page features a dedicated section listing drafts, providing visibility into posts awaiting approval and enabling users to monitor and manage their content effectively.
 
-![Responsive Design Screenshot](/readme-images/nodraft.png)
+![no post results found](/readme-images/nodraft.png)
 
 - If the user doesn't have any posts or drafts, a message will be displayed to inform them of this, ensuring clarity.
 
 ### Edit Profile
 
-![Responsive Design Screenshot](/readme-images/editar.png)
+![edit profile personal information](/readme-images/editar.png)
 
 - Users have the ability to edit their profile information within the "Edit" tab, providing a convenient way to update their details.
 - Upon saving the changes, users are automatically redirected to the [profile page](<#profile>), ensuring a smooth and seamless transition while confirming the successful update of their information.
 
 ### Activity
 
-![Responsive Design Screenshot](/readme-images/atividade.png)
+![user activity](/readme-images/atividade.png)
 
 - Clicking on the "Activity" tab will reveal a comprehensive list of the user's voting activity and comments, providing visibility into their engagement on the platform.
 - If the user has not voted or commented in a specific category, a message will be displayed, ensuring transparency and guiding them to explore other areas of the platform.
@@ -366,11 +366,11 @@ As a blog admin I can create, read, update and delete posts so that I can manage
 
 ### General
 
-![Responsive Design Screenshot](/readme-images/msg.png)
+![messages](/readme-images/msg.png)
 
 - Users will receive notifications for every action performed on the website, ensuring they stay informed and engaged with updates and changes.
 
-![Responsive Design Screenshot](/readme-images/button.png)
+![goback button](/readme-images/button.png)
 
 - Throughout the website, users will find convenient "Go Back" buttons, offering a quick and intuitive way to navigate back to the previous page, enhancing the overall user experience.
 
@@ -392,15 +392,15 @@ A database diagram (ERD) was generated using Django Extensions.
 
 You can see the documentation I've followed [here.](https://www.linkedin.com/pulse/generate-database-diagramerd-django-extensions-automatically-srujan-s/)
 
-![Responsive Design Screenshot](/readme-images/database.png)
+![database schema](/readme-images/database.png)
 
 ## Workflow
 
 I've crafted a comprehensive workflow detailing the functionality of every feature on the website. This detailed roadmap elucidates the user journey from registration to navigation, post creation, engagement, and profile management. By mapping out each step and interaction, users can seamlessly navigate the platform with clarity and ease. This workflow serves as a guiding beacon, ensuring that every aspect of the website operates harmoniously, fostering a seamless and intuitive user experience from start to finish.
 
-![Responsive Design Screenshot](/readme-images/workflow1.jpeg)
+![first workflow](/readme-images/workflow1.jpeg)
 
-![Responsive Design Screenshot](/readme-images/workflow2.jpeg)
+![second workflow](/readme-images/workflow2.jpeg)
 
 ### Agile
 In this project, I've implemented the Agile methodology to ensure dynamic and iterative development cycles. By breaking tasks into manageable sprints, we maintain flexibility and adaptability, responding efficiently to evolving requirements. 
@@ -605,15 +605,15 @@ The CLOUDINARY_URL contains authentication and configuration details required fo
     - **Specific Use Cases:**
         - **Customizing Allauth Text:** When faced with the task of customizing Allauth text, ChatGPT provided guidance on the necessary steps and best practices.
 
-            ![Responsive Design Screenshot](/readme-images/1.png)
+            ![chatgpt customize allauth](/readme-images/1.png)
 
         - **JS Assistance:** Due to  my limited proficiency in JavaScript, I sought ChatGPT's advice on implementing a 'go back' button, which it efficiently provided.
 
-            ![Responsive Design Screenshot](/readme-images/2.png)
+            ![chatgpt goback buttons](/readme-images/2.png)
 
         - **Fixing User Total Votes Issue:** I had an issue related to user_total_votes in profile views. It was returning some random numbers. It offered insightful suggestions, enabling me to address the problem effectively and tailor the solution to my specific requirements.
 
-            ![Responsive Design Screenshot](/readme-images/3.png)
+            ![chatgpt user statistics](/readme-images/3.png)
 
 - **Email Field Configuration:** To set the email field as required in Django Allauth, I found a helpful solution on [Stack Overflow](https://stackoverflow.com/questions/23956288/django-all-auth-email-required).
 
