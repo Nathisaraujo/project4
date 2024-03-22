@@ -7,7 +7,8 @@ Back to [Silly Talks README](https://github.com/Nathisaraujo/project4/blob/main/
 * [CODE VALIDATION](<#code-validation>)
     * [HTML](<#html>) 
     * [CSS](<#css>) 
-    * [Python](<#python>) 
+    * [Python](<#python>)
+    * [JavaScript](<#javascript>)
 
 * [RESPONSIVENESS](<#responsivess>) 
 
@@ -37,6 +38,15 @@ Validated all CSS code using the W3C CSS Validation Service to ensure compliance
 Validated all Python Files using CI Python Linter to ensure code quality and adherence to PEP 8 guidelines.
 
 ![python validation](/readme-images/Python.png)
+
+## JavaScript
+I wrote only one line of JavaScript code myself, located at the bottom of the base.html file. After testing, it passed without encountering any major errors.
+
+![js validation](/readme-images/js.png)
+
+The comment.js file was directly copied from the I Think Therefore I Blog Walkthrough provided by Code Institute.
+
+![js ci validation](/readme-images/jsci.png)
 
 # RESPONSIVENESS
 

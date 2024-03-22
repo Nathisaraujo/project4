@@ -542,6 +542,8 @@ This app was designed and created by me, without the support of any Code Institu
 
     - **W3C Validator:** HTML and CSS.
 
+    - **JS Hint:** JavaScript.
+
 # TESTING
 
 Refer to the [TESTING.MD](https://github.com/Nathisaraujo/project4/blob/main/TESTING.md)
