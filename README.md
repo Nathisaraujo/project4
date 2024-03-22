@@ -196,17 +196,16 @@ As a blog admin I can create, read, update and delete posts so that I can manage
 
 ![Responsive Design Screenshot](/readme-images/navigation.png)
 
-**- Navigation Bar Structure:** The navigation bar was constructed using Bootstrap, ensuring a responsive and user-friendly design. 
-**- Branding:** Positioned in the left corner, the navigation bar prominently displays the name of the website, ensuring easy identification and branding consistency.
-**- User Authentication Indicator:** Located in the right corner, the navigation bar provides a clear indication of the user's authentication status, offering seamless navigation  
-and personalized experiences.
-**- Interactive Elements:** All elements within the navigation bar exhibit interactivity, dynamically changing color upon hovering, enhancing user engagement and intuitiveness.
-**- Useful Links:** The navigation bar includes convenient links to access key pages such as [Silly Talks](<#silly-talks-page>) and the [register and login page](<#register-and-login>), facilitating streamlined navigation and user journey..
+- **Navigation Bar Structure:** The navigation bar was constructed using Bootstrap, ensuring a responsive and user-friendly design. 
+- **Branding:** Positioned in the left corner, the navigation bar prominently displays the name of the website, ensuring easy identification and branding consistency.
+- **User Authentication Indicator:** Located in the right corner, the navigation bar provides a clear indication of the user's authentication status, offering seamless navigation and personalized experiences.
+- **Interactive Elements:** All elements within the navigation bar exhibit interactivity, dynamically changing color upon hovering, enhancing user engagement and intuitiveness.
+- **Useful Links:** The navigation bar includes convenient links to access key pages such as [Silly Talks](<#silly-talks-page>) and the [register and login page](<#register-and-login>), facilitating streamlined navigation and user journey..
 
 ![Responsive Design Screenshot](/readme-images/navlogged.png)
 
-**- User Authentication Feedback:** When logged in, the user will receive personalized feedback in the form of a message displayed in the right corner, stating "You are logged in as -username-," providing a clear indication of their authentication status and enhancing user experience.
-**- Enhanced Navigation Options:** Additionally, when logged in, the navigation bar will dynamically update to include convenient shortcuts to access the user's [profile page](<#profile>) and the [logout](<#logout>) functionality, ensuring seamless navigation and quick access to essential features.
+- **User Authentication Feedback:** When logged in, the user will receive personalized feedback in the form of a message displayed in the right corner, stating "You are logged in as -username-," providing a clear indication of their authentication status and enhancing user experience.
+- **Enhanced Navigation Options:** Additionally, when logged in, the navigation bar will dynamically update to include convenient shortcuts to access the user's [profile page](<#profile>) and the [logout](<#logout>) functionality, ensuring seamless navigation and quick access to essential features.
 
 **- Welcome message**
 
@@ -399,9 +398,9 @@ You can see the documentation I've followed [here.](https://www.linkedin.com/pul
 
 I've crafted a comprehensive workflow detailing the functionality of every feature on the website. This detailed roadmap elucidates the user journey from registration to navigation, post creation, engagement, and profile management. By mapping out each step and interaction, users can seamlessly navigate the platform with clarity and ease. This workflow serves as a guiding beacon, ensuring that every aspect of the website operates harmoniously, fostering a seamless and intuitive user experience from start to finish.
 
-![Responsive Design Screenshot](/readme-images/workflow1.png)
+![Responsive Design Screenshot](/readme-images/workflow1.jpeg)
 
-![Responsive Design Screenshot](/readme-images/workflow2.png)
+![Responsive Design Screenshot](/readme-images/workflow2.jpeg)
 
 ### Agile
 In this project, I've implemented the Agile methodology to ensure dynamic and iterative development cycles. By breaking tasks into manageable sprints, we maintain flexibility and adaptability, responding efficiently to evolving requirements. 
@@ -506,7 +505,7 @@ This app was designed and created by me, without the support of any Code Institu
 
     - **Whitenoise:** a Python library for serving static files efficiently.
 
-    - **PyGraphviz:**a Python library used for working with Graphviz, to generate the ERD.
+    - **PyGraphviz:** a Python library used for working with Graphviz, to generate the ERD.
 
 - **Database:**
     - **ElephantSQL:** a PostgreSQL database service hosted in the cloud.
@@ -593,6 +592,8 @@ The CLOUDINARY_URL contains authentication and configuration details required fo
 2. **Retrieve Cloudinary URL:** Copy your CLOUDINARY_URL for use in storing static and media files.
 
 # CREDITS
+
+- The "I Think Therefore I Blog" project by Code Institute played a crucial role in my learning journey. It provided invaluable insights and knowledge, significantly contributing to my project development.
 
 - **Debugging and Error Resolution:** When encountering issues with the like button implementation, I utilized various resources for assistance, including tutoring sessions, browser developer tools, and ChatGPT.
 
