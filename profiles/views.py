@@ -40,10 +40,11 @@ def profile(request, username):
     **Template**
     :template:`profile.html`
     """
+    # Fixing assessments error - filtering now based on status and approved
     user_profile = get_object_or_404(UserProfile, user__username=username)
-    post_count = Post.objects.filter(author=user_profile.user).count()
+    post_count = Post.objects.filter(author=user_profile.user, status=1, approved=True).count()
     comment_count = Comment.objects.filter(author=user_profile.user).count()
-    user_posts = Post.objects.filter(author=user_profile.user)
+    user_posts = Post.objects.filter(author=user_profile.user, status=1, approved=True)
 
     # Displays the counts for the user statistics
     post_total_votes = user_posts.aggregate(
@@ -180,8 +181,9 @@ def ManagePosts(request, username):
     **Template**
     :template:`manage_posts.html`
     """
-    user_posts = Post.objects.filter(approved=True, author=request.user)
-    user_drafts = Post.objects.filter(approved=False, author=request.user)
+    # Fixing assessments error - filtering now based on status and approved
+    user_posts = Post.objects.filter(status=1, approved=True, author=request.user)
+    user_drafts = Post.objects.filter(status=0, author=request.user)
 
     context = {
         'user_posts': user_posts,

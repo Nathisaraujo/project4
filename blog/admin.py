@@ -21,6 +21,13 @@ class PostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
+    # Fixing assessments error - ensuring it handles updating the status field
+    def approve_posts(self, request, queryset):
+        for post in queryset:
+            post.publish()
+        self.message_user(request, "Selected posts have been approved and published.")
+    approve_posts.short_description = 'Approve and publish selected posts'
+
 
 # admin option for Comments from Code Institue Walkthrough - with modifications
 

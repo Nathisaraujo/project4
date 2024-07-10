@@ -77,6 +77,18 @@ class Post(models.Model):
 
     def num_more(self):
         return self.sillied.count()
+    
+    # Fixing assessments error - added publish and save functions to handle publishing and override the save method
+    def publish(self):
+        self.status = 1
+        self.approved = True
+        self.save()
+
+    def save(self, *args, **kwargs):
+        if self.approved:
+            self.status = 1
+        super().save(*args, **kwargs)
+
 
 # Users comments model from Code Institute Walkthrough
 
