@@ -22,7 +22,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-nathisaraujo-project4-s4psnbh0it6.ws-eu110.gitpod.io',
                  '8000-nathisaraujo-project4-ki8yn2sjedw.ws.codeinstitute-ide.net',

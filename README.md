@@ -44,6 +44,8 @@ Deployed website: [Go to Silly Talks](https://sillytalks-d90cef26c5c7.herokuapp.
 * [TESTING](<#testing>)
 
 * [DEPLOYMENT](<#deployment>)
+
+* [UPDATE - JULY 2024](<#update---july-2024>)
     
 * [CREDITS](<#credits>)
 
@@ -592,6 +594,20 @@ The CLOUDINARY_URL contains authentication and configuration details required fo
 
 1. **Log in to Cloudinary:** Access your Cloudinary account through the web interface.
 2. **Retrieve Cloudinary URL:** Copy your CLOUDINARY_URL for use in storing static and media files.
+
+# UPDATE - JULY 2024
+
+On July 2024 I made the following updates taking into consideration the assessments criterias:
+
+## User Stories 
+
+While working to complete my project and learning Django basics, I mistakenly created issues in a private repository. I used the Kanban board, but since it was linked to the private repository, the issues couldn't be seen. I've now transferred them to the correct public repository. Each issue shows its original creation date during my fourth project.
+
+I apologize for the oversight caused by my focus on deadlines, bug fixing, and learning. I'll ensure to use Agile practices with Github correctly in the future.
+
+## Post 
+
+Previously, when a user submitted a post, it entered a draft status. Upon admin approval, it appeared in the user's profile but didn't update to "approved," causing a 500 error when accessed. I've fixed this in the commit "fixed post status issue" and added comments titled "Fixing assessments error" for easy reference. After testing, everything appears to work correctly now.
 
 # CREDITS
 
